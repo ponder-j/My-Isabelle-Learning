@@ -18,17 +18,24 @@ instance proof
 qed
 end
 
-datatype Number = Natural nat | Integer int | Real real
+datatype Number = Natural nat | Integer int | Real real | Bool bool
 
 instantiation Number :: additive
 begin
 definition addnum :: "Number ⇒ Number ⇒ Number"
-  where "addnum x y ≡ Real ((case x of Real r ⇒ r 
-| Natural n ⇒ of_nat n 
-| Integer i ⇒ of_int i)
-                              + (case y of Real r ⇒ r 
-| Natural n ⇒ of_nat n 
-| Integer i ⇒ of_int i))"
+  where "addnum x y ≡ Real (
+    (case x of
+      Real r ⇒ r
+    | Natural n ⇒ of_nat n
+    | Integer i ⇒ of_int i
+    | Bool b ⇒ if b then 1 else 0)
+    +
+    (case y of
+      Real r ⇒ r
+    | Natural n ⇒ of_nat n
+    | Integer i ⇒ of_int i
+    | Bool b ⇒ if b then 1 else 0)
+  )"
 definition add_Number_def : "x ⊕ y = addnum x y"
 instance proof
   fix x y z :: Number
@@ -36,6 +43,9 @@ instance proof
     by (simp add: add_Number_def addnum_def)
 qed
 end
+
+(* term "of_nat 5"
+term "of_nat 5 :: real" *)
 
 value "(2::int) ⊕ 12"
 (* 输出"14" :: "int" *)
