@@ -1,0 +1,30 @@
+theory DatatypeTest
+  imports Main
+begin
+
+datatype ITree = Leaf int | Node ITree int ITree
+term Leaf
+term Node
+
+primrec  ITreeSum :: "ITree \<Rightarrow> int"
+  where "ITreeSum (Leaf v) = v" |
+       "ITreeSum (Node left v right) = ITreeSum left + v + ITreeSum right"
+
+definition "ITree1 \<equiv> 
+  Node 
+    (Node 
+      (Leaf 4) 
+      5 
+      (Node 
+        (Leaf 1)
+        8
+        (Leaf 2)))
+    10 
+    (Node 
+      (Leaf 7) 
+      9 
+      (Leaf 15))"
+
+value "ITreeSum ITree1"
+
+end
