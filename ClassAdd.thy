@@ -18,7 +18,17 @@ instance proof
 qed
 end
 
-datatype Number = Natural nat | Integer int | Real real | Bool bool
+instantiation bool :: additive
+begin
+definition add_bool_def : "x ⊕ y = (x ∨ y)"
+instance proof
+  fix x y z :: bool
+  show "(x ⊕ y) ⊕ z = x ⊕ (y ⊕ z)"
+    by (simp add: add_bool_def)
+qed
+end
+
+datatype Number = Natural nat | Integer int | Real real
 
 instantiation Number :: additive
 begin
@@ -27,14 +37,12 @@ definition addnum :: "Number ⇒ Number ⇒ Number"
     (case x of
       Real r ⇒ r
     | Natural n ⇒ of_nat n
-    | Integer i ⇒ of_int i
-    | Bool b ⇒ if b then 1 else 0)
+    | Integer i ⇒ of_int i)
     +
     (case y of
       Real r ⇒ r
     | Natural n ⇒ of_nat n
-    | Integer i ⇒ of_int i
-    | Bool b ⇒ if b then 1 else 0)
+    | Integer i ⇒ of_int i)
   )"
 definition add_Number_def : "x ⊕ y = addnum x y"
 instance proof
