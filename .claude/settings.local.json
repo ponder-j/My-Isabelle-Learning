@@ -9,7 +9,8 @@
       "Bash(\"/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code\" --install-extension isabelle-vscode-2.0.0.vsix --force)",
       "Bash(\"/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code\" --uninstall-extension isabelle.isabelle --force)",
       "Bash(git config:*)",
-      "Bash(ssh:*)"
+      "Bash(ssh:*)",
+      "Bash(curl:*)"
     ],
     "deny": [],
     "ask": []
