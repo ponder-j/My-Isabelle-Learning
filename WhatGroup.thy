@@ -6,8 +6,8 @@ class semigroup =
   fixes op :: "'a ⇒ 'a ⇒ 'a" (infixl "⊗" 70)
   assumes assoc: "(x ⊗ y) ⊗ z = x ⊗ (y ⊗ z)"
 
-instantiation int :: smigroup
+instantiation int :: semigroup
 begin
-  definition multi_int_def : "i "
+  definition multi_int_def : "i ⨂ j"
 
 end
