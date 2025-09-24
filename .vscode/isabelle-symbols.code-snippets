@@ -1175,7 +1175,7 @@
     "description": "Top"
   },
   "and": {
-    "prefix": ["\\\\and", "\\and", "/\\\\", "&"],
+    "prefix": ["\\\\and", "\\and", "\\\\\\\\", "&"],
     "body": ["∧"],
     "description": "Logical and"
   },
@@ -1185,7 +1185,7 @@
     "description": "Big logical and"
   },
   "or": {
-    "prefix": ["\\\\or", "\\or", "\\\\/", "|"],
+    "prefix": ["\\\\or", "\\or", "\\\\\\\\", "|"],
     "body": ["∨"],
     "description": "Logical or"
   },
