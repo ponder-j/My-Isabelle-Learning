@@ -87,7 +87,7 @@ instance
 proof
     fix x y z :: "'a set"
     show "(x ⊗ y) ⊗ z = x ⊗ (y ⊗ z)"
-        by (simp add: mult_set_def assoc)
+        by (simp add: mult_set_def Un_assoc)
     show "x ⊗ 𝟭 = x"
         by (simp add: mult_set_def neutral_set_def neutl neutr)
     show "𝟭 ⊗ x = x"
