@@ -20,6 +20,23 @@ end
 
 (* 幺半群需要有单位元 *)
 class monoidl = semigroup +
-  fixes neutral :: 'a ("")
+  fixes neutral :: 'a ("𝟭")
+  assumes neutl : "𝟭 ⊗ x = x"
+
+(* 声明左幺半群是半群的子类 *)
+subclass (in monoidl) semigroup
+  by standard (rule assoc)
+
+(* instantiation nat and int :: monoidl
+begin
+  definition neutral_nat_def : "𝟭 = (0::nat)"
+  definition neutral_int_def : "𝟭 = (0::int)"
+
+  instance proof
+    fix x :: nat
+    show "𝟭 ⊗ x = x"
+      by (simp add: neutral_nat_def multi_int_def)
+end *)
+
 
 end
