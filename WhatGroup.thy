@@ -38,5 +38,20 @@ begin
       by (simp add: neutral_nat_def multi_int_def)
 end *)
 
+(* 幺半群既要有左幺元也要有右幺元，且两者相等 *)
+class monoid = monoidl +
+  assumes neutr : "x ⊗ 1 = x"
+
+(* instantiation int and nat :: monoid
+begin
+  instance proof …
+
+end *)
+
+(* 群需要满足逆元的存在 *)
+(* 当然，只需满足左幺元和左逆元就能证明右幺元和右逆元的存在，且两者分别相等 *)
+class group = monoidl +
+  fixes inverse :: "'a ⇒ 'a" ("⊖_" [1000] 900)
+  assumes invl : "⊖x ⊗ x = 𝟭"
 
 end
