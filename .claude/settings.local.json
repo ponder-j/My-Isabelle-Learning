@@ -10,7 +10,9 @@
       "Bash(\"/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code\" --uninstall-extension isabelle.isabelle --force)",
       "Bash(git config:*)",
       "Bash(ssh:*)",
-      "Bash(curl:*)"
+      "Bash(curl:*)",
+      "Read(//Applications/**)",
+      "Bash(find:*)"
     ],
     "deny": [],
     "ask": []
