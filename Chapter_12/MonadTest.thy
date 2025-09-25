@@ -35,4 +35,30 @@ definition adds :: "int option ⇒ int option"
         }"
 value "adds (Some 2)"
 
+definition safe_div :: "int option ⇒ int option ⇒ int option"
+    where "safe_div x y ≡
+      do {
+        mx ← x;
+        my ← y;
+        if my ≠ 0 then return (mx div my) else None
+    }"
+
+value "safe_div (Some 5) (Some 0)"
+value "safe_div (Some 6) (Some 4)"
+
+definition comps :: "int option ⇒ int option"
+    where "comps x ≡
+      do {
+        a ← add x (Some (-3));
+        b ← safe_div (Some 6) (Some a);
+        c ← add (Some b) (Some (-6));
+        d ← safe_div (Some 15) (Some c);
+        return d
+    }"
+
+value "comps (Some 3)"
+value "comps (Some 4)"
+value "comps (Some 5)"
+
+
 end
