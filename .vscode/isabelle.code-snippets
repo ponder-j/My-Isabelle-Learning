@@ -925,7 +925,7 @@
     "description": "Triple left arrow"
   },
   "Rightarrow": {
-    "prefix": [ "\\Rightarrow", ".>", "=>"],
+    "prefix": [ "\\Rightarrow", ".>", "\\=>"],
     "body": ["⇒"],
     "description": "Right double arrow"
   },
