@@ -32,6 +32,8 @@ definition "list_double l ≡
 value "list_double [1..5]"
 
 (* 采用列表单子实现两个列表元素的任意组合 *)
+(* 下面的例子相当于实现了一个 Descartes 积 *)
+(* concat (map (λx. concat (map (λy. [(x,y)]) ys)) xs) *)
 definition "prod1 xs ys ≡
   do {
     x ← xs;
