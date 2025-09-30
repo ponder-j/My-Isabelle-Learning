@@ -1,0 +1,18 @@
+```Isabelle
+⊢ \turnstile
+⊨ \Turnstile 
+```
+
+⊢ (turnstile)
+
+表示语法推导或可证明性
+读作"proves"或"derives"
+Γ ⊢ φ 意思是：从假设集Γ可以通过形式系统的推理规则推导出φ
+
+⊨ (double turnstile)
+
+表示语义蕴涵或逻辑后承
+读作"models"或"entails"
+Γ ⊨ φ 意思是：在所有使Γ为真的解释/模型中，φ也为真
+
+简单来说：⊢ 关注形式证明，⊨ 关注语义真值。
