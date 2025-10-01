@@ -1291,7 +1291,7 @@
   },
   "langle": {
     "prefix": ["\\\\langle", "\\langle", "<<"],
-    "body": ["⟨"],
+    "body": ["⟨⟩"],
     "description": "Left angle bracket",
     "sortText": "00000"
   },
@@ -1303,7 +1303,7 @@
   },
   "llangle": {
     "prefix": ["\\\\llangle", "\\llangle", "<<"],
-    "body": ["⟪"],
+    "body": ["⟪⟫"],
     "description": "Left double angle bracket",
     "sortText": "00000"
   },
@@ -1315,7 +1315,7 @@
   },
   "lceil": {
     "prefix": ["\\\\lceil", "\\lceil", "[."],
-    "body": ["⌈"],
+    "body": ["⌈⌉"],
     "description": "Left ceiling",
     "sortText": "00000"
   },
@@ -1327,7 +1327,7 @@
   },
   "lfloor": {
     "prefix": ["\\\\lfloor", "\\lfloor", "[."],
-    "body": ["⌊"],
+    "body": ["⌊⌋"],
     "description": "Left floor",
     "sortText": "00000"
   },

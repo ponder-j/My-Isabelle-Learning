@@ -16,8 +16,8 @@ axiomatization
   imp :: "[o, o] ⇒ o" (infixr "⟶" 25)
 where
   conjI : "⟦P; Q⟧ ⟹ P ∧ Q" and
-  onjunct1 : "P ∧ Q ⟹ P" and
-  onjunct2 : "P ∧ Q ⟹ Q" and
+  conjunct1 : "P ∧ Q ⟹ P" and
+  conjunct2 : "P ∧ Q ⟹ Q" and
   disjI1 : "P ⟹ P ∨ Q" and
   disjI2 : "Q ⟹ P ∨ Q" and
   disjE : "⟦P ∨ Q; P ⟹ R; Q ⟹ R⟧ ⟹ R" and
