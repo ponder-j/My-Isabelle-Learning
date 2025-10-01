@@ -61,5 +61,8 @@
 
 为了和对象逻辑（如一阶逻辑）中的全称量词(∀)、蕴涵(⟶)和等式(=)进行区别，元逻辑中称为元全称量词（符号为⋀）、元蕴涵（⟹）和元等式（≡）。元全称量词主要用于表达元逻辑层面的自由变元，元蕴涵表明逻辑公式之间的推理关系，用于表达推理规则、引理/定理等。其中，A<sub>1</sub>⟹...⟹A<sub>n</sub>⟹B，可以简写为〚A<sub>1</sub>,...,A<sub>n</sub>〛⟹ B，含义是A<sub>1</sub>和…和A<sub>n</sub>蕴涵或推理出B。 
 
-⟹ Longrightarrow
-⇒ Rightarrow
+1. ⟹ Longrightarrow
+2. ⇒ Rightarrow
+3. ⋀ And
+4. ≡ equiv
+5. ⟦⟧ lbrakk rbrakk
