@@ -1339,7 +1339,7 @@
   },
   "lparr": {
     "prefix": ["\\\\lparr", "\\lparr", "(|"],
-    "body": ["⦇"],
+    "body": ["⦇⦈"],
     "description": "Left parenthesis with bar",
     "sortText": "00000"
   },
@@ -1351,7 +1351,7 @@
   },
   "lbrakk": {
     "prefix": ["\\\\lbrakk", "\\lbrakk", "[|"],
-    "body": ["⟦"],
+    "body": ["⟦⟧"],
     "description": "Left semantic bracket",
     "sortText": "00000"
   },
@@ -1363,7 +1363,7 @@
   },
   "lbrace": {
     "prefix": ["\\\\lbrace", "\\lbrace", "{|"],
-    "body": ["⦃"],
+    "body": ["⦃⦄"],
     "description": "Left brace with bar",
     "sortText": "00000"
   },
@@ -1375,7 +1375,7 @@
   },
   "lblot": {
     "prefix": ["\\\\lblot", "\\lblot", "<<"],
-    "body": ["⦉"],
+    "body": ["⦉⦊"],
     "description": "Left blot bracket",
     "sortText": "00000"
   },
@@ -1387,7 +1387,7 @@
   },
   "guillemotleft": {
     "prefix": ["\\\\guillemotleft", "\\guillemotleft", "<<"],
-    "body": ["«"],
+    "body": ["«»"],
     "description": "Left guillemet",
     "sortText": "00000"
   },
