@@ -1,2197 +1,2636 @@
 {
   "zero": {
-    "prefix": [ "\\zero"],
+    "prefix": ["\\\\zero", "\\zero"],
     "body": ["𝟬"],
-    "description": "Mathematical bold digit zero"
+    "description": "Mathematical bold digit zero",
+    "sortText": "00000"
   },
   "one": {
-    "prefix": [ "\\one"],
+    "prefix": ["\\\\one", "\\one"],
     "body": ["𝟭"],
-    "description": "Mathematical bold digit one"
+    "description": "Mathematical bold digit one",
+    "sortText": "00000"
   },
   "two": {
-    "prefix": [ "\\two"],
+    "prefix": ["\\\\two", "\\two"],
     "body": ["𝟮"],
-    "description": "Mathematical bold digit two"
+    "description": "Mathematical bold digit two",
+    "sortText": "00000"
   },
   "three": {
-    "prefix": [ "\\three"],
+    "prefix": ["\\\\three", "\\three"],
     "body": ["𝟯"],
-    "description": "Mathematical bold digit three"
+    "description": "Mathematical bold digit three",
+    "sortText": "00000"
   },
   "four": {
-    "prefix": [ "\\four"],
+    "prefix": ["\\\\four", "\\four"],
     "body": ["𝟰"],
-    "description": "Mathematical bold digit four"
+    "description": "Mathematical bold digit four",
+    "sortText": "00000"
   },
   "five": {
-    "prefix": [ "\\five"],
+    "prefix": ["\\\\five", "\\five"],
     "body": ["𝟱"],
-    "description": "Mathematical bold digit five"
+    "description": "Mathematical bold digit five",
+    "sortText": "00000"
   },
   "six": {
-    "prefix": [ "\\six"],
+    "prefix": ["\\\\six", "\\six"],
     "body": ["𝟲"],
-    "description": "Mathematical bold digit six"
+    "description": "Mathematical bold digit six",
+    "sortText": "00000"
   },
   "seven": {
-    "prefix": [ "\\seven"],
+    "prefix": ["\\\\seven", "\\seven"],
     "body": ["𝟳"],
-    "description": "Mathematical bold digit seven"
+    "description": "Mathematical bold digit seven",
+    "sortText": "00000"
   },
   "eight": {
-    "prefix": [ "\\eight"],
+    "prefix": ["\\\\eight", "\\eight"],
     "body": ["𝟴"],
-    "description": "Mathematical bold digit eight"
+    "description": "Mathematical bold digit eight",
+    "sortText": "00000"
   },
   "nine": {
-    "prefix": [ "\\nine"],
+    "prefix": ["\\\\nine", "\\nine"],
     "body": ["𝟵"],
-    "description": "Mathematical bold digit nine"
+    "description": "Mathematical bold digit nine",
+    "sortText": "00000"
   },
   "A": {
-    "prefix": [ "\\A"],
+    "prefix": ["\\\\A", "\\A"],
     "body": ["𝒜"],
-    "description": "Mathematical script capital A"
+    "description": "Mathematical script capital A",
+    "sortText": "00000"
   },
   "B": {
-    "prefix": [ "\\B"],
+    "prefix": ["\\\\B", "\\B"],
     "body": ["ℬ"],
-    "description": "Script capital B"
+    "description": "Script capital B",
+    "sortText": "00000"
   },
   "C": {
-    "prefix": [ "\\C"],
+    "prefix": ["\\\\C", "\\C"],
     "body": ["𝒞"],
-    "description": "Mathematical script capital C"
+    "description": "Mathematical script capital C",
+    "sortText": "00000"
   },
   "D": {
-    "prefix": [ "\\D"],
+    "prefix": ["\\\\D", "\\D"],
     "body": ["𝒟"],
-    "description": "Mathematical script capital D"
+    "description": "Mathematical script capital D",
+    "sortText": "00000"
   },
   "E": {
-    "prefix": [ "\\E"],
+    "prefix": ["\\\\E", "\\E"],
     "body": ["ℰ"],
-    "description": "Script capital E"
+    "description": "Script capital E",
+    "sortText": "00000"
   },
   "F": {
-    "prefix": [ "\\F"],
+    "prefix": ["\\\\F", "\\F"],
     "body": ["ℱ"],
-    "description": "Script capital F"
+    "description": "Script capital F",
+    "sortText": "00000"
   },
   "G": {
-    "prefix": [ "\\G"],
+    "prefix": ["\\\\G", "\\G"],
     "body": ["𝒢"],
-    "description": "Mathematical script capital G"
+    "description": "Mathematical script capital G",
+    "sortText": "00000"
   },
   "H": {
-    "prefix": [ "\\H"],
+    "prefix": ["\\\\H", "\\H"],
     "body": ["ℋ"],
-    "description": "Script capital H"
+    "description": "Script capital H",
+    "sortText": "00000"
   },
   "I": {
-    "prefix": [ "\\I"],
+    "prefix": ["\\\\I", "\\I"],
     "body": ["ℐ"],
-    "description": "Script capital I"
+    "description": "Script capital I",
+    "sortText": "00000"
   },
   "J": {
-    "prefix": [ "\\J"],
+    "prefix": ["\\\\J", "\\J"],
     "body": ["𝒥"],
-    "description": "Mathematical script capital J"
+    "description": "Mathematical script capital J",
+    "sortText": "00000"
   },
   "K": {
-    "prefix": [ "\\K"],
+    "prefix": ["\\\\K", "\\K"],
     "body": ["𝒦"],
-    "description": "Mathematical script capital K"
+    "description": "Mathematical script capital K",
+    "sortText": "00000"
   },
   "L": {
-    "prefix": [ "\\L"],
+    "prefix": ["\\\\L", "\\L"],
     "body": ["ℒ"],
-    "description": "Script capital L"
+    "description": "Script capital L",
+    "sortText": "00000"
   },
   "M": {
-    "prefix": [ "\\M"],
+    "prefix": ["\\\\M", "\\M"],
     "body": ["ℳ"],
-    "description": "Script capital M"
+    "description": "Script capital M",
+    "sortText": "00000"
   },
   "N": {
-    "prefix": [ "\\N"],
+    "prefix": ["\\\\N", "\\N"],
     "body": ["𝒩"],
-    "description": "Mathematical script capital N"
+    "description": "Mathematical script capital N",
+    "sortText": "00000"
   },
   "O": {
-    "prefix": [ "\\O"],
+    "prefix": ["\\\\O", "\\O"],
     "body": ["𝒪"],
-    "description": "Mathematical script capital O"
+    "description": "Mathematical script capital O",
+    "sortText": "00000"
   },
   "P": {
-    "prefix": [ "\\P"],
+    "prefix": ["\\\\P", "\\P"],
     "body": ["𝒫"],
-    "description": "Mathematical script capital P"
+    "description": "Mathematical script capital P",
+    "sortText": "00000"
   },
   "Q": {
-    "prefix": [ "\\Q"],
+    "prefix": ["\\\\Q", "\\Q"],
     "body": ["𝒬"],
-    "description": "Mathematical script capital Q"
+    "description": "Mathematical script capital Q",
+    "sortText": "00000"
   },
   "R": {
-    "prefix": [ "\\R"],
+    "prefix": ["\\\\R", "\\R"],
     "body": ["ℛ"],
-    "description": "Script capital R"
+    "description": "Script capital R",
+    "sortText": "00000"
   },
   "S": {
-    "prefix": [ "\\S"],
+    "prefix": ["\\\\S", "\\S"],
     "body": ["𝒮"],
-    "description": "Mathematical script capital S"
+    "description": "Mathematical script capital S",
+    "sortText": "00000"
   },
   "T": {
-    "prefix": [ "\\T"],
+    "prefix": ["\\\\T", "\\T"],
     "body": ["𝒯"],
-    "description": "Mathematical script capital T"
+    "description": "Mathematical script capital T",
+    "sortText": "00000"
   },
   "U": {
-    "prefix": [ "\\U"],
+    "prefix": ["\\\\U", "\\U"],
     "body": ["𝒰"],
-    "description": "Mathematical script capital U"
+    "description": "Mathematical script capital U",
+    "sortText": "00000"
   },
   "V": {
-    "prefix": [ "\\V"],
+    "prefix": ["\\\\V", "\\V"],
     "body": ["𝒱"],
-    "description": "Mathematical script capital V"
+    "description": "Mathematical script capital V",
+    "sortText": "00000"
   },
   "W": {
-    "prefix": [ "\\W"],
+    "prefix": ["\\\\W", "\\W"],
     "body": ["𝒲"],
-    "description": "Mathematical script capital W"
+    "description": "Mathematical script capital W",
+    "sortText": "00000"
   },
   "X": {
-    "prefix": [ "\\X"],
+    "prefix": ["\\\\X", "\\X"],
     "body": ["𝒳"],
-    "description": "Mathematical script capital X"
+    "description": "Mathematical script capital X",
+    "sortText": "00000"
   },
   "Y": {
-    "prefix": [ "\\Y"],
+    "prefix": ["\\\\Y", "\\Y"],
     "body": ["𝒴"],
-    "description": "Mathematical script capital Y"
+    "description": "Mathematical script capital Y",
+    "sortText": "00000"
   },
   "Z": {
-    "prefix": [ "\\Z"],
+    "prefix": ["\\\\Z", "\\Z"],
     "body": ["𝒵"],
-    "description": "Mathematical script capital Z"
+    "description": "Mathematical script capital Z",
+    "sortText": "00000"
   },
   "a": {
-    "prefix": [ "\\a"],
+    "prefix": ["\\\\a", "\\a"],
     "body": ["𝓪"],
-    "description": "Mathematical script small a"
+    "description": "Mathematical script small a",
+    "sortText": "00000"
   },
   "b": {
-    "prefix": [ "\\b"],
+    "prefix": ["\\\\b", "\\b"],
     "body": ["𝓫"],
-    "description": "Mathematical script small b"
+    "description": "Mathematical script small b",
+    "sortText": "00000"
   },
   "c": {
-    "prefix": [ "\\c"],
+    "prefix": ["\\\\c", "\\c"],
     "body": ["𝓬"],
-    "description": "Mathematical script small c"
+    "description": "Mathematical script small c",
+    "sortText": "00000"
   },
   "d": {
-    "prefix": [ "\\d"],
+    "prefix": ["\\\\d", "\\d"],
     "body": ["𝓭"],
-    "description": "Mathematical script small d"
+    "description": "Mathematical script small d",
+    "sortText": "00000"
   },
   "e": {
-    "prefix": [ "\\e"],
+    "prefix": ["\\\\e", "\\e"],
     "body": ["𝓮"],
-    "description": "Mathematical script small e"
+    "description": "Mathematical script small e",
+    "sortText": "00000"
   },
   "f": {
-    "prefix": [ "\\f"],
+    "prefix": ["\\\\f", "\\f"],
     "body": ["𝓯"],
-    "description": "Mathematical script small f"
+    "description": "Mathematical script small f",
+    "sortText": "00000"
   },
   "g": {
-    "prefix": [ "\\g"],
+    "prefix": ["\\\\g", "\\g"],
     "body": ["𝓰"],
-    "description": "Mathematical script small g"
+    "description": "Mathematical script small g",
+    "sortText": "00000"
   },
   "h": {
-    "prefix": [ "\\h"],
+    "prefix": ["\\\\h", "\\h"],
     "body": ["𝓱"],
-    "description": "Mathematical script small h"
+    "description": "Mathematical script small h",
+    "sortText": "00000"
   },
   "i": {
-    "prefix": [ "\\i"],
+    "prefix": ["\\\\i", "\\i"],
     "body": ["𝓲"],
-    "description": "Mathematical script small i"
+    "description": "Mathematical script small i",
+    "sortText": "00000"
   },
   "j": {
-    "prefix": [ "\\j"],
+    "prefix": ["\\\\j", "\\j"],
     "body": ["𝓳"],
-    "description": "Mathematical script small j"
+    "description": "Mathematical script small j",
+    "sortText": "00000"
   },
   "k": {
-    "prefix": [ "\\k"],
+    "prefix": ["\\\\k", "\\k"],
     "body": ["𝓴"],
-    "description": "Mathematical script small k"
+    "description": "Mathematical script small k",
+    "sortText": "00000"
   },
   "l": {
-    "prefix": [ "\\l"],
+    "prefix": ["\\\\l", "\\l"],
     "body": ["𝓵"],
-    "description": "Mathematical script small l"
+    "description": "Mathematical script small l",
+    "sortText": "00000"
   },
   "m": {
-    "prefix": [ "\\m"],
+    "prefix": ["\\\\m", "\\m"],
     "body": ["𝓶"],
-    "description": "Mathematical script small m"
+    "description": "Mathematical script small m",
+    "sortText": "00000"
   },
   "n": {
-    "prefix": [ "\\n"],
+    "prefix": ["\\\\n", "\\n"],
     "body": ["𝓷"],
-    "description": "Mathematical script small n"
+    "description": "Mathematical script small n",
+    "sortText": "00000"
   },
   "o": {
-    "prefix": [ "\\o"],
+    "prefix": ["\\\\o", "\\o"],
     "body": ["𝓸"],
-    "description": "Mathematical script small o"
+    "description": "Mathematical script small o",
+    "sortText": "00000"
   },
   "p": {
-    "prefix": [ "\\p"],
+    "prefix": ["\\\\p", "\\p"],
     "body": ["𝓹"],
-    "description": "Mathematical script small p"
+    "description": "Mathematical script small p",
+    "sortText": "00000"
   },
   "q": {
-    "prefix": [ "\\q"],
+    "prefix": ["\\\\q", "\\q"],
     "body": ["𝓺"],
-    "description": "Mathematical script small q"
+    "description": "Mathematical script small q",
+    "sortText": "00000"
   },
   "r": {
-    "prefix": [ "\\r"],
+    "prefix": ["\\\\r", "\\r"],
     "body": ["𝓻"],
-    "description": "Mathematical script small r"
+    "description": "Mathematical script small r",
+    "sortText": "00000"
   },
   "s": {
-    "prefix": [ "\\s"],
+    "prefix": ["\\\\s", "\\s"],
     "body": ["𝓼"],
-    "description": "Mathematical script small s"
+    "description": "Mathematical script small s",
+    "sortText": "00000"
   },
   "t": {
-    "prefix": [ "\\t"],
+    "prefix": ["\\\\t", "\\t"],
     "body": ["𝓽"],
-    "description": "Mathematical script small t"
+    "description": "Mathematical script small t",
+    "sortText": "00000"
   },
   "u": {
-    "prefix": [ "\\u"],
+    "prefix": ["\\\\u", "\\u"],
     "body": ["𝓾"],
-    "description": "Mathematical script small u"
+    "description": "Mathematical script small u",
+    "sortText": "00000"
   },
   "v": {
-    "prefix": [ "\\v"],
+    "prefix": ["\\\\v", "\\v"],
     "body": ["𝓿"],
-    "description": "Mathematical script small v"
+    "description": "Mathematical script small v",
+    "sortText": "00000"
   },
   "w": {
-    "prefix": [ "\\w"],
+    "prefix": ["\\\\w", "\\w"],
     "body": ["𝔀"],
-    "description": "Mathematical script small w"
+    "description": "Mathematical script small w",
+    "sortText": "00000"
   },
   "x": {
-    "prefix": [ "\\x"],
+    "prefix": ["\\\\x", "\\x"],
     "body": ["𝔁"],
-    "description": "Mathematical script small x"
+    "description": "Mathematical script small x",
+    "sortText": "00000"
   },
   "y": {
-    "prefix": [ "\\y"],
+    "prefix": ["\\\\y", "\\y"],
     "body": ["𝔂"],
-    "description": "Mathematical script small y"
+    "description": "Mathematical script small y",
+    "sortText": "00000"
   },
   "z": {
-    "prefix": [ "\\z"],
+    "prefix": ["\\\\z", "\\z"],
     "body": ["𝔃"],
-    "description": "Mathematical script small z"
+    "description": "Mathematical script small z",
+    "sortText": "00000"
   },
   "AA": {
-    "prefix": [ "\\AA"],
+    "prefix": ["\\\\AA", "\\AA"],
     "body": ["𝔄"],
-    "description": "Mathematical fraktur capital A"
+    "description": "Mathematical fraktur capital A",
+    "sortText": "00000"
   },
   "BB": {
-    "prefix": [ "\\BB"],
+    "prefix": ["\\\\BB", "\\BB"],
     "body": ["𝔅"],
-    "description": "Mathematical fraktur capital B"
+    "description": "Mathematical fraktur capital B",
+    "sortText": "00000"
   },
   "CC": {
-    "prefix": [ "\\CC"],
+    "prefix": ["\\\\CC", "\\CC"],
     "body": ["ℭ"],
-    "description": "Black-letter capital C"
+    "description": "Black-letter capital C",
+    "sortText": "00000"
   },
   "DD": {
-    "prefix": [ "\\DD"],
+    "prefix": ["\\\\DD", "\\DD"],
     "body": ["𝔇"],
-    "description": "Mathematical fraktur capital D"
+    "description": "Mathematical fraktur capital D",
+    "sortText": "00000"
   },
   "EE": {
-    "prefix": [ "\\EE"],
+    "prefix": ["\\\\EE", "\\EE"],
     "body": ["𝔈"],
-    "description": "Mathematical fraktur capital E"
+    "description": "Mathematical fraktur capital E",
+    "sortText": "00000"
   },
   "FF": {
-    "prefix": [ "\\FF"],
+    "prefix": ["\\\\FF", "\\FF"],
     "body": ["𝔉"],
-    "description": "Mathematical fraktur capital F"
+    "description": "Mathematical fraktur capital F",
+    "sortText": "00000"
   },
   "GG": {
-    "prefix": [ "\\GG"],
+    "prefix": ["\\\\GG", "\\GG"],
     "body": ["𝔊"],
-    "description": "Mathematical fraktur capital G"
+    "description": "Mathematical fraktur capital G",
+    "sortText": "00000"
   },
   "HH": {
-    "prefix": [ "\\HH"],
+    "prefix": ["\\\\HH", "\\HH"],
     "body": ["ℌ"],
-    "description": "Black-letter capital H"
+    "description": "Black-letter capital H",
+    "sortText": "00000"
   },
   "II": {
-    "prefix": [ "\\II"],
+    "prefix": ["\\\\II", "\\II"],
     "body": ["ℑ"],
-    "description": "Black-letter capital I"
+    "description": "Black-letter capital I",
+    "sortText": "00000"
   },
   "JJ": {
-    "prefix": [ "\\JJ"],
+    "prefix": ["\\\\JJ", "\\JJ"],
     "body": ["𝔍"],
-    "description": "Mathematical fraktur capital J"
+    "description": "Mathematical fraktur capital J",
+    "sortText": "00000"
   },
   "KK": {
-    "prefix": [ "\\KK"],
+    "prefix": ["\\\\KK", "\\KK"],
     "body": ["𝔎"],
-    "description": "Mathematical fraktur capital K"
+    "description": "Mathematical fraktur capital K",
+    "sortText": "00000"
   },
   "LL": {
-    "prefix": [ "\\LL"],
+    "prefix": ["\\\\LL", "\\LL"],
     "body": ["𝔏"],
-    "description": "Mathematical fraktur capital L"
+    "description": "Mathematical fraktur capital L",
+    "sortText": "00000"
   },
   "MM": {
-    "prefix": [ "\\MM"],
+    "prefix": ["\\\\MM", "\\MM"],
     "body": ["𝔐"],
-    "description": "Mathematical fraktur capital M"
+    "description": "Mathematical fraktur capital M",
+    "sortText": "00000"
   },
   "NN": {
-    "prefix": [ "\\NN"],
+    "prefix": ["\\\\NN", "\\NN"],
     "body": ["𝔑"],
-    "description": "Mathematical fraktur capital N"
+    "description": "Mathematical fraktur capital N",
+    "sortText": "00000"
   },
   "OO": {
-    "prefix": [ "\\OO"],
+    "prefix": ["\\\\OO", "\\OO"],
     "body": ["𝔒"],
-    "description": "Mathematical fraktur capital O"
+    "description": "Mathematical fraktur capital O",
+    "sortText": "00000"
   },
   "PP": {
-    "prefix": [ "\\PP"],
+    "prefix": ["\\\\PP", "\\PP"],
     "body": ["𝔓"],
-    "description": "Mathematical fraktur capital P"
+    "description": "Mathematical fraktur capital P",
+    "sortText": "00000"
   },
   "QQ": {
-    "prefix": [ "\\QQ"],
+    "prefix": ["\\\\QQ", "\\QQ"],
     "body": ["𝔔"],
-    "description": "Mathematical fraktur capital Q"
+    "description": "Mathematical fraktur capital Q",
+    "sortText": "00000"
   },
   "RR": {
-    "prefix": [ "\\RR"],
+    "prefix": ["\\\\RR", "\\RR"],
     "body": ["ℜ"],
-    "description": "Black-letter capital R"
+    "description": "Black-letter capital R",
+    "sortText": "00000"
   },
   "SS": {
-    "prefix": [ "\\SS"],
+    "prefix": ["\\\\SS", "\\SS"],
     "body": ["𝔖"],
-    "description": "Mathematical fraktur capital S"
+    "description": "Mathematical fraktur capital S",
+    "sortText": "00000"
   },
   "TT": {
-    "prefix": [ "\\TT"],
+    "prefix": ["\\\\TT", "\\TT"],
     "body": ["𝔗"],
-    "description": "Mathematical fraktur capital T"
+    "description": "Mathematical fraktur capital T",
+    "sortText": "00000"
   },
   "UU": {
-    "prefix": [ "\\UU"],
+    "prefix": ["\\\\UU", "\\UU"],
     "body": ["𝔘"],
-    "description": "Mathematical fraktur capital U"
+    "description": "Mathematical fraktur capital U",
+    "sortText": "00000"
   },
   "VV": {
-    "prefix": [ "\\VV"],
+    "prefix": ["\\\\VV", "\\VV"],
     "body": ["𝔙"],
-    "description": "Mathematical fraktur capital V"
+    "description": "Mathematical fraktur capital V",
+    "sortText": "00000"
   },
   "WW": {
-    "prefix": [ "\\WW"],
+    "prefix": ["\\\\WW", "\\WW"],
     "body": ["𝔚"],
-    "description": "Mathematical fraktur capital W"
+    "description": "Mathematical fraktur capital W",
+    "sortText": "00000"
   },
   "XX": {
-    "prefix": [ "\\XX"],
+    "prefix": ["\\\\XX", "\\XX"],
     "body": ["𝔛"],
-    "description": "Mathematical fraktur capital X"
+    "description": "Mathematical fraktur capital X",
+    "sortText": "00000"
   },
   "YY": {
-    "prefix": [ "\\YY"],
+    "prefix": ["\\\\YY", "\\YY"],
     "body": ["𝔜"],
-    "description": "Mathematical fraktur capital Y"
+    "description": "Mathematical fraktur capital Y",
+    "sortText": "00000"
   },
   "ZZ": {
-    "prefix": [ "\\ZZ"],
+    "prefix": ["\\\\ZZ", "\\ZZ"],
     "body": ["ℨ"],
-    "description": "Black-letter capital Z"
+    "description": "Black-letter capital Z",
+    "sortText": "00000"
   },
   "aa": {
-    "prefix": [ "\\aa"],
+    "prefix": ["\\\\aa", "\\aa"],
     "body": ["𝔞"],
-    "description": "Mathematical fraktur small a"
+    "description": "Mathematical fraktur small a",
+    "sortText": "00000"
   },
   "bb": {
-    "prefix": [ "\\bb"],
+    "prefix": ["\\\\bb", "\\bb"],
     "body": ["𝔟"],
-    "description": "Mathematical fraktur small b"
+    "description": "Mathematical fraktur small b",
+    "sortText": "00000"
   },
   "cc": {
-    "prefix": [ "\\cc"],
+    "prefix": ["\\\\cc", "\\cc"],
     "body": ["𝔠"],
-    "description": "Mathematical fraktur small c"
+    "description": "Mathematical fraktur small c",
+    "sortText": "00000"
   },
   "dd": {
-    "prefix": [ "\\dd"],
+    "prefix": ["\\\\dd", "\\dd"],
     "body": ["𝔡"],
-    "description": "Mathematical fraktur small d"
+    "description": "Mathematical fraktur small d",
+    "sortText": "00000"
   },
   "ee": {
-    "prefix": [ "\\ee"],
+    "prefix": ["\\\\ee", "\\ee"],
     "body": ["𝔢"],
-    "description": "Mathematical fraktur small e"
+    "description": "Mathematical fraktur small e",
+    "sortText": "00000"
   },
   "ff": {
-    "prefix": [ "\\ff"],
+    "prefix": ["\\\\ff", "\\ff"],
     "body": ["𝔣"],
-    "description": "Mathematical fraktur small f"
+    "description": "Mathematical fraktur small f",
+    "sortText": "00000"
   },
   "gg": {
-    "prefix": [ "\\gg"],
+    "prefix": ["\\\\gg", "\\gg"],
     "body": ["𝔤"],
-    "description": "Mathematical fraktur small g"
+    "description": "Mathematical fraktur small g",
+    "sortText": "00000"
   },
   "hh": {
-    "prefix": [ "\\hh"],
+    "prefix": ["\\\\hh", "\\hh"],
     "body": ["𝔥"],
-    "description": "Mathematical fraktur small h"
+    "description": "Mathematical fraktur small h",
+    "sortText": "00000"
   },
   "ii": {
-    "prefix": [ "\\ii"],
+    "prefix": ["\\\\ii", "\\ii"],
     "body": ["𝔦"],
-    "description": "Mathematical fraktur small i"
+    "description": "Mathematical fraktur small i",
+    "sortText": "00000"
   },
   "jj": {
-    "prefix": [ "\\jj"],
+    "prefix": ["\\\\jj", "\\jj"],
     "body": ["𝔧"],
-    "description": "Mathematical fraktur small j"
+    "description": "Mathematical fraktur small j",
+    "sortText": "00000"
   },
   "kk": {
-    "prefix": [ "\\kk"],
+    "prefix": ["\\\\kk", "\\kk"],
     "body": ["𝔨"],
-    "description": "Mathematical fraktur small k"
+    "description": "Mathematical fraktur small k",
+    "sortText": "00000"
   },
   "ll": {
-    "prefix": [ "\\ll"],
+    "prefix": ["\\\\ll", "\\ll"],
     "body": ["𝔩"],
-    "description": "Mathematical fraktur small l"
+    "description": "Mathematical fraktur small l",
+    "sortText": "00000"
   },
   "mm": {
-    "prefix": [ "\\mm"],
+    "prefix": ["\\\\mm", "\\mm"],
     "body": ["𝔪"],
-    "description": "Mathematical fraktur small m"
+    "description": "Mathematical fraktur small m",
+    "sortText": "00000"
   },
   "nn": {
-    "prefix": [ "\\nn"],
+    "prefix": ["\\\\nn", "\\nn"],
     "body": ["𝔫"],
-    "description": "Mathematical fraktur small n"
+    "description": "Mathematical fraktur small n",
+    "sortText": "00000"
   },
   "oo": {
-    "prefix": [ "\\oo"],
+    "prefix": ["\\\\oo", "\\oo"],
     "body": ["𝔬"],
-    "description": "Mathematical fraktur small o"
+    "description": "Mathematical fraktur small o",
+    "sortText": "00000"
   },
   "pp": {
-    "prefix": [ "\\pp"],
+    "prefix": ["\\\\pp", "\\pp"],
     "body": ["𝔭"],
-    "description": "Mathematical fraktur small p"
+    "description": "Mathematical fraktur small p",
+    "sortText": "00000"
   },
   "qq": {
-    "prefix": [ "\\qq"],
+    "prefix": ["\\\\qq", "\\qq"],
     "body": ["𝔮"],
-    "description": "Mathematical fraktur small q"
+    "description": "Mathematical fraktur small q",
+    "sortText": "00000"
   },
   "rr": {
-    "prefix": [ "\\rr"],
+    "prefix": ["\\\\rr", "\\rr"],
     "body": ["𝔯"],
-    "description": "Mathematical fraktur small r"
+    "description": "Mathematical fraktur small r",
+    "sortText": "00000"
   },
   "ss": {
-    "prefix": [ "\\ss"],
+    "prefix": ["\\\\ss", "\\ss"],
     "body": ["𝔰"],
-    "description": "Mathematical fraktur small s"
+    "description": "Mathematical fraktur small s",
+    "sortText": "00000"
   },
   "tt": {
-    "prefix": [ "\\tt"],
+    "prefix": ["\\\\tt", "\\tt"],
     "body": ["𝔱"],
-    "description": "Mathematical fraktur small t"
+    "description": "Mathematical fraktur small t",
+    "sortText": "00000"
   },
   "uu": {
-    "prefix": [ "\\uu"],
+    "prefix": ["\\\\uu", "\\uu"],
     "body": ["𝔲"],
-    "description": "Mathematical fraktur small u"
+    "description": "Mathematical fraktur small u",
+    "sortText": "00000"
   },
   "vv": {
-    "prefix": [ "\\vv"],
+    "prefix": ["\\\\vv", "\\vv"],
     "body": ["𝔳"],
-    "description": "Mathematical fraktur small v"
+    "description": "Mathematical fraktur small v",
+    "sortText": "00000"
   },
   "ww": {
-    "prefix": [ "\\ww"],
+    "prefix": ["\\\\ww", "\\ww"],
     "body": ["𝔴"],
-    "description": "Mathematical fraktur small w"
+    "description": "Mathematical fraktur small w",
+    "sortText": "00000"
   },
   "xx": {
-    "prefix": [ "\\xx"],
+    "prefix": ["\\\\xx", "\\xx"],
     "body": ["𝔵"],
-    "description": "Mathematical fraktur small x"
+    "description": "Mathematical fraktur small x",
+    "sortText": "00000"
   },
   "yy": {
-    "prefix": [ "\\yy"],
+    "prefix": ["\\\\yy", "\\yy"],
     "body": ["𝔶"],
-    "description": "Mathematical fraktur small y"
+    "description": "Mathematical fraktur small y",
+    "sortText": "00000"
   },
   "zz": {
-    "prefix": [ "\\zz"],
+    "prefix": ["\\\\zz", "\\zz"],
     "body": ["𝔷"],
-    "description": "Mathematical fraktur small z"
+    "description": "Mathematical fraktur small z",
+    "sortText": "00000"
   },
   "alpha": {
-    "prefix": [ "\\alpha"],
+    "prefix": ["\\\\alpha", "\\alpha"],
     "body": ["α"],
-    "description": "Greek letter alpha"
+    "description": "Greek letter alpha",
+    "sortText": "00000"
   },
   "beta": {
-    "prefix": [ "\\beta"],
+    "prefix": ["\\\\beta", "\\beta"],
     "body": ["β"],
-    "description": "Greek letter beta"
+    "description": "Greek letter beta",
+    "sortText": "00000"
   },
   "gamma": {
-    "prefix": [ "\\gamma"],
+    "prefix": ["\\\\gamma", "\\gamma"],
     "body": ["γ"],
-    "description": "Greek letter gamma"
+    "description": "Greek letter gamma",
+    "sortText": "00000"
   },
   "delta": {
-    "prefix": [ "\\delta"],
+    "prefix": ["\\\\delta", "\\delta"],
     "body": ["δ"],
-    "description": "Greek letter delta"
+    "description": "Greek letter delta",
+    "sortText": "00000"
   },
   "epsilon": {
-    "prefix": [ "\\epsilon"],
+    "prefix": ["\\\\epsilon", "\\epsilon"],
     "body": ["ε"],
-    "description": "Greek letter epsilon"
+    "description": "Greek letter epsilon",
+    "sortText": "00000"
   },
   "zeta": {
-    "prefix": [ "\\zeta"],
+    "prefix": ["\\\\zeta", "\\zeta"],
     "body": ["ζ"],
-    "description": "Greek letter zeta"
+    "description": "Greek letter zeta",
+    "sortText": "00000"
   },
   "eta": {
-    "prefix": [ "\\eta"],
+    "prefix": ["\\\\eta", "\\eta"],
     "body": ["η"],
-    "description": "Greek letter eta"
+    "description": "Greek letter eta",
+    "sortText": "00000"
   },
   "theta": {
-    "prefix": [ "\\theta"],
+    "prefix": ["\\\\theta", "\\theta"],
     "body": ["θ"],
-    "description": "Greek letter theta"
+    "description": "Greek letter theta",
+    "sortText": "00000"
   },
   "iota": {
-    "prefix": [ "\\iota"],
+    "prefix": ["\\\\iota", "\\iota"],
     "body": ["ι"],
-    "description": "Greek letter iota"
+    "description": "Greek letter iota",
+    "sortText": "00000"
   },
   "kappa": {
-    "prefix": [ "\\kappa"],
+    "prefix": ["\\\\kappa", "\\kappa"],
     "body": ["κ"],
-    "description": "Greek letter kappa"
+    "description": "Greek letter kappa",
+    "sortText": "00000"
   },
   "lambda": {
-    "prefix": [ "\\lambda", "%"],
+    "prefix": ["\\\\lambda", "\\lambda", "%"],
     "body": ["λ"],
-    "description": "Greek letter lambda"
+    "description": "Greek letter lambda",
+    "sortText": "00000"
   },
   "mu": {
-    "prefix": [ "\\mu"],
+    "prefix": ["\\\\mu", "\\mu"],
     "body": ["μ"],
-    "description": "Greek letter mu"
+    "description": "Greek letter mu",
+    "sortText": "00000"
   },
   "nu": {
-    "prefix": [ "\\nu"],
+    "prefix": ["\\\\nu", "\\nu"],
     "body": ["ν"],
-    "description": "Greek letter nu"
+    "description": "Greek letter nu",
+    "sortText": "00000"
   },
   "xi": {
-    "prefix": [ "\\xi"],
+    "prefix": ["\\\\xi", "\\xi"],
     "body": ["ξ"],
-    "description": "Greek letter xi"
+    "description": "Greek letter xi",
+    "sortText": "00000"
   },
   "pi": {
-    "prefix": [ "\\pi"],
+    "prefix": ["\\\\pi", "\\pi"],
     "body": ["π"],
-    "description": "Greek letter pi"
+    "description": "Greek letter pi",
+    "sortText": "00000"
   },
   "rho": {
-    "prefix": [ "\\rho"],
+    "prefix": ["\\\\rho", "\\rho"],
     "body": ["ρ"],
-    "description": "Greek letter rho"
+    "description": "Greek letter rho",
+    "sortText": "00000"
   },
   "sigma": {
-    "prefix": [ "\\sigma"],
+    "prefix": ["\\\\sigma", "\\sigma"],
     "body": ["σ"],
-    "description": "Greek letter sigma"
+    "description": "Greek letter sigma",
+    "sortText": "00000"
   },
   "tau": {
-    "prefix": [ "\\tau"],
+    "prefix": ["\\\\tau", "\\tau"],
     "body": ["τ"],
-    "description": "Greek letter tau"
+    "description": "Greek letter tau",
+    "sortText": "00000"
   },
   "upsilon": {
-    "prefix": [ "\\upsilon"],
+    "prefix": ["\\\\upsilon", "\\upsilon"],
     "body": ["υ"],
-    "description": "Greek letter upsilon"
+    "description": "Greek letter upsilon",
+    "sortText": "00000"
   },
   "phi": {
-    "prefix": [ "\\phi"],
+    "prefix": ["\\\\phi", "\\phi"],
     "body": ["φ"],
-    "description": "Greek letter phi"
+    "description": "Greek letter phi",
+    "sortText": "00000"
   },
   "chi": {
-    "prefix": [ "\\chi"],
+    "prefix": ["\\\\chi", "\\chi"],
     "body": ["χ"],
-    "description": "Greek letter chi"
+    "description": "Greek letter chi",
+    "sortText": "00000"
   },
   "psi": {
-    "prefix": [ "\\psi"],
+    "prefix": ["\\\\psi", "\\psi"],
     "body": ["ψ"],
-    "description": "Greek letter psi"
+    "description": "Greek letter psi",
+    "sortText": "00000"
   },
   "omega": {
-    "prefix": [ "\\omega"],
+    "prefix": ["\\\\omega", "\\omega"],
     "body": ["ω"],
-    "description": "Greek letter omega"
+    "description": "Greek letter omega",
+    "sortText": "00000"
   },
   "Gamma": {
-    "prefix": [ "\\Gamma"],
+    "prefix": ["\\\\Gamma", "\\Gamma"],
     "body": ["Γ"],
-    "description": "Greek capital letter gamma"
+    "description": "Greek capital letter gamma",
+    "sortText": "00000"
   },
   "Delta": {
-    "prefix": [ "\\Delta"],
+    "prefix": ["\\\\Delta", "\\Delta"],
     "body": ["Δ"],
-    "description": "Greek capital letter delta"
+    "description": "Greek capital letter delta",
+    "sortText": "00000"
   },
   "Theta": {
-    "prefix": [ "\\Theta"],
+    "prefix": ["\\\\Theta", "\\Theta"],
     "body": ["Θ"],
-    "description": "Greek capital letter theta"
+    "description": "Greek capital letter theta",
+    "sortText": "00000"
   },
   "Lambda": {
-    "prefix": [ "\\Lambda"],
+    "prefix": ["\\\\Lambda", "\\Lambda"],
     "body": ["Λ"],
-    "description": "Greek capital letter lambda"
+    "description": "Greek capital letter lambda",
+    "sortText": "00000"
   },
   "Xi": {
-    "prefix": [ "\\Xi"],
+    "prefix": ["\\\\Xi", "\\Xi"],
     "body": ["Ξ"],
-    "description": "Greek capital letter xi"
+    "description": "Greek capital letter xi",
+    "sortText": "00000"
   },
   "Pi": {
-    "prefix": [ "\\Pi"],
+    "prefix": ["\\\\Pi", "\\Pi"],
     "body": ["Π"],
-    "description": "Greek capital letter pi"
+    "description": "Greek capital letter pi",
+    "sortText": "00000"
   },
   "Sigma": {
-    "prefix": [ "\\Sigma"],
+    "prefix": ["\\\\Sigma", "\\Sigma"],
     "body": ["Σ"],
-    "description": "Greek capital letter sigma"
+    "description": "Greek capital letter sigma",
+    "sortText": "00000"
   },
   "Upsilon": {
-    "prefix": [ "\\Upsilon"],
+    "prefix": ["\\\\Upsilon", "\\Upsilon"],
     "body": ["Υ"],
-    "description": "Greek capital letter upsilon"
+    "description": "Greek capital letter upsilon",
+    "sortText": "00000"
   },
   "Phi": {
-    "prefix": [ "\\Phi"],
+    "prefix": ["\\\\Phi", "\\Phi"],
     "body": ["Φ"],
-    "description": "Greek capital letter phi"
+    "description": "Greek capital letter phi",
+    "sortText": "00000"
   },
   "Psi": {
-    "prefix": [ "\\Psi"],
+    "prefix": ["\\\\Psi", "\\Psi"],
     "body": ["Ψ"],
-    "description": "Greek capital letter psi"
+    "description": "Greek capital letter psi",
+    "sortText": "00000"
   },
   "Omega": {
-    "prefix": [ "\\Omega"],
+    "prefix": ["\\\\Omega", "\\Omega"],
     "body": ["Ω"],
-    "description": "Greek capital letter omega"
+    "description": "Greek capital letter omega",
+    "sortText": "00000"
   },
   "bbbA": {
-    "prefix": [ "\\bbbA"],
+    "prefix": ["\\\\bbbA", "\\bbbA"],
     "body": ["𝔸"],
-    "description": "Mathematical double-struck capital A"
+    "description": "Mathematical double-struck capital A",
+    "sortText": "00000"
   },
   "bool": {
-    "prefix": [ "\\bool"],
+    "prefix": ["\\\\bool", "\\bool"],
     "body": ["𝔹"],
-    "description": "Mathematical double-struck capital B (booleans)"
+    "description": "Mathematical double-struck capital B (booleans)",
+    "sortText": "00000"
   },
   "complex": {
-    "prefix": [ "\\complex"],
+    "prefix": ["\\\\complex", "\\complex"],
     "body": ["ℂ"],
-    "description": "Complex numbers"
+    "description": "Complex numbers",
+    "sortText": "00000"
   },
   "bbbD": {
-    "prefix": [ "\\bbbD"],
+    "prefix": ["\\\\bbbD", "\\bbbD"],
     "body": ["𝔻"],
-    "description": "Mathematical double-struck capital D"
+    "description": "Mathematical double-struck capital D",
+    "sortText": "00000"
   },
   "bbbE": {
-    "prefix": [ "\\bbbE"],
+    "prefix": ["\\\\bbbE", "\\bbbE"],
     "body": ["𝔼"],
-    "description": "Mathematical double-struck capital E"
+    "description": "Mathematical double-struck capital E",
+    "sortText": "00000"
   },
   "bbbF": {
-    "prefix": [ "\\bbbF"],
+    "prefix": ["\\\\bbbF", "\\bbbF"],
     "body": ["𝔽"],
-    "description": "Mathematical double-struck capital F"
+    "description": "Mathematical double-struck capital F",
+    "sortText": "00000"
   },
   "bbbG": {
-    "prefix": [ "\\bbbG"],
+    "prefix": ["\\\\bbbG", "\\bbbG"],
     "body": ["𝔾"],
-    "description": "Mathematical double-struck capital G"
+    "description": "Mathematical double-struck capital G",
+    "sortText": "00000"
   },
   "bbbH": {
-    "prefix": [ "\\bbbH"],
+    "prefix": ["\\\\bbbH", "\\bbbH"],
     "body": ["ℍ"],
-    "description": "Double-struck capital H"
+    "description": "Double-struck capital H",
+    "sortText": "00000"
   },
   "bbbI": {
-    "prefix": [ "\\bbbI"],
+    "prefix": ["\\\\bbbI", "\\bbbI"],
     "body": ["𝕀"],
-    "description": "Mathematical double-struck capital I"
+    "description": "Mathematical double-struck capital I",
+    "sortText": "00000"
   },
   "bbbJ": {
-    "prefix": [ "\\bbbJ"],
+    "prefix": ["\\\\bbbJ", "\\bbbJ"],
     "body": ["𝕁"],
-    "description": "Mathematical double-struck capital J"
+    "description": "Mathematical double-struck capital J",
+    "sortText": "00000"
   },
   "bbbK": {
-    "prefix": [ "\\bbbK"],
+    "prefix": ["\\\\bbbK", "\\bbbK"],
     "body": ["𝕂"],
-    "description": "Mathematical double-struck capital K"
+    "description": "Mathematical double-struck capital K",
+    "sortText": "00000"
   },
   "bbbL": {
-    "prefix": [ "\\bbbL"],
+    "prefix": ["\\\\bbbL", "\\bbbL"],
     "body": ["𝕃"],
-    "description": "Mathematical double-struck capital L"
+    "description": "Mathematical double-struck capital L",
+    "sortText": "00000"
   },
   "bbbM": {
-    "prefix": [ "\\bbbM"],
+    "prefix": ["\\\\bbbM", "\\bbbM"],
     "body": ["𝕄"],
-    "description": "Mathematical double-struck capital M"
+    "description": "Mathematical double-struck capital M",
+    "sortText": "00000"
   },
   "nat": {
-    "prefix": [ "\\nat"],
+    "prefix": ["\\\\nat", "\\nat"],
     "body": ["ℕ"],
-    "description": "Natural numbers"
+    "description": "Natural numbers",
+    "sortText": "00000"
   },
   "bbbO": {
-    "prefix": [ "\\bbbO"],
+    "prefix": ["\\\\bbbO", "\\bbbO"],
     "body": ["𝕆"],
-    "description": "Mathematical double-struck capital O"
+    "description": "Mathematical double-struck capital O",
+    "sortText": "00000"
   },
   "bbbP": {
-    "prefix": [ "\\bbbP"],
+    "prefix": ["\\\\bbbP", "\\bbbP"],
     "body": ["ℙ"],
-    "description": "Double-struck capital P"
+    "description": "Double-struck capital P",
+    "sortText": "00000"
   },
   "rat": {
-    "prefix": [ "\\rat"],
+    "prefix": ["\\\\rat", "\\rat"],
     "body": ["ℚ"],
-    "description": "Rational numbers"
+    "description": "Rational numbers",
+    "sortText": "00000"
   },
   "real": {
-    "prefix": [ "\\real"],
+    "prefix": ["\\\\real", "\\real"],
     "body": ["ℝ"],
-    "description": "Real numbers"
+    "description": "Real numbers",
+    "sortText": "00000"
   },
   "bbbS": {
-    "prefix": [ "\\bbbS"],
+    "prefix": ["\\\\bbbS", "\\bbbS"],
     "body": ["𝕊"],
-    "description": "Mathematical double-struck capital S"
+    "description": "Mathematical double-struck capital S",
+    "sortText": "00000"
   },
   "bbbT": {
-    "prefix": [ "\\bbbT"],
+    "prefix": ["\\\\bbbT", "\\bbbT"],
     "body": ["𝕋"],
-    "description": "Mathematical double-struck capital T"
+    "description": "Mathematical double-struck capital T",
+    "sortText": "00000"
   },
   "bbbU": {
-    "prefix": [ "\\bbbU"],
+    "prefix": ["\\\\bbbU", "\\bbbU"],
     "body": ["𝕌"],
-    "description": "Mathematical double-struck capital U"
+    "description": "Mathematical double-struck capital U",
+    "sortText": "00000"
   },
   "bbbV": {
-    "prefix": [ "\\bbbV"],
+    "prefix": ["\\\\bbbV", "\\bbbV"],
     "body": ["𝕍"],
-    "description": "Mathematical double-struck capital V"
+    "description": "Mathematical double-struck capital V",
+    "sortText": "00000"
   },
   "bbbW": {
-    "prefix": [ "\\bbbW"],
+    "prefix": ["\\\\bbbW", "\\bbbW"],
     "body": ["𝕎"],
-    "description": "Mathematical double-struck capital W"
+    "description": "Mathematical double-struck capital W",
+    "sortText": "00000"
   },
   "bbbX": {
-    "prefix": [ "\\bbbX"],
+    "prefix": ["\\\\bbbX", "\\bbbX"],
     "body": ["𝕏"],
-    "description": "Mathematical double-struck capital X"
+    "description": "Mathematical double-struck capital X",
+    "sortText": "00000"
   },
   "bbbY": {
-    "prefix": [ "\\bbbY"],
+    "prefix": ["\\\\bbbY", "\\bbbY"],
     "body": ["𝕐"],
-    "description": "Mathematical double-struck capital Y"
+    "description": "Mathematical double-struck capital Y",
+    "sortText": "00000"
   },
   "int": {
-    "prefix": [ "\\int"],
+    "prefix": ["\\\\int", "\\int"],
     "body": ["ℤ"],
-    "description": "Integers"
+    "description": "Integers",
+    "sortText": "00000"
   },
   "leftarrow": {
-    "prefix": [ "\\leftarrow", "<."],
+    "prefix": ["\\\\leftarrow", "\\leftarrow", "<."],
     "body": ["←"],
-    "description": "Left arrow"
+    "description": "Left arrow",
+    "sortText": "00000"
   },
   "longleftarrow": {
-    "prefix": [ "\\longleftarrow", "<."],
+    "prefix": ["\\\\longleftarrow", "\\longleftarrow", "<."],
     "body": ["⟵"],
-    "description": "Long left arrow"
+    "description": "Long left arrow",
+    "sortText": "00000"
   },
   "longlongleftarrow": {
-    "prefix": [ "\\longlongleftarrow", "<."],
+    "prefix": ["\\\\longlongleftarrow", "\\longlongleftarrow", "<."],
     "body": ["⟽"],
-    "description": "Very long left arrow"
+    "description": "Very long left arrow",
+    "sortText": "00000"
   },
   "longlonglongleftarrow": {
-    "prefix": [ "\\longlonglongleftarrow", "<."],
+    "prefix": ["\\\\longlonglongleftarrow", "\\longlonglongleftarrow", "<."],
     "body": ["⟸"],
-    "description": "Extra long left arrow"
+    "description": "Extra long left arrow",
+    "sortText": "00000"
   },
   "rightarrow": {
-    "prefix": [ "\\rightarrow", ".>", "->"],
+    "prefix": ["\\\\rightarrow", "\\rightarrow", ".>", "->"],
     "body": ["→"],
-    "description": "Right arrow"
+    "description": "Right arrow",
+    "sortText": "00000"
   },
   "longrightarrow": {
-    "prefix": [ "\\longrightarrow", ".>", "-->"],
+    "prefix": ["\\\\longrightarrow", "\\longrightarrow", ".>", "-->"],
     "body": ["⟶"],
-    "description": "Long right arrow"
+    "description": "Long right arrow",
+    "sortText": "00000"
   },
   "longlongrightarrow": {
-    "prefix": [ "\\longlongrightarrow", ".>", "--->"],
+    "prefix": ["\\\\longlongrightarrow", "\\longlongrightarrow", ".>", "--->"],
     "body": ["⟿"],
-    "description": "Very long right arrow"
+    "description": "Very long right arrow",
+    "sortText": "00000"
   },
   "longlonglongrightarrow": {
-    "prefix": [ "\\longlonglongrightarrow", ".>", "--->"],
+    "prefix": ["\\\\longlonglongrightarrow", "\\longlonglongrightarrow", ".>", "--->"],
     "body": ["⟺"],
-    "description": "Extra long right arrow"
+    "description": "Extra long right arrow",
+    "sortText": "00000"
   },
   "Leftarrow": {
-    "prefix": [ "\\Leftarrow", "<."],
+    "prefix": ["\\\\Leftarrow", "\\Leftarrow", "<."],
     "body": ["⇐"],
-    "description": "Left double arrow"
+    "description": "Left double arrow",
+    "sortText": "00000"
   },
   "Longleftarrow": {
-    "prefix": [ "\\Longleftarrow", "<."],
+    "prefix": ["\\\\Longleftarrow", "\\Longleftarrow", "<."],
     "body": ["⟸"],
-    "description": "Long left double arrow"
+    "description": "Long left double arrow",
+    "sortText": "00000"
   },
   "Lleftarrow": {
-    "prefix": [ "\\Lleftarrow", "<."],
+    "prefix": ["\\\\Lleftarrow", "\\Lleftarrow", "<."],
     "body": ["⇚"],
-    "description": "Triple left arrow"
+    "description": "Triple left arrow",
+    "sortText": "00000"
   },
   "Rightarrow": {
-    "prefix": [ "\\Rightarrow", ".>", "\\=>"],
+    "prefix": ["\\\\Rightarrow", "\\Rightarrow", ".>", "\\=>"],
     "body": ["⇒"],
-    "description": "Right double arrow"
+    "description": "Right double arrow",
+    "sortText": "00000"
   },
   "Longrightarrow": {
-    "prefix": [ "\\Longrightarrow", ".>", "==>"],
+    "prefix": ["\\\\Longrightarrow", "\\Longrightarrow", ".>", "==>"],
     "body": ["⟹"],
-    "description": "Long right double arrow"
+    "description": "Long right double arrow",
+    "sortText": "00000"
   },
   "Rrightarrow": {
-    "prefix": [ "\\Rrightarrow", ".>"],
+    "prefix": ["\\\\Rrightarrow", "\\Rrightarrow", ".>"],
     "body": ["⇛"],
-    "description": "Triple right arrow"
+    "description": "Triple right arrow",
+    "sortText": "00000"
   },
   "leftrightarrow": {
-    "prefix": [ "\\leftrightarrow", "<>", "<->"],
+    "prefix": ["\\\\leftrightarrow", "\\leftrightarrow", "<>", "<->"],
     "body": ["↔"],
-    "description": "Left right arrow"
+    "description": "Left right arrow",
+    "sortText": "00000"
   },
   "longleftrightarrow": {
-    "prefix": [ "\\longleftrightarrow", "<>", "<->", "<-->"],
+    "prefix": ["\\\\longleftrightarrow", "\\longleftrightarrow", "<>", "<->", "<-->"],
     "body": ["⟷"],
-    "description": "Long left right arrow"
+    "description": "Long left right arrow",
+    "sortText": "00000"
   },
   "Leftrightarrow": {
-    "prefix": [ "\\Leftrightarrow", "<>"],
+    "prefix": ["\\\\Leftrightarrow", "\\Leftrightarrow", "<>"],
     "body": ["⇔"],
-    "description": "Left right double arrow"
+    "description": "Left right double arrow",
+    "sortText": "00000"
   },
   "Longleftrightarrow": {
-    "prefix": [ "\\Longleftrightarrow", "<>"],
+    "prefix": ["\\\\Longleftrightarrow", "\\Longleftrightarrow", "<>"],
     "body": ["⟺"],
-    "description": "Long left right double arrow"
+    "description": "Long left right double arrow",
+    "sortText": "00000"
   },
   "mapsto": {
-    "prefix": [ "\\mapsto", ".>", "|->"],
+    "prefix": ["\\\\mapsto", "\\mapsto", ".>", "|->"],
     "body": ["↦"],
-    "description": "Maps to"
+    "description": "Maps to",
+    "sortText": "00000"
   },
   "longmapsto": {
-    "prefix": [ "\\longmapsto", ".>", "|-->"],
+    "prefix": ["\\\\longmapsto", "\\longmapsto", ".>", "|-->"],
     "body": ["⟼"],
-    "description": "Long maps to"
+    "description": "Long maps to",
+    "sortText": "00000"
   },
   "midarrow": {
-    "prefix": [ "\\midarrow", "<>"],
+    "prefix": ["\\\\midarrow", "\\midarrow", "<>"],
     "body": ["─"],
-    "description": "Horizontal line"
+    "description": "Horizontal line",
+    "sortText": "00000"
   },
   "Midarrow": {
-    "prefix": [ "\\Midarrow", "<>"],
+    "prefix": ["\\\\Midarrow", "\\Midarrow", "<>"],
     "body": ["═"],
-    "description": "Double horizontal line"
+    "description": "Double horizontal line",
+    "sortText": "00000"
   },
   "hookleftarrow": {
-    "prefix": [ "\\hookleftarrow", "<."],
+    "prefix": ["\\\\hookleftarrow", "\\hookleftarrow", "<."],
     "body": ["↩"],
-    "description": "Hook left arrow"
+    "description": "Hook left arrow",
+    "sortText": "00000"
   },
   "hookrightarrow": {
-    "prefix": [ "\\hookrightarrow", ".>"],
+    "prefix": ["\\\\hookrightarrow", "\\hookrightarrow", ".>"],
     "body": ["↪"],
-    "description": "Hook right arrow"
+    "description": "Hook right arrow",
+    "sortText": "00000"
   },
   "leftharpoondown": {
-    "prefix": [ "\\leftharpoondown", "<."],
+    "prefix": ["\\\\leftharpoondown", "\\leftharpoondown", "<."],
     "body": ["↽"],
-    "description": "Left harpoon down"
+    "description": "Left harpoon down",
+    "sortText": "00000"
   },
   "rightharpoondown": {
-    "prefix": [ "\\rightharpoondown", ".>"],
+    "prefix": ["\\\\rightharpoondown", "\\rightharpoondown", ".>"],
     "body": ["⇁"],
-    "description": "Right harpoon down"
+    "description": "Right harpoon down",
+    "sortText": "00000"
   },
   "leftharpoonup": {
-    "prefix": [ "\\leftharpoonup", "<."],
+    "prefix": ["\\\\leftharpoonup", "\\leftharpoonup", "<."],
     "body": ["↼"],
-    "description": "Left harpoon up"
+    "description": "Left harpoon up",
+    "sortText": "00000"
   },
   "rightharpoonup": {
-    "prefix": [ "\\rightharpoonup", ".>"],
+    "prefix": ["\\\\rightharpoonup", "\\rightharpoonup", ".>"],
     "body": ["⇀"],
-    "description": "Right harpoon up"
+    "description": "Right harpoon up",
+    "sortText": "00000"
   },
   "rightleftharpoons": {
-    "prefix": [ "\\rightleftharpoons", "<>", "=="],
+    "prefix": ["\\\\rightleftharpoons", "\\rightleftharpoons", "<>"],
     "body": ["⇌"],
-    "description": "Right left harpoons"
+    "description": "Right left harpoons",
+    "sortText": "00000"
   },
   "leadsto": {
-    "prefix": [ "\\leadsto", ".>", "~>"],
+    "prefix": ["\\\\leadsto", "\\leadsto", ".>", "~>"],
     "body": ["↝"],
-    "description": "Leads to"
+    "description": "Leads to",
+    "sortText": "00000"
   },
   "downharpoonleft": {
-    "prefix": [ "\\downharpoonleft"],
+    "prefix": ["\\\\downharpoonleft", "\\downharpoonleft"],
     "body": ["⇃"],
-    "description": "Down harpoon left"
+    "description": "Down harpoon left",
+    "sortText": "00000"
   },
   "downharpoonright": {
-    "prefix": [ "\\downharpoonright"],
+    "prefix": ["\\\\downharpoonright", "\\downharpoonright"],
     "body": ["⇂"],
-    "description": "Down harpoon right"
+    "description": "Down harpoon right",
+    "sortText": "00000"
   },
   "upharpoonleft": {
-    "prefix": [ "\\upharpoonleft"],
+    "prefix": ["\\\\upharpoonleft", "\\upharpoonleft"],
     "body": ["↿"],
-    "description": "Up harpoon left"
+    "description": "Up harpoon left",
+    "sortText": "00000"
   },
   "restriction": {
-    "prefix": [ "\\restriction"],
+    "prefix": ["\\\\restriction", "\\restriction"],
     "body": ["↾"],
-    "description": "Restriction"
+    "description": "Restriction",
+    "sortText": "00000"
   },
   "Colon": {
-    "prefix": [ "\\Colon"],
+    "prefix": ["\\\\Colon", "\\Colon"],
     "body": ["∷"],
-    "description": "Double colon"
+    "description": "Double colon",
+    "sortText": "00000"
   },
   "up": {
-    "prefix": [ "\\up"],
+    "prefix": ["\\\\up", "\\up"],
     "body": ["↑"],
-    "description": "Up arrow"
+    "description": "Up arrow",
+    "sortText": "00000"
   },
   "Up": {
-    "prefix": [ "\\Up"],
+    "prefix": ["\\\\Up", "\\Up"],
     "body": ["⇑"],
-    "description": "Up double arrow"
+    "description": "Up double arrow",
+    "sortText": "00000"
   },
   "down": {
-    "prefix": [ "\\down"],
+    "prefix": ["\\\\down", "\\down"],
     "body": ["↓"],
-    "description": "Down arrow"
+    "description": "Down arrow",
+    "sortText": "00000"
   },
   "Down": {
-    "prefix": [ "\\Down"],
+    "prefix": ["\\\\Down", "\\Down"],
     "body": ["⇓"],
-    "description": "Down double arrow"
+    "description": "Down double arrow",
+    "sortText": "00000"
   },
   "updown": {
-    "prefix": [ "\\updown"],
+    "prefix": ["\\\\updown", "\\updown"],
     "body": ["↕"],
-    "description": "Up down arrow"
+    "description": "Up down arrow",
+    "sortText": "00000"
   },
   "Updown": {
-    "prefix": [ "\\Updown"],
+    "prefix": ["\\\\Updown", "\\Updown"],
     "body": ["⇕"],
-    "description": "Up down double arrow"
+    "description": "Up down double arrow",
+    "sortText": "00000"
   },
   "langle": {
-    "prefix": [ "\\langle", "<<"],
+    "prefix": ["\\\\langle", "\\langle", "<<"],
     "body": ["⟨"],
-    "description": "Left angle bracket"
+    "description": "Left angle bracket",
+    "sortText": "00000"
   },
   "rangle": {
-    "prefix": [ "\\rangle", ">>"],
+    "prefix": ["\\\\rangle", "\\rangle", ">>"],
     "body": ["⟩"],
-    "description": "Right angle bracket"
+    "description": "Right angle bracket",
+    "sortText": "00000"
   },
   "llangle": {
-    "prefix": [ "\\llangle", "<<"],
+    "prefix": ["\\\\llangle", "\\llangle", "<<"],
     "body": ["⟪"],
-    "description": "Left double angle bracket"
+    "description": "Left double angle bracket",
+    "sortText": "00000"
   },
   "rrangle": {
-    "prefix": [ "\\rrangle", ">>"],
+    "prefix": ["\\\\rrangle", "\\rrangle", ">>"],
     "body": ["⟫"],
-    "description": "Right double angle bracket"
+    "description": "Right double angle bracket",
+    "sortText": "00000"
   },
   "lceil": {
-    "prefix": [ "\\lceil", "[."],
+    "prefix": ["\\\\lceil", "\\lceil", "[."],
     "body": ["⌈"],
-    "description": "Left ceiling"
+    "description": "Left ceiling",
+    "sortText": "00000"
   },
   "rceil": {
-    "prefix": [ "\\rceil", ".]"],
+    "prefix": ["\\\\rceil", "\\rceil", ".]"],
     "body": ["⌉"],
-    "description": "Right ceiling"
+    "description": "Right ceiling",
+    "sortText": "00000"
   },
   "lfloor": {
-    "prefix": [ "\\lfloor", "[."],
+    "prefix": ["\\\\lfloor", "\\lfloor", "[."],
     "body": ["⌊"],
-    "description": "Left floor"
+    "description": "Left floor",
+    "sortText": "00000"
   },
   "rfloor": {
-    "prefix": [ "\\rfloor", ".]"],
+    "prefix": ["\\\\rfloor", "\\rfloor", ".]"],
     "body": ["⌋"],
-    "description": "Right floor"
+    "description": "Right floor",
+    "sortText": "00000"
   },
   "lparr": {
-    "prefix": [ "\\lparr", "(|"],
+    "prefix": ["\\\\lparr", "\\lparr", "(|"],
     "body": ["⦇"],
-    "description": "Left parenthesis with bar"
+    "description": "Left parenthesis with bar",
+    "sortText": "00000"
   },
   "rparr": {
-    "prefix": [ "\\rparr", "|)"],
+    "prefix": ["\\\\rparr", "\\rparr", "|)"],
     "body": ["⦈"],
-    "description": "Right parenthesis with bar"
+    "description": "Right parenthesis with bar",
+    "sortText": "00000"
   },
   "lbrakk": {
-    "prefix": [ "\\lbrakk", "[|"],
+    "prefix": ["\\\\lbrakk", "\\lbrakk", "[|"],
     "body": ["⟦"],
-    "description": "Left semantic bracket"
+    "description": "Left semantic bracket",
+    "sortText": "00000"
   },
   "rbrakk": {
-    "prefix": [ "\\rbrakk", "|]"],
+    "prefix": ["\\\\rbrakk", "\\rbrakk", "|]"],
     "body": ["⟧"],
-    "description": "Right semantic bracket"
+    "description": "Right semantic bracket",
+    "sortText": "00000"
   },
   "lbrace": {
-    "prefix": [ "\\lbrace", "{|"],
+    "prefix": ["\\\\lbrace", "\\lbrace", "{|"],
     "body": ["⦃"],
-    "description": "Left brace with bar"
+    "description": "Left brace with bar",
+    "sortText": "00000"
   },
   "rbrace": {
-    "prefix": [ "\\rbrace", "|}"],
+    "prefix": ["\\\\rbrace", "\\rbrace", "|}"],
     "body": ["⦄"],
-    "description": "Right brace with bar"
+    "description": "Right brace with bar",
+    "sortText": "00000"
   },
   "lblot": {
-    "prefix": [ "\\lblot", "<<"],
+    "prefix": ["\\\\lblot", "\\lblot", "<<"],
     "body": ["⦉"],
-    "description": "Left blot bracket"
+    "description": "Left blot bracket",
+    "sortText": "00000"
   },
   "rblot": {
-    "prefix": [ "\\rblot", ">>"],
+    "prefix": ["\\\\rblot", "\\rblot", ">>"],
     "body": ["⦊"],
-    "description": "Right blot bracket"
+    "description": "Right blot bracket",
+    "sortText": "00000"
   },
   "guillemotleft": {
-    "prefix": [ "\\guillemotleft", "<<"],
+    "prefix": ["\\\\guillemotleft", "\\guillemotleft", "<<"],
     "body": ["«"],
-    "description": "Left guillemet"
+    "description": "Left guillemet",
+    "sortText": "00000"
   },
   "guillemotright": {
-    "prefix": [ "\\guillemotright", ">>"],
+    "prefix": ["\\\\guillemotright", "\\guillemotright", ">>"],
     "body": ["»"],
-    "description": "Right guillemet"
+    "description": "Right guillemet",
+    "sortText": "00000"
   },
   "bottom": {
-    "prefix": [ "\\bottom"],
+    "prefix": ["\\\\bottom", "\\bottom"],
     "body": ["⊥"],
-    "description": "Bottom"
+    "description": "Bottom",
+    "sortText": "00000"
   },
   "top": {
-    "prefix": [ "\\top"],
+    "prefix": ["\\\\top", "\\top"],
     "body": ["⊤"],
-    "description": "Top"
+    "description": "Top",
+    "sortText": "00000"
   },
   "and": {
-    "prefix": [ "\\and",  "&"],
+    "prefix": ["\\\\and", "\\and", "\\/\\", "&"],
     "body": ["∧"],
-    "description": "Logical and"
+    "description": "Logical and",
+    "sortText": "00000"
   },
   "And": {
-    "prefix": [ "\\And", "!!"],
+    "prefix": ["\\\\And", "\\And", "!!"],
     "body": ["⋀"],
-    "description": "Big logical and"
+    "description": "Big logical and",
+    "sortText": "00000"
   },
   "or": {
-    "prefix": [ "\\or",  "|"],
+    "prefix": ["\\\\or", "\\or", "\\\\/", "|"],
     "body": ["∨"],
-    "description": "Logical or"
+    "description": "Logical or",
+    "sortText": "00000"
   },
   "Or": {
-    "prefix": [ "\\Or", "??"],
+    "prefix": ["\\\\Or", "\\Or", "??"],
     "body": ["⋁"],
-    "description": "Big logical or"
+    "description": "Big logical or",
+    "sortText": "00000"
   },
   "forall": {
-    "prefix": [ "\\forall", "!", "ALL"],
+    "prefix": ["\\\\forall", "\\forall", "!", "ALL"],
     "body": ["∀"],
-    "description": "Universal quantifier"
+    "description": "Universal quantifier",
+    "sortText": "00000"
   },
   "exists": {
-    "prefix": [ "\\exists", "?", "EX"],
+    "prefix": ["\\\\exists", "\\exists", "?", "EX"],
     "body": ["∃"],
-    "description": "Existential quantifier"
+    "description": "Existential quantifier",
+    "sortText": "00000"
   },
   "nexists": {
-    "prefix": [ "\\nexists", "~?"],
+    "prefix": ["\\\\nexists", "\\nexists", "~?"],
     "body": ["∄"],
-    "description": "Does not exist"
+    "description": "Does not exist",
+    "sortText": "00000"
   },
   "not": {
-    "prefix": [ "\\not", "~"],
+    "prefix": ["\\\\not", "\\not", "~"],
     "body": ["¬"],
-    "description": "Logical not"
+    "description": "Logical not",
+    "sortText": "00000"
   },
   "circle": {
-    "prefix": [ "\\circle"],
+    "prefix": ["\\\\circle", "\\circle"],
     "body": ["○"],
-    "description": "Circle"
+    "description": "Circle",
+    "sortText": "00000"
   },
   "box": {
-    "prefix": [ "\\box"],
+    "prefix": ["\\\\box", "\\box"],
     "body": ["□"],
-    "description": "Box"
+    "description": "Box",
+    "sortText": "00000"
   },
   "diamond": {
-    "prefix": [ "\\diamond"],
+    "prefix": ["\\\\diamond", "\\diamond"],
     "body": ["◇"],
-    "description": "Diamond"
+    "description": "Diamond",
+    "sortText": "00000"
   },
   "diamondop": {
-    "prefix": [ "\\diamondop"],
+    "prefix": ["\\\\diamondop", "\\diamondop"],
     "body": ["⋄"],
-    "description": "Diamond operator"
+    "description": "Diamond operator",
+    "sortText": "00000"
   },
   "turnstile": {
-    "prefix": [ "\\turnstile", "|-"],
+    "prefix": ["\\\\turnstile", "\\turnstile", "|-"],
     "body": ["⊢"],
-    "description": "Turnstile"
+    "description": "Turnstile",
+    "sortText": "00000"
   },
   "Turnstile": {
-    "prefix": [ "\\Turnstile", "|="],
+    "prefix": ["\\\\Turnstile", "\\Turnstile", "|="],
     "body": ["⊨"],
-    "description": "Double turnstile"
+    "description": "Double turnstile",
+    "sortText": "00000"
   },
   "tturnstile": {
-    "prefix": [ "\\tturnstile", "|-"],
+    "prefix": ["\\\\tturnstile", "\\tturnstile", "|-"],
     "body": ["⊩"],
-    "description": "Triple turnstile"
+    "description": "Triple turnstile",
+    "sortText": "00000"
   },
   "TTurnstile": {
-    "prefix": [ "\\TTurnstile", "|="],
+    "prefix": ["\\\\TTurnstile", "\\TTurnstile", "|="],
     "body": ["⊫"],
-    "description": "Triple double turnstile"
+    "description": "Triple double turnstile",
+    "sortText": "00000"
   },
   "stileturn": {
-    "prefix": [ "\\stileturn", "-|"],
+    "prefix": ["\\\\stileturn", "\\stileturn", "-|"],
     "body": ["⊣"],
-    "description": "Reverse turnstile"
+    "description": "Reverse turnstile",
+    "sortText": "00000"
   },
   "surd": {
-    "prefix": [ "\\surd"],
+    "prefix": ["\\\\surd", "\\surd"],
     "body": ["√"],
-    "description": "Square root"
+    "description": "Square root",
+    "sortText": "00000"
   },
   "le": {
-    "prefix": [ "\\le", "<="],
+    "prefix": ["\\\\le", "\\le", "<="],
     "body": ["≤"],
-    "description": "Less than or equal"
+    "description": "Less than or equal",
+    "sortText": "00000"
   },
   "ge": {
-    "prefix": [ "\\ge", ">="],
+    "prefix": ["\\\\ge", "\\ge", ">="],
     "body": ["≥"],
-    "description": "Greater than or equal"
+    "description": "Greater than or equal",
+    "sortText": "00000"
   },
   "lless": {
-    "prefix": [ "\\lless", "<<"],
+    "prefix": ["\\\\lless", "\\lless", "<<"],
     "body": ["≪"],
-    "description": "Much less than"
+    "description": "Much less than",
+    "sortText": "00000"
   },
   "ggreater": {
-    "prefix": [ "\\ggreater", ">>"],
+    "prefix": ["\\\\ggreater", "\\ggreater", ">>"],
     "body": ["≫"],
-    "description": "Much greater than"
+    "description": "Much greater than",
+    "sortText": "00000"
   },
   "lesssim": {
-    "prefix": [ "\\lesssim"],
+    "prefix": ["\\\\lesssim", "\\lesssim"],
     "body": ["≲"],
-    "description": "Less than or similar to"
+    "description": "Less than or similar to",
+    "sortText": "00000"
   },
   "greatersim": {
-    "prefix": [ "\\greatersim"],
+    "prefix": ["\\\\greatersim", "\\greatersim"],
     "body": ["≳"],
-    "description": "Greater than or similar to"
+    "description": "Greater than or similar to",
+    "sortText": "00000"
   },
   "lessapprox": {
-    "prefix": [ "\\lessapprox"],
+    "prefix": ["\\\\lessapprox", "\\lessapprox"],
     "body": ["⪅"],
-    "description": "Less than or approximately equal"
+    "description": "Less than or approximately equal",
+    "sortText": "00000"
   },
   "greaterapprox": {
-    "prefix": [ "\\greaterapprox"],
+    "prefix": ["\\\\greaterapprox", "\\greaterapprox"],
     "body": ["⪆"],
-    "description": "Greater than or approximately equal"
+    "description": "Greater than or approximately equal",
+    "sortText": "00000"
   },
   "in": {
-    "prefix": [ "\\in", ":"],
+    "prefix": ["\\\\in", "\\in", ":"],
     "body": ["∈"],
-    "description": "Element of"
+    "description": "Element of",
+    "sortText": "00000"
   },
   "notin": {
-    "prefix": [ "\\notin", "~:"],
+    "prefix": ["\\\\notin", "\\notin", "~:"],
     "body": ["∉"],
-    "description": "Not element of"
+    "description": "Not element of",
+    "sortText": "00000"
   },
   "subset": {
-    "prefix": [ "\\subset"],
+    "prefix": ["\\\\subset", "\\subset"],
     "body": ["⊂"],
-    "description": "Subset"
+    "description": "Subset",
+    "sortText": "00000"
   },
   "supset": {
-    "prefix": [ "\\supset"],
+    "prefix": ["\\\\supset", "\\supset"],
     "body": ["⊃"],
-    "description": "Superset"
+    "description": "Superset",
+    "sortText": "00000"
   },
   "subseteq": {
-    "prefix": [ "\\subseteq", "(="],
+    "prefix": ["\\\\subseteq", "\\subseteq", "(="],
     "body": ["⊆"],
-    "description": "Subset or equal"
+    "description": "Subset or equal",
+    "sortText": "00000"
   },
   "supseteq": {
-    "prefix": [ "\\supseteq", ")="],
+    "prefix": ["\\\\supseteq", "\\supseteq", ")="],
     "body": ["⊇"],
-    "description": "Superset or equal"
+    "description": "Superset or equal",
+    "sortText": "00000"
   },
   "sqsubset": {
-    "prefix": [ "\\sqsubset"],
+    "prefix": ["\\\\sqsubset", "\\sqsubset"],
     "body": ["⊏"],
-    "description": "Square subset"
+    "description": "Square subset",
+    "sortText": "00000"
   },
   "sqsupset": {
-    "prefix": [ "\\sqsupset"],
+    "prefix": ["\\\\sqsupset", "\\sqsupset"],
     "body": ["⊐"],
-    "description": "Square superset"
+    "description": "Square superset",
+    "sortText": "00000"
   },
   "sqsubseteq": {
-    "prefix": [ "\\sqsubseteq", "[="],
+    "prefix": ["\\\\sqsubseteq", "\\sqsubseteq", "[="],
     "body": ["⊑"],
-    "description": "Square subset or equal"
+    "description": "Square subset or equal",
+    "sortText": "00000"
   },
   "sqsupseteq": {
-    "prefix": [ "\\sqsupseteq", "]="],
+    "prefix": ["\\\\sqsupseteq", "\\sqsupseteq", "]="],
     "body": ["⊒"],
-    "description": "Square superset or equal"
+    "description": "Square superset or equal",
+    "sortText": "00000"
   },
   "inter": {
-    "prefix": [ "\\inter", "Int"],
+    "prefix": ["\\\\inter", "\\inter", "Int"],
     "body": ["∩"],
-    "description": "Intersection"
+    "description": "Intersection",
+    "sortText": "00000"
   },
   "Inter": {
-    "prefix": [ "\\Inter", "Inter", "INT"],
+    "prefix": ["\\\\Inter", "\\Inter", "Inter", "INT"],
     "body": ["⋂"],
-    "description": "Big intersection"
+    "description": "Big intersection",
+    "sortText": "00000"
   },
   "union": {
-    "prefix": [ "\\union", "Un"],
+    "prefix": ["\\\\union", "\\union", "Un"],
     "body": ["∪"],
-    "description": "Union"
+    "description": "Union",
+    "sortText": "00000"
   },
   "Union": {
-    "prefix": [ "\\Union", "Union", "UN"],
+    "prefix": ["\\\\Union", "\\Union", "Union", "UN"],
     "body": ["⋃"],
-    "description": "Big union"
+    "description": "Big union",
+    "sortText": "00000"
   },
   "squnion": {
-    "prefix": [ "\\squnion"],
+    "prefix": ["\\\\squnion", "\\squnion"],
     "body": ["⊔"],
-    "description": "Square union"
+    "description": "Square union",
+    "sortText": "00000"
   },
   "Squnion": {
-    "prefix": [ "\\Squnion", "SUP"],
+    "prefix": ["\\\\Squnion", "\\Squnion", "SUP"],
     "body": ["⨆"],
-    "description": "Big square union"
+    "description": "Big square union",
+    "sortText": "00000"
   },
   "sqinter": {
-    "prefix": [ "\\sqinter"],
+    "prefix": ["\\\\sqinter", "\\sqinter"],
     "body": ["⊓"],
-    "description": "Square intersection"
+    "description": "Square intersection",
+    "sortText": "00000"
   },
   "Sqinter": {
-    "prefix": [ "\\Sqinter", "INF"],
+    "prefix": ["\\\\Sqinter", "\\Sqinter", "INF"],
     "body": ["⨅"],
-    "description": "Big square intersection"
+    "description": "Big square intersection",
+    "sortText": "00000"
   },
   "setminus": {
-    "prefix": [ "\\setminus"],
+    "prefix": ["\\\\setminus", "\\setminus"],
     "body": ["∖"],
-    "description": "Set minus"
+    "description": "Set minus",
+    "sortText": "00000"
   },
   "propto": {
-    "prefix": [ "\\propto"],
+    "prefix": ["\\\\propto", "\\propto"],
     "body": ["∝"],
-    "description": "Proportional to"
+    "description": "Proportional to",
+    "sortText": "00000"
   },
   "uplus": {
-    "prefix": [ "\\uplus"],
+    "prefix": ["\\\\uplus", "\\uplus"],
     "body": ["⊎"],
-    "description": "Union plus"
+    "description": "Union plus",
+    "sortText": "00000"
   },
   "Uplus": {
-    "prefix": [ "\\Uplus"],
+    "prefix": ["\\\\Uplus", "\\Uplus"],
     "body": ["⨄"],
-    "description": "Big union plus"
+    "description": "Big union plus",
+    "sortText": "00000"
   },
   "noteq": {
-    "prefix": [ "\\noteq", "~="],
+    "prefix": ["\\\\noteq", "\\noteq", "~="],
     "body": ["≠"],
-    "description": "Not equal"
+    "description": "Not equal",
+    "sortText": "00000"
   },
   "sim": {
-    "prefix": [ "\\sim"],
+    "prefix": ["\\\\sim", "\\sim"],
     "body": ["∼"],
-    "description": "Similar to"
+    "description": "Similar to",
+    "sortText": "00000"
   },
   "doteq": {
-    "prefix": [ "\\doteq", ".="],
+    "prefix": ["\\\\doteq", "\\doteq", ".="],
     "body": ["≐"],
-    "description": "Dot equals"
+    "description": "Dot equals",
+    "sortText": "00000"
   },
   "simeq": {
-    "prefix": [ "\\simeq"],
+    "prefix": ["\\\\simeq", "\\simeq"],
     "body": ["≃"],
-    "description": "Similar or equal to"
+    "description": "Similar or equal to",
+    "sortText": "00000"
   },
   "approx": {
-    "prefix": [ "\\approx"],
+    "prefix": ["\\\\approx", "\\approx"],
     "body": ["≈"],
-    "description": "Approximately equal"
+    "description": "Approximately equal",
+    "sortText": "00000"
   },
   "asymp": {
-    "prefix": [ "\\asymp"],
+    "prefix": ["\\\\asymp", "\\asymp"],
     "body": ["≍"],
-    "description": "Asymptotically equal"
+    "description": "Asymptotically equal",
+    "sortText": "00000"
   },
   "cong": {
-    "prefix": [ "\\cong"],
+    "prefix": ["\\\\cong", "\\cong"],
     "body": ["≅"],
-    "description": "Congruent to"
+    "description": "Congruent to",
+    "sortText": "00000"
   },
   "smile": {
-    "prefix": [ "\\smile"],
+    "prefix": ["\\\\smile", "\\smile"],
     "body": ["⌣"],
-    "description": "Smile"
+    "description": "Smile",
+    "sortText": "00000"
   },
   "equiv": {
-    "prefix": [ "\\equiv", "=="],
+    "prefix": ["\\\\equiv", "\\equiv", "\\=="],
     "body": ["≡"],
-    "description": "Equivalent"
+    "description": "Equivalent",
+    "sortText": "00000"
   },
   "frown": {
-    "prefix": [ "\\frown"],
+    "prefix": ["\\\\frown", "\\frown"],
     "body": ["⌢"],
-    "description": "Frown"
+    "description": "Frown",
+    "sortText": "00000"
   },
   "Join": {
-    "prefix": [ "\\Join"],
+    "prefix": ["\\\\Join", "\\Join"],
     "body": ["⨝"],
-    "description": "Join"
+    "description": "Join",
+    "sortText": "00000"
   },
   "bowtie": {
-    "prefix": [ "\\bowtie"],
+    "prefix": ["\\\\bowtie", "\\bowtie"],
     "body": ["⟕"],
-    "description": "Bowtie"
+    "description": "Bowtie",
+    "sortText": "00000"
   },
   "prec": {
-    "prefix": [ "\\prec"],
+    "prefix": ["\\\\prec", "\\prec"],
     "body": ["≺"],
-    "description": "Precedes"
+    "description": "Precedes",
+    "sortText": "00000"
   },
   "succ": {
-    "prefix": [ "\\succ"],
+    "prefix": ["\\\\succ", "\\succ"],
     "body": ["≻"],
-    "description": "Succeeds"
+    "description": "Succeeds",
+    "sortText": "00000"
   },
   "preceq": {
-    "prefix": [ "\\preceq"],
+    "prefix": ["\\\\preceq", "\\preceq"],
     "body": ["≼"],
-    "description": "Precedes or equal"
+    "description": "Precedes or equal",
+    "sortText": "00000"
   },
   "succeq": {
-    "prefix": [ "\\succeq"],
+    "prefix": ["\\\\succeq", "\\succeq"],
     "body": ["≽"],
-    "description": "Succeeds or equal"
+    "description": "Succeeds or equal",
+    "sortText": "00000"
   },
   "parallel": {
-    "prefix": [ "\\parallel", "||"],
+    "prefix": ["\\\\parallel", "\\parallel", "||"],
     "body": ["∥"],
-    "description": "Parallel"
+    "description": "Parallel",
+    "sortText": "00000"
   },
   "Parallel": {
-    "prefix": [ "\\Parallel", "||"],
+    "prefix": ["\\\\Parallel", "\\Parallel", "||"],
     "body": ["‖"],
-    "description": "Double parallel"
+    "description": "Double parallel",
+    "sortText": "00000"
   },
   "interleave": {
-    "prefix": [ "\\interleave", "||"],
+    "prefix": ["\\\\interleave", "\\interleave", "||"],
     "body": ["⫴"],
-    "description": "Interleave"
+    "description": "Interleave",
+    "sortText": "00000"
   },
   "sslash": {
-    "prefix": [ "\\sslash", "||"],
+    "prefix": ["\\\\sslash", "\\sslash", "||"],
     "body": ["⫽"],
-    "description": "Double slash"
+    "description": "Double slash",
+    "sortText": "00000"
   },
   "bar": {
-    "prefix": [ "\\bar", "||"],
+    "prefix": ["\\\\bar", "\\bar", "||"],
     "body": ["¦"],
-    "description": "Broken bar"
+    "description": "Broken bar",
+    "sortText": "00000"
   },
   "bbar": {
-    "prefix": [ "\\bbar", "||"],
+    "prefix": ["\\\\bbar", "\\bbar", "||"],
     "body": ["⫿"],
-    "description": "Big bar"
+    "description": "Big bar",
+    "sortText": "00000"
   },
   "plusminus": {
-    "prefix": [ "\\plusminus"],
+    "prefix": ["\\\\plusminus", "\\plusminus"],
     "body": ["±"],
-    "description": "Plus minus"
+    "description": "Plus minus",
+    "sortText": "00000"
   },
   "minusplus": {
-    "prefix": [ "\\minusplus"],
+    "prefix": ["\\\\minusplus", "\\minusplus"],
     "body": ["∓"],
-    "description": "Minus plus"
+    "description": "Minus plus",
+    "sortText": "00000"
   },
   "times": {
-    "prefix": [ "\\times", "<*>"],
+    "prefix": ["\\\\times", "\\times", "<*>"],
     "body": ["×"],
-    "description": "Times"
+    "description": "Times",
+    "sortText": "00000"
   },
   "div": {
-    "prefix": [ "\\div"],
+    "prefix": ["\\\\div", "\\div"],
     "body": ["÷"],
-    "description": "Division"
+    "description": "Division",
+    "sortText": "00000"
   },
   "cdot": {
-    "prefix": [ "\\cdot"],
+    "prefix": ["\\\\cdot", "\\cdot"],
     "body": ["⋅"],
-    "description": "Center dot"
+    "description": "Center dot",
+    "sortText": "00000"
   },
   "star": {
-    "prefix": [ "\\star"],
+    "prefix": ["\\\\star", "\\star"],
     "body": ["⋆"],
-    "description": "Star"
+    "description": "Star",
+    "sortText": "00000"
   },
   "bullet": {
-    "prefix": [ "\\bullet"],
+    "prefix": ["\\\\bullet", "\\bullet"],
     "body": ["∙"],
-    "description": "Bullet"
+    "description": "Bullet",
+    "sortText": "00000"
   },
   "circ": {
-    "prefix": [ "\\circ"],
+    "prefix": ["\\\\circ", "\\circ"],
     "body": ["∘"],
-    "description": "Composition"
+    "description": "Composition",
+    "sortText": "00000"
   },
   "dagger": {
-    "prefix": [ "\\dagger"],
+    "prefix": ["\\\\dagger", "\\dagger"],
     "body": ["†"],
-    "description": "Dagger"
+    "description": "Dagger",
+    "sortText": "00000"
   },
   "ddagger": {
-    "prefix": [ "\\ddagger"],
+    "prefix": ["\\\\ddagger", "\\ddagger"],
     "body": ["‡"],
-    "description": "Double dagger"
+    "description": "Double dagger",
+    "sortText": "00000"
   },
   "lhd": {
-    "prefix": [ "\\lhd"],
+    "prefix": ["\\\\lhd", "\\lhd"],
     "body": ["⊲"],
-    "description": "Left triangular operator"
+    "description": "Left triangular operator",
+    "sortText": "00000"
   },
   "rhd": {
-    "prefix": [ "\\rhd"],
+    "prefix": ["\\\\rhd", "\\rhd"],
     "body": ["⊳"],
-    "description": "Right triangular operator"
+    "description": "Right triangular operator",
+    "sortText": "00000"
   },
   "unlhd": {
-    "prefix": [ "\\unlhd"],
+    "prefix": ["\\\\unlhd", "\\unlhd"],
     "body": ["⊴"],
-    "description": "Left triangular operator or equal"
+    "description": "Left triangular operator or equal",
+    "sortText": "00000"
   },
   "unrhd": {
-    "prefix": [ "\\unrhd"],
+    "prefix": ["\\\\unrhd", "\\unrhd"],
     "body": ["⊵"],
-    "description": "Right triangular operator or equal"
+    "description": "Right triangular operator or equal",
+    "sortText": "00000"
   },
   "triangleleft": {
-    "prefix": [ "\\triangleleft"],
+    "prefix": ["\\\\triangleleft", "\\triangleleft"],
     "body": ["◃"],
-    "description": "Triangle left"
+    "description": "Triangle left",
+    "sortText": "00000"
   },
   "triangleright": {
-    "prefix": [ "\\triangleright"],
+    "prefix": ["\\\\triangleright", "\\triangleright"],
     "body": ["▹"],
-    "description": "Triangle right"
+    "description": "Triangle right",
+    "sortText": "00000"
   },
   "triangle": {
-    "prefix": [ "\\triangle"],
+    "prefix": ["\\\\triangle", "\\triangle"],
     "body": ["△"],
-    "description": "Triangle"
+    "description": "Triangle",
+    "sortText": "00000"
   },
   "triangleq": {
-    "prefix": [ "\\triangleq"],
+    "prefix": ["\\\\triangleq", "\\triangleq"],
     "body": ["≜"],
-    "description": "Triangle equal"
+    "description": "Triangle equal",
+    "sortText": "00000"
   },
   "oplus": {
-    "prefix": [ "\\oplus"],
+    "prefix": ["\\\\oplus", "\\oplus"],
     "body": ["⊕"],
-    "description": "Circled plus"
+    "description": "Circled plus",
+    "sortText": "00000"
   },
   "Oplus": {
-    "prefix": [ "\\Oplus"],
+    "prefix": ["\\\\Oplus", "\\Oplus"],
     "body": ["⨁"],
-    "description": "Big circled plus"
+    "description": "Big circled plus",
+    "sortText": "00000"
   },
   "otimes": {
-    "prefix": [ "\\otimes"],
+    "prefix": ["\\\\otimes", "\\otimes"],
     "body": ["⊗"],
-    "description": "Circled times"
+    "description": "Circled times",
+    "sortText": "00000"
   },
   "Otimes": {
-    "prefix": [ "\\Otimes"],
+    "prefix": ["\\\\Otimes", "\\Otimes"],
     "body": ["⨂"],
-    "description": "Big circled times"
+    "description": "Big circled times",
+    "sortText": "00000"
   },
   "odot": {
-    "prefix": [ "\\odot"],
+    "prefix": ["\\\\odot", "\\odot"],
     "body": ["⊙"],
-    "description": "Circled dot"
+    "description": "Circled dot",
+    "sortText": "00000"
   },
   "Odot": {
-    "prefix": [ "\\Odot"],
+    "prefix": ["\\\\Odot", "\\Odot"],
     "body": ["⨀"],
-    "description": "Big circled dot"
+    "description": "Big circled dot",
+    "sortText": "00000"
   },
   "ominus": {
-    "prefix": [ "\\ominus"],
+    "prefix": ["\\\\ominus", "\\ominus"],
     "body": ["⊖"],
-    "description": "Circled minus"
+    "description": "Circled minus",
+    "sortText": "00000"
   },
   "oslash": {
-    "prefix": [ "\\oslash"],
+    "prefix": ["\\\\oslash", "\\oslash"],
     "body": ["⊘"],
-    "description": "Circled slash"
+    "description": "Circled slash",
+    "sortText": "00000"
   },
   "dots": {
-    "prefix": [ "\\dots", "..."],
+    "prefix": ["\\\\dots", "\\dots", "..."],
     "body": ["…"],
-    "description": "Ellipsis"
+    "description": "Ellipsis",
+    "sortText": "00000"
   },
   "cdots": {
-    "prefix": [ "\\cdots"],
+    "prefix": ["\\\\cdots", "\\cdots"],
     "body": ["⋯"],
-    "description": "Center dots"
+    "description": "Center dots",
+    "sortText": "00000"
   },
   "Sum": {
-    "prefix": [ "\\Sum", "SUM"],
+    "prefix": ["\\\\Sum", "\\Sum", "SUM"],
     "body": ["∑"],
-    "description": "Sum"
+    "description": "Sum",
+    "sortText": "00000"
   },
   "Prod": {
-    "prefix": [ "\\Prod", "PROD"],
+    "prefix": ["\\\\Prod", "\\Prod", "PROD"],
     "body": ["∏"],
-    "description": "Product"
+    "description": "Product",
+    "sortText": "00000"
   },
   "Coprod": {
-    "prefix": [ "\\Coprod"],
+    "prefix": ["\\\\Coprod", "\\Coprod"],
     "body": ["∐"],
-    "description": "Coproduct"
+    "description": "Coproduct",
+    "sortText": "00000"
   },
   "infinity": {
-    "prefix": [ "\\infinity"],
+    "prefix": ["\\\\infinity", "\\infinity"],
     "body": ["∞"],
-    "description": "Infinity"
+    "description": "Infinity",
+    "sortText": "00000"
   },
   "integral": {
-    "prefix": [ "\\integral"],
+    "prefix": ["\\\\integral", "\\integral"],
     "body": ["∫"],
-    "description": "Integral"
+    "description": "Integral",
+    "sortText": "00000"
   },
   "ointegral": {
-    "prefix": [ "\\ointegral"],
+    "prefix": ["\\\\ointegral", "\\ointegral"],
     "body": ["∮"],
-    "description": "Contour integral"
+    "description": "Contour integral",
+    "sortText": "00000"
   },
   "clubsuit": {
-    "prefix": [ "\\clubsuit"],
+    "prefix": ["\\\\clubsuit", "\\clubsuit"],
     "body": ["♣"],
-    "description": "Club suit"
+    "description": "Club suit",
+    "sortText": "00000"
   },
   "diamondsuit": {
-    "prefix": [ "\\diamondsuit"],
+    "prefix": ["\\\\diamondsuit", "\\diamondsuit"],
     "body": ["♢"],
-    "description": "Diamond suit"
+    "description": "Diamond suit",
+    "sortText": "00000"
   },
   "heartsuit": {
-    "prefix": [ "\\heartsuit"],
+    "prefix": ["\\\\heartsuit", "\\heartsuit"],
     "body": ["♡"],
-    "description": "Heart suit"
+    "description": "Heart suit",
+    "sortText": "00000"
   },
   "spadesuit": {
-    "prefix": [ "\\spadesuit"],
+    "prefix": ["\\\\spadesuit", "\\spadesuit"],
     "body": ["♠"],
-    "description": "Spade suit"
+    "description": "Spade suit",
+    "sortText": "00000"
   },
   "aleph": {
-    "prefix": [ "\\aleph"],
+    "prefix": ["\\\\aleph", "\\aleph"],
     "body": ["ℵ"],
-    "description": "Aleph"
+    "description": "Aleph",
+    "sortText": "00000"
   },
   "emptyset": {
-    "prefix": [ "\\emptyset"],
+    "prefix": ["\\\\emptyset", "\\emptyset"],
     "body": ["∅"],
-    "description": "Empty set"
+    "description": "Empty set",
+    "sortText": "00000"
   },
   "nabla": {
-    "prefix": [ "\\nabla"],
+    "prefix": ["\\\\nabla", "\\nabla"],
     "body": ["∇"],
-    "description": "Nabla"
+    "description": "Nabla",
+    "sortText": "00000"
   },
   "partial": {
-    "prefix": [ "\\partial"],
+    "prefix": ["\\\\partial", "\\partial"],
     "body": ["∂"],
-    "description": "Partial derivative"
+    "description": "Partial derivative",
+    "sortText": "00000"
   },
   "flat": {
-    "prefix": [ "\\flat"],
+    "prefix": ["\\\\flat", "\\flat"],
     "body": ["♭"],
-    "description": "Musical flat"
+    "description": "Musical flat",
+    "sortText": "00000"
   },
   "natural": {
-    "prefix": [ "\\natural"],
+    "prefix": ["\\\\natural", "\\natural"],
     "body": ["♮"],
-    "description": "Musical natural"
+    "description": "Musical natural",
+    "sortText": "00000"
   },
   "sharp": {
-    "prefix": [ "\\sharp"],
+    "prefix": ["\\\\sharp", "\\sharp"],
     "body": ["♯"],
-    "description": "Musical sharp"
+    "description": "Musical sharp",
+    "sortText": "00000"
   },
   "angle": {
-    "prefix": [ "\\angle"],
+    "prefix": ["\\\\angle", "\\angle"],
     "body": ["∠"],
-    "description": "Angle"
+    "description": "Angle",
+    "sortText": "00000"
   },
   "copyright": {
-    "prefix": [ "\\copyright"],
+    "prefix": ["\\\\copyright", "\\copyright"],
     "body": ["©"],
-    "description": "Copyright"
+    "description": "Copyright",
+    "sortText": "00000"
   },
   "registered": {
-    "prefix": [ "\\registered"],
+    "prefix": ["\\\\registered", "\\registered"],
     "body": ["®"],
-    "description": "Registered"
+    "description": "Registered",
+    "sortText": "00000"
   },
   "hyphen": {
-    "prefix": [ "\\hyphen"],
+    "prefix": ["\\\\hyphen", "\\hyphen"],
     "body": ["‐"],
-    "description": "Hyphen"
+    "description": "Hyphen",
+    "sortText": "00000"
   },
   "inverse": {
-    "prefix": [ "\\inverse"],
+    "prefix": ["\\\\inverse", "\\inverse"],
     "body": ["¯"],
-    "description": "Overline"
+    "description": "Overline",
+    "sortText": "00000"
   },
   "sqdot": {
-    "prefix": [ "\\sqdot"],
+    "prefix": ["\\\\sqdot", "\\sqdot"],
     "body": ["·"],
-    "description": "Middle dot"
+    "description": "Middle dot",
+    "sortText": "00000"
   },
   "onequarter": {
-    "prefix": [ "\\onequarter"],
+    "prefix": ["\\\\onequarter", "\\onequarter"],
     "body": ["¼"],
-    "description": "One quarter"
+    "description": "One quarter",
+    "sortText": "00000"
   },
   "onehalf": {
-    "prefix": [ "\\onehalf"],
+    "prefix": ["\\\\onehalf", "\\onehalf"],
     "body": ["½"],
-    "description": "One half"
+    "description": "One half",
+    "sortText": "00000"
   },
   "threequarters": {
-    "prefix": [ "\\threequarters"],
+    "prefix": ["\\\\threequarters", "\\threequarters"],
     "body": ["¾"],
-    "description": "Three quarters"
+    "description": "Three quarters",
+    "sortText": "00000"
   },
   "ordfeminine": {
-    "prefix": [ "\\ordfeminine"],
+    "prefix": ["\\\\ordfeminine", "\\ordfeminine"],
     "body": ["ª"],
-    "description": "Feminine ordinal indicator"
+    "description": "Feminine ordinal indicator",
+    "sortText": "00000"
   },
   "ordmasculine": {
-    "prefix": [ "\\ordmasculine"],
+    "prefix": ["\\\\ordmasculine", "\\ordmasculine"],
     "body": ["º"],
-    "description": "Masculine ordinal indicator"
+    "description": "Masculine ordinal indicator",
+    "sortText": "00000"
   },
   "section": {
-    "prefix": [ "\\section"],
+    "prefix": ["\\\\section", "\\section"],
     "body": ["§"],
-    "description": "Section"
+    "description": "Section",
+    "sortText": "00000"
   },
   "paragraph": {
-    "prefix": [ "\\paragraph"],
+    "prefix": ["\\\\paragraph", "\\paragraph"],
     "body": ["¶"],
-    "description": "Paragraph"
+    "description": "Paragraph",
+    "sortText": "00000"
   },
   "exclamdown": {
-    "prefix": [ "\\exclamdown"],
+    "prefix": ["\\\\exclamdown", "\\exclamdown"],
     "body": ["¡"],
-    "description": "Inverted exclamation mark"
+    "description": "Inverted exclamation mark",
+    "sortText": "00000"
   },
   "questiondown": {
-    "prefix": [ "\\questiondown"],
+    "prefix": ["\\\\questiondown", "\\questiondown"],
     "body": ["¿"],
-    "description": "Inverted question mark"
+    "description": "Inverted question mark",
+    "sortText": "00000"
   },
   "euro": {
-    "prefix": [ "\\euro"],
+    "prefix": ["\\\\euro", "\\euro"],
     "body": ["€"],
-    "description": "Euro"
+    "description": "Euro",
+    "sortText": "00000"
   },
   "pounds": {
-    "prefix": [ "\\pounds"],
+    "prefix": ["\\\\pounds", "\\pounds"],
     "body": ["£"],
-    "description": "Pound"
+    "description": "Pound",
+    "sortText": "00000"
   },
   "yen": {
-    "prefix": [ "\\yen"],
+    "prefix": ["\\\\yen", "\\yen"],
     "body": ["¥"],
-    "description": "Yen"
+    "description": "Yen",
+    "sortText": "00000"
   },
   "cent": {
-    "prefix": [ "\\cent"],
+    "prefix": ["\\\\cent", "\\cent"],
     "body": ["¢"],
-    "description": "Cent"
+    "description": "Cent",
+    "sortText": "00000"
   },
   "currency": {
-    "prefix": [ "\\currency"],
+    "prefix": ["\\\\currency", "\\currency"],
     "body": ["¤"],
-    "description": "Currency"
+    "description": "Currency",
+    "sortText": "00000"
   },
   "degree": {
-    "prefix": [ "\\degree"],
+    "prefix": ["\\\\degree", "\\degree"],
     "body": ["°"],
-    "description": "Degree"
+    "description": "Degree",
+    "sortText": "00000"
   },
   "amalg": {
-    "prefix": [ "\\amalg"],
+    "prefix": ["\\\\amalg", "\\amalg"],
     "body": ["⨿"],
-    "description": "Amalgamation"
+    "description": "Amalgamation",
+    "sortText": "00000"
   },
   "mho": {
-    "prefix": [ "\\mho"],
+    "prefix": ["\\\\mho", "\\mho"],
     "body": ["℧"],
-    "description": "Mho"
+    "description": "Mho",
+    "sortText": "00000"
   },
   "lozenge": {
-    "prefix": [ "\\lozenge"],
+    "prefix": ["\\\\lozenge", "\\lozenge"],
     "body": ["◊"],
-    "description": "Lozenge"
+    "description": "Lozenge",
+    "sortText": "00000"
   },
   "wp": {
-    "prefix": [ "\\wp"],
+    "prefix": ["\\\\wp", "\\wp"],
     "body": ["℘"],
-    "description": "Weierstrass p"
+    "description": "Weierstrass p",
+    "sortText": "00000"
   },
   "wrong": {
-    "prefix": [ "\\wrong"],
+    "prefix": ["\\\\wrong", "\\wrong"],
     "body": ["⟂"],
-    "description": "Wrong"
+    "description": "Wrong",
+    "sortText": "00000"
   },
   "acute": {
-    "prefix": [ "\\acute"],
+    "prefix": ["\\\\acute", "\\acute"],
     "body": ["´"],
-    "description": "Acute accent"
+    "description": "Acute accent",
+    "sortText": "00000"
   },
   "index": {
-    "prefix": [ "\\index"],
+    "prefix": ["\\\\index", "\\index"],
     "body": ["ı"],
-    "description": "Dotless i"
+    "description": "Dotless i",
+    "sortText": "00000"
   },
   "dieresis": {
-    "prefix": [ "\\dieresis"],
+    "prefix": ["\\\\dieresis", "\\dieresis"],
     "body": ["¨"],
-    "description": "Dieresis"
+    "description": "Dieresis",
+    "sortText": "00000"
   },
   "cedilla": {
-    "prefix": [ "\\cedilla"],
+    "prefix": ["\\\\cedilla", "\\cedilla"],
     "body": ["¸"],
-    "description": "Cedilla"
+    "description": "Cedilla",
+    "sortText": "00000"
   },
   "hungarumlaut": {
-    "prefix": [ "\\hungarumlaut"],
+    "prefix": ["\\\\hungarumlaut", "\\hungarumlaut"],
     "body": ["˝"],
-    "description": "Hungarian umlaut"
+    "description": "Hungarian umlaut",
+    "sortText": "00000"
   },
   "bind": {
-    "prefix": [ "\\bind", ">>="],
+    "prefix": ["\\\\bind", "\\bind", ">>="],
     "body": ["⤜"],
-    "description": "Bind"
+    "description": "Bind",
+    "sortText": "00000"
   },
   "then": {
-    "prefix": [ "\\then", ">>"],
+    "prefix": ["\\\\then", "\\then", ">>"],
     "body": ["⪢"],
-    "description": "Then"
+    "description": "Then",
+    "sortText": "00000"
   },
   "some": {
-    "prefix": [ "\\some"],
+    "prefix": ["\\\\some", "\\some"],
     "body": ["ϵ"],
-    "description": "Some"
+    "description": "Some",
+    "sortText": "00000"
   },
   "Zcomp": {
-    "prefix": [ "\\Zcomp"],
+    "prefix": ["\\\\Zcomp", "\\Zcomp"],
     "body": ["⨾"],
-    "description": "Z composition"
+    "description": "Z composition",
+    "sortText": "00000"
   },
   "Zinj": {
-    "prefix": [ "\\Zinj", ".>"],
+    "prefix": ["\\\\Zinj", "\\Zinj", ".>"],
     "body": ["⤳"],
-    "description": "Z injection"
+    "description": "Z injection",
+    "sortText": "00000"
   },
   "Zpinj": {
-    "prefix": [ "\\Zpinj", ".>"],
+    "prefix": ["\\\\Zpinj", "\\Zpinj", ".>"],
     "body": ["⤔"],
-    "description": "Z partial injection"
+    "description": "Z partial injection",
+    "sortText": "00000"
   },
   "Zfinj": {
-    "prefix": [ "\\Zfinj", ".>"],
+    "prefix": ["\\\\Zfinj", "\\Zfinj", ".>"],
     "body": ["⤕"],
-    "description": "Z finite injection"
+    "description": "Z finite injection",
+    "sortText": "00000"
   },
   "Zsurj": {
-    "prefix": [ "\\Zsurj", ".>"],
+    "prefix": ["\\\\Zsurj", "\\Zsurj", ".>"],
     "body": ["⤀"],
-    "description": "Z surjection"
+    "description": "Z surjection",
+    "sortText": "00000"
   },
   "Zpsurj": {
-    "prefix": [ "\\Zpsurj", ".>"],
+    "prefix": ["\\\\Zpsurj", "\\Zpsurj", ".>"],
     "body": ["⥀"],
-    "description": "Z partial surjection"
+    "description": "Z partial surjection",
+    "sortText": "00000"
   },
   "Zbij": {
-    "prefix": [ "\\Zbij", ".>"],
+    "prefix": ["\\\\Zbij", "\\Zbij", ".>"],
     "body": ["⤖"],
-    "description": "Z bijection"
+    "description": "Z bijection",
+    "sortText": "00000"
   },
   "Zpfun": {
-    "prefix": [ "\\Zpfun", ".>"],
+    "prefix": ["\\\\Zpfun", "\\Zpfun", ".>"],
     "body": ["⇸"],
-    "description": "Z partial function"
+    "description": "Z partial function",
+    "sortText": "00000"
   },
   "Zffun": {
-    "prefix": [ "\\Zffun", ".>"],
+    "prefix": ["\\\\Zffun", "\\Zffun", ".>"],
     "body": ["⇻"],
-    "description": "Z finite function"
+    "description": "Z finite function",
+    "sortText": "00000"
   },
   "Zdres": {
-    "prefix": [ "\\Zdres"],
+    "prefix": ["\\\\Zdres", "\\Zdres"],
     "body": ["◁"],
-    "description": "Z domain restriction"
+    "description": "Z domain restriction",
+    "sortText": "00000"
   },
   "Zndres": {
-    "prefix": [ "\\Zndres"],
+    "prefix": ["\\\\Zndres", "\\Zndres"],
     "body": ["⩤"],
-    "description": "Z domain anti-restriction"
+    "description": "Z domain anti-restriction",
+    "sortText": "00000"
   },
   "Zrres": {
-    "prefix": [ "\\Zrres"],
+    "prefix": ["\\\\Zrres", "\\Zrres"],
     "body": ["▷"],
-    "description": "Z range restriction"
+    "description": "Z range restriction",
+    "sortText": "00000"
   },
   "Znrres": {
-    "prefix": [ "\\Znrres"],
+    "prefix": ["\\\\Znrres", "\\Znrres"],
     "body": ["⩥"],
-    "description": "Z range anti-restriction"
+    "description": "Z range anti-restriction",
+    "sortText": "00000"
   },
   "Zspot": {
-    "prefix": [ "\\Zspot"],
+    "prefix": ["\\\\Zspot", "\\Zspot"],
     "body": ["⦁"],
-    "description": "Z spot"
+    "description": "Z spot",
+    "sortText": "00000"
   },
   "Zsemi": {
-    "prefix": [ "\\Zsemi"],
+    "prefix": ["\\\\Zsemi", "\\Zsemi"],
     "body": ["⨟"],
-    "description": "Z semicolon"
+    "description": "Z semicolon",
+    "sortText": "00000"
   },
   "Zproject": {
-    "prefix": [ "\\Zproject"],
+    "prefix": ["\\\\Zproject", "\\Zproject"],
     "body": ["⨡"],
-    "description": "Z projection"
+    "description": "Z projection",
+    "sortText": "00000"
   },
   "Ztypecolon": {
-    "prefix": [ "\\Ztypecolon"],
+    "prefix": ["\\\\Ztypecolon", "\\Ztypecolon"],
     "body": ["⦂"],
-    "description": "Z type colon"
+    "description": "Z type colon",
+    "sortText": "00000"
   },
   "Zhide": {
-    "prefix": [ "\\Zhide"],
+    "prefix": ["\\\\Zhide", "\\Zhide"],
     "body": ["⩹"],
-    "description": "Z hide"
+    "description": "Z hide",
+    "sortText": "00000"
   },
   "Zcat": {
-    "prefix": [ "\\Zcat"],
+    "prefix": ["\\\\Zcat", "\\Zcat"],
     "body": ["⌢"],
-    "description": "Z concatenation"
+    "description": "Z concatenation",
+    "sortText": "00000"
   },
   "Zinbag": {
-    "prefix": [ "\\Zinbag"],
+    "prefix": ["\\\\Zinbag", "\\Zinbag"],
     "body": ["⋿"],
-    "description": "Z in bag"
+    "description": "Z in bag",
+    "sortText": "00000"
   },
   "Zprime": {
-    "prefix": [ "\\Zprime"],
+    "prefix": ["\\\\Zprime", "\\Zprime"],
     "body": ["′"],
-    "description": "Z prime"
+    "description": "Z prime",
+    "sortText": "00000"
   },
   "hole": {
-    "prefix": [ "\\hole"],
+    "prefix": ["\\\\hole", "\\hole"],
     "body": ["⦵"],
-    "description": "Hole"
+    "description": "Hole",
+    "sortText": "00000"
   },
   "newline": {
-    "prefix": [ "\\newline"],
+    "prefix": ["\\\\newline", "\\newline"],
     "body": ["⏎"],
-    "description": "Newline"
+    "description": "Newline",
+    "sortText": "00000"
   },
   "comment": {
-    "prefix": [ "\\comment"],
+    "prefix": ["\\\\comment", "\\comment"],
     "body": ["‒"],
-    "description": "Comment"
+    "description": "Comment",
+    "sortText": "00000"
   },
   "cancel": {
-    "prefix": [ "\\cancel"],
+    "prefix": ["\\\\cancel", "\\cancel"],
     "body": ["⌻"],
-    "description": "Cancel"
+    "description": "Cancel",
+    "sortText": "00000"
   },
   "marker": {
-    "prefix": [ "\\marker"],
+    "prefix": ["\\\\marker", "\\marker"],
     "body": ["✐"],
-    "description": "Marker"
+    "description": "Marker",
+    "sortText": "00000"
   },
   "checkmark": {
-    "prefix": [ "\\checkmark"],
+    "prefix": ["\\\\checkmark", "\\checkmark"],
     "body": ["✓"],
-    "description": "Check mark"
+    "description": "Check mark",
+    "sortText": "00000"
   },
   "crossmark": {
-    "prefix": [ "\\crossmark"],
+    "prefix": ["\\\\crossmark", "\\crossmark"],
     "body": ["✗"],
-    "description": "Cross mark"
+    "description": "Cross mark",
+    "sortText": "00000"
   },
   "open": {
-    "prefix": [ "\\open", "<<"],
+    "prefix": ["\\\\open", "\\open", "<<"],
     "body": ["‹"],
-    "description": "Single left angle quotation mark"
+    "description": "Single left angle quotation mark",
+    "sortText": "00000"
   },
   "close": {
-    "prefix": [ "\\close", ">>"],
+    "prefix": ["\\\\close", "\\close", ">>"],
     "body": ["›"],
-    "description": "Single right angle quotation mark"
+    "description": "Single right angle quotation mark",
+    "sortText": "00000"
   },
   "here": {
-    "prefix": [ "\\here"],
+    "prefix": ["\\\\here", "\\here"],
     "body": ["⌂"],
-    "description": "Here"
+    "description": "Here",
+    "sortText": "00000"
   },
   "undefined": {
-    "prefix": [ "\\undefined"],
+    "prefix": ["\\\\undefined", "\\undefined"],
     "body": ["❖"],
-    "description": "Undefined"
+    "description": "Undefined",
+    "sortText": "00000"
   },
   "noindent": {
-    "prefix": [ "\\noindent"],
+    "prefix": ["\\\\noindent", "\\noindent"],
     "body": ["⟾"],
-    "description": "No indent"
+    "description": "No indent",
+    "sortText": "00000"
   },
   "smallskip": {
-    "prefix": [ "\\smallskip"],
+    "prefix": ["\\\\smallskip", "\\smallskip"],
     "body": ["┘"],
-    "description": "Small skip"
+    "description": "Small skip",
+    "sortText": "00000"
   },
   "medskip": {
-    "prefix": [ "\\medskip"],
+    "prefix": ["\\\\medskip", "\\medskip"],
     "body": ["┙"],
-    "description": "Medium skip"
+    "description": "Medium skip",
+    "sortText": "00000"
   },
   "bigskip": {
-    "prefix": [ "\\bigskip"],
+    "prefix": ["\\\\bigskip", "\\bigskip"],
     "body": ["─"],
-    "description": "Big skip"
+    "description": "Big skip",
+    "sortText": "00000"
   },
   "item": {
-    "prefix": [ "\\item"],
+    "prefix": ["\\\\item", "\\item"],
     "body": ["▪"],
-    "description": "Item"
+    "description": "Item",
+    "sortText": "00000"
   },
   "enum": {
-    "prefix": [ "\\enum"],
+    "prefix": ["\\\\enum", "\\enum"],
     "body": ["▸"],
-    "description": "Enumeration"
+    "description": "Enumeration",
+    "sortText": "00000"
   },
   "descr": {
-    "prefix": [ "\\descr"],
+    "prefix": ["\\\\descr", "\\descr"],
     "body": ["❧"],
-    "description": "Description"
+    "description": "Description",
+    "sortText": "00000"
   },
   "footnote": {
-    "prefix": [ "\\footnote"],
+    "prefix": ["\\\\footnote", "\\footnote"],
     "body": ["⁎"],
-    "description": "Footnote"
+    "description": "Footnote",
+    "sortText": "00000"
   },
   "verbatim": {
-    "prefix": [ "\\verbatim"],
+    "prefix": ["\\\\verbatim", "\\verbatim"],
     "body": ["▫"],
-    "description": "Verbatim"
+    "description": "Verbatim",
+    "sortText": "00000"
   },
   "theory_text": {
-    "prefix": [ "\\theory_text"],
+    "prefix": ["\\\\theory_text", "\\theory_text"],
     "body": ["⫦"],
-    "description": "Theory text"
+    "description": "Theory text",
+    "sortText": "00000"
   },
   "emph": {
-    "prefix": [ "\\emph"],
+    "prefix": ["\\\\emph", "\\emph"],
     "body": ["∗"],
-    "description": "Emphasis"
+    "description": "Emphasis",
+    "sortText": "00000"
   },
   "bold": {
-    "prefix": [ "\\bold"],
+    "prefix": ["\\\\bold", "\\bold"],
     "body": ["❙"],
-    "description": "Bold"
+    "description": "Bold",
+    "sortText": "00000"
   },
   "sub": {
-    "prefix": [ "\\sub"],
+    "prefix": ["\\\\sub", "\\sub"],
     "body": ["⇩"],
-    "description": "Subscript"
+    "description": "Subscript",
+    "sortText": "00000"
   },
   "sup": {
-    "prefix": [ "\\sup"],
+    "prefix": ["\\\\sup", "\\sup"],
     "body": ["⇧"],
-    "description": "Superscript"
+    "description": "Superscript",
+    "sortText": "00000"
   },
   "bsub": {
-    "prefix": [ "\\bsub", "=_("],
+    "prefix": ["\\\\bsub", "\\bsub", "=_("],
     "body": ["⇘"],
-    "description": "Begin subscript"
+    "description": "Begin subscript",
+    "sortText": "00000"
   },
   "esub": {
-    "prefix": [ "\\esub", "=_)"],
+    "prefix": ["\\\\esub", "\\esub", "=_)"],
     "body": ["⇙"],
-    "description": "End subscript"
+    "description": "End subscript",
+    "sortText": "00000"
   },
   "bsup": {
-    "prefix": [ "\\bsup", "=^("],
+    "prefix": ["\\\\bsup", "\\bsup", "=^("],
     "body": ["⇗"],
-    "description": "Begin superscript"
+    "description": "Begin superscript",
+    "sortText": "00000"
   },
   "esup": {
-    "prefix": [ "\\esup", "=^)"],
+    "prefix": ["\\\\esup", "\\esup", "=^)"],
     "body": ["⇖"],
-    "description": "End superscript"
+    "description": "End superscript",
+    "sortText": "00000"
   },
   "file": {
-    "prefix": [ "\\file"],
+    "prefix": ["\\\\file", "\\file"],
     "body": ["🗏"],
-    "description": "File"
+    "description": "File",
+    "sortText": "00000"
   },
   "dir": {
-    "prefix": [ "\\dir"],
+    "prefix": ["\\\\dir", "\\dir"],
     "body": ["🗀"],
-    "description": "Directory"
+    "description": "Directory",
+    "sortText": "00000"
   },
   "url": {
-    "prefix": [ "\\url"],
+    "prefix": ["\\\\url", "\\url"],
     "body": ["🌐"],
-    "description": "URL"
+    "description": "URL",
+    "sortText": "00000"
   },
   "doc": {
-    "prefix": [ "\\doc"],
+    "prefix": ["\\\\doc", "\\doc"],
     "body": ["🗎"],
-    "description": "Document"
+    "description": "Document",
+    "sortText": "00000"
   },
   "action": {
-    "prefix": [ "\\action"],
+    "prefix": ["\\\\action", "\\action"],
     "body": ["☛"],
-    "description": "Action"
+    "description": "Action",
+    "sortText": "00000"
   }
 }
