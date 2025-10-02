@@ -377,4 +377,24 @@ lemma if_bool_eq_conj_example: "(if P then Q else R) = ((P ⟶ Q) ∧ (¬ P ⟶ 
 lemma if_split_example: "P (if Q then x else y) = ((Q ⟶ P x) ∧ (¬ Q ⟶ P y))"
   by (rule if_split)
 
+(* ================================================================= *)
+(* 等式符号区别演示 *)
+(* ================================================================= *)
+
+(* 在 Isabelle/HOL 中，主要的等式和等价符号有： *)
+
+(* 1. P = Q - 通用等式 *)
+(* 对于布尔值，表示逻辑等价 *)
+lemma equality_example: "(P = Q) = ((P ⟶ Q) ∧ (Q ⟶ P))"
+  by blast
+
+(* 2. P ⟷ Q - 逻辑等价 (if and only if) *)
+(* 这是 ⟷ 符号，与 P = Q 在布尔类型上等价 *)
+lemma iff_symbol_example: "P ⟷ Q ⟷ (P ⟶ Q) ∧ (Q ⟶ P)"
+  by blast
+
+(* 3. P ↔ Q 和 P ⇔ Q *)
+(* 这些符号在 Isabelle 中通常不被识别为逻辑等价 *)
+(* 它们可能需要特殊的导入或在其他上下文中使用 *)
+
 end
