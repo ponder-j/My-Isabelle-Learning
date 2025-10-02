@@ -45,4 +45,33 @@ where
   (* 假消除（爆炸原理）：从假命题可以推出任何命题 *)
   FalseE : "False ⟹ P"
 
+axiomatization
+  (* 全称量词 *)
+  All :: "('a ⇒ o) ⇒ o"  (binder "∀" 10) and
+  (* 存在量词 *)
+  Ex :: "('a ⇒ o) ⇒ o"  (binder "∃" 10)
+where
+  (* 全称引入：如果对于任意x，P(x)都成立，则“对所有x, P(x)”成立 *)
+  allI: "(⋀x. P(x)) ⟹ (∀x. P(x))" and
+  (* 全称消除（特化）：如果“对所有x, P(x)”成立，则对于某个特定的x，P(x)也成立 *)
+  spec: "(∀x. P(x)) ⟹ P(x)" and
+  (* 存在引入：如果存在某个x使得P(x)成立，则“存在x, P(x)”成立 *)
+  exI: "P(x) ⟹ (∃x. P(x))" and
+  (* 存在消除：如果“存在x, P(x)”成立，并且从P(x)（对于任意x）可以推出R，则R成立 *)
+  exE: "⟦∃x. P(x); ⋀x. P(x) ⟹ R⟧ ⟹ R"
+
+(* 真命题的定义：通过双重否定定义真 *)
+(* True定义为"假蕴含假"，这在直觉上总是真的 *)
+definition "True ≡ False ⟶ False"
+
+(* 否定操作的定义 *)
+(* ¬P 定义为 "P蕴含假"，即P为真时导致矛盾 *)
+definition Not ("¬ _" [40] 40)
+  where not_def: "¬ P ≡ P ⟶ False"
+
+(* 当且仅当（双条件）的定义 *)
+(* P⟷Q 定义为 P蕴含Q 且 Q蕴含P，即两个命题等价 *)
+definition iff  (infixr "⟷" 25)
+  where "P ⟷ Q ≡ (P ⟶ Q) ∧ (Q ⟶ P)"
+
 end
