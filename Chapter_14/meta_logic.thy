@@ -1,5 +1,5 @@
 theory meta_logic
-  imports Main
+  imports Pure
 begin
 
 typedecl o
