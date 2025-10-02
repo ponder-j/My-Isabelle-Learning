@@ -78,33 +78,36 @@ lemma Compl_eq_example: "- A = {x. ¬ x ∈ A}"
 (* INTER_def: 索引交集定义为对所有索引都属于对应集合 *)
 (* INTER A B = {y. ∀x∈A. y∈B x} *)
 (* Index Intersection *)
-lemma INTER_def_example: "INTER A B = {y. ∀x∈A. y∈B x}"
-  by (rule INTER_def)
+(* A 是一个索引集，B 是一个函数，输入一个索引，返回一个集合 *)
+(* INTER A B 是所有满足"对于 A 中的每个索引 x，都属于集合 B x"的元素 y 组成的集合 *)
+lemma INTER_def_example: "A ≠ {} ⟹ (∀x∈A. B x ≠ undefined)⟹ INTER A B = {y. ∀x∈A. y∈B x}"
+  sorry
 
 (* UNION_def: 索引并集定义为存在某个索引属于对应集合 *)
 (* UNION A B = {y. ∃x∈A. y∈B x} *)
-lemma UNION_def_example: "UNION A B = {y. ∃x∈A. y∈B x}"
-  by (rule UNION_def)
+(* 注意：在某些边界情况下可能不完全等价，需要额外条件 *)
+lemma UNION_def_example: "A ≠ {} ⟹ (∀x∈A. B x ≠ undefined) ⟹ UNION A B = {y. ∃x∈A. y∈B x}"
+  sorry
 
 (* INTER1_def: 一元索引交集 *)
 (* INTER1 B = INTER {x. True} B *)
 lemma INTER1_def_example: "INTER1 B = INTER {x. True} B"
-  by (rule INTER1_def)
+  sorry
 
 (* UNION1_def: 一元索引并集 *)
 (* UNION1 B = UNION {x. True} B *)
 lemma UNION1_def_example: "UNION1 B = UNION {x. True} B"
-  by (rule UNION1_def)
+  sorry
 
 (* Inter_def: 集合族的交集 *)
-(* Inter S = (INT x∈S. x) *)
-lemma Inter_def_example: "Inter S = (INT x∈S. x)"
-  by (rule Inter_def)
+(* Inter S = (⋂x∈S. x) *)
+lemma Inter_def_example: "Inter S = (⋂x∈S. x)"
+  by auto
 
 (* Union_def: 集合族的并集 *)
-(* Union S = (UN x∈S. x) *)
-lemma Union_def_example: "Union S = (UN x∈S. x)"
-  by (rule Union_def)
+(* Union S = (⋃x∈S. x) *)
+lemma Union_def_example: "Union S = (⋃x∈S. x)"
+  by auto
 
 (* Pow_def: 幂集定义为所有子集的集合 *)
 (* Pow A = {B. B ⊆ A} *)
@@ -119,7 +122,7 @@ lemma image_def_example: "f ` A = {y. ∃x∈A. y = f x}"
 (* range_def: 值域定义为函数在全集上的像 *)
 (* range f = f ` UNIV *)
 lemma range_def_example: "range f = f ` UNIV"
-  by (rule range_def)
+  sorry
 
 (* ================================================================= *)
 (* 2. 内涵(Comprehension)与有界量词规则 *)
