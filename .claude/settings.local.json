@@ -12,7 +12,10 @@
       "Bash(ssh:*)",
       "Bash(curl:*)",
       "Read(//Applications/**)",
-      "Bash(find:*)"
+      "Bash(find:*)",
+      "Read(//c/Users/A2140/.vscode/extensions/undefined_publisher.isabelle-syntax-highlighter-1.0.0/**)",
+      "Bash(cat:*)",
+      "Bash(npm run compile:*)"
     ],
     "deny": [],
     "ask": []
