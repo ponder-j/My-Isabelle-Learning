@@ -2473,7 +2473,7 @@
   },
   "open": {
     "prefix": ["\\\\open", "\\open", "<<"],
-    "body": ["‹"],
+    "body": ["‹›"],
     "description": "Single left angle quotation mark",
     "sortText": "00000"
   },
