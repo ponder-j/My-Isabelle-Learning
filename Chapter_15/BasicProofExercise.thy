@@ -14,49 +14,121 @@ begin
    提示：这比原题简单一些，用于热身 *)
 theorem exercise1: ‹(A ⟶ B) ⟶ (B ⟶ C) ⟶ A ⟶ C›
 (* TODO: 完成证明 *)
-sorry
+apply (rule impI)
+apply (rule impI)
+apply (rule impI)
+apply (erule mp)
+apply (erule mp)
+apply assumption
+done
+
 
 (* 练习2：组合子 K (常函数)
    提示：这需要忽略第二个参数 *)
 theorem exercise2: ‹A ⟶ B ⟶ A›
 (* TODO: 完成证明 *)
-sorry
+apply (rule impI)
+apply (rule impI)
+apply assumption
+done
 
 (* 练习3：组合子 S 的简化版
    提示：类似原例题，但结构稍有不同 *)
 theorem exercise3: ‹(A ⟶ B ⟶ C) ⟶ (A ⟶ B) ⟶ (A ⟶ C)›
 (* TODO: 完成证明 *)
-sorry
+apply (rule impI)
+apply (rule impI)
+apply (rule impI)
+apply (subgoal_tac ‹B ⟶ C›)
+apply (erule mp)
+apply (erule mp)
+apply assumption
+apply (erule mp)
+apply assumption
+done
+
 
 (* 练习4：双重应用
    提示：需要两次应用 mp 规则 *)
 theorem exercise4: ‹(A ⟶ B ⟶ C ⟶ D) ⟶ (A ⟶ B) ⟶ (A ⟶ C) ⟶ A ⟶ D›
 (* TODO: 完成证明 *)
-sorry
+apply (rule impI)
+apply (rule impI)
+apply (rule impI)
+apply (rule impI)
+apply (subgoal_tac ‹B ⟶ C ⟶ D›)
+apply (subgoal_tac ‹C ⟶ D›)
+apply (erule mp)
+apply (erule mp)
+apply assumption
+apply (erule mp)
+apply (erule mp)
+apply assumption
+apply (erule mp)
+apply assumption
+done
 
 (* 练习5：嵌套蕴含
    提示：小心处理嵌套的蕴含结构 *)
 theorem exercise5: ‹A ⟶ (B ⟶ C) ⟶ B ⟶ A ⟶ C›
 (* TODO: 完成证明 *)
-sorry
+apply (rule impI)
+apply (rule impI)
+apply (rule impI)
+apply (rule impI)
+apply (erule mp)
+apply assumption
+done
+
 
 (* 练习6：自应用
    提示：一个参数同时作为函数和参数使用 *)
 theorem exercise6: ‹(A ⟶ A ⟶ B) ⟶ A ⟶ B›
 (* TODO: 完成证明 *)
-sorry
+apply (rule impI)
+apply (rule impI)
+apply (subgoal_tac ‹A ⟶ B›)
+apply (erule mp)
+apply assumption
+apply (erule mp)
+apply assumption
+done
+
 
 (* 练习7：组合运算
    提示：这是一个稍微复杂的组合子，需要仔细安排证明步骤 *)
 theorem exercise7: ‹(A ⟶ B ⟶ C) ⟶ B ⟶ A ⟶ C›
 (* TODO: 完成证明 *)
-sorry
+apply (rule impI)
+apply (rule impI)
+apply (rule impI)
+apply (subgoal_tac ‹B ⟶ C›)
+apply (erule mp)
+apply assumption
+apply (erule mp)
+apply assumption
+done
+
 
 (* 练习8：挑战题 - 四元组合子
    提示：这是最难的一个，需要多个 subgoal_tac 和仔细的规划 *)
 theorem exercise8: ‹(A ⟶ B ⟶ C ⟶ D) ⟶ (A ⟶ B) ⟶ (A ⟶ C) ⟶ (A ⟶ D)›
 (* TODO: 完成证明 *)
-sorry
+apply (rule impI)
+apply (rule impI)
+apply (rule impI)
+apply (rule impI)
+apply (subgoal_tac ‹B ⟶ C ⟶ D›)
+apply (subgoal_tac ‹C ⟶ D›)
+apply (erule mp)
+apply (erule mp)
+apply assumption
+apply (erule mp)
+apply (erule mp)
+apply assumption
+apply (erule mp)
+apply assumption
+done
 
 (*
 证明技巧提醒：
