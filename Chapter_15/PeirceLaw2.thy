@@ -19,8 +19,9 @@ apply (erule disjE)
 
 (* ¬ (P ⟶ Q) ⟹ P ∧ ¬ Q *)
 apply (drule Meson.not_impD)
-apply (erule conjE)
-apply assumption
+(* apply (erule conjE)
+apply assumption *)
+apply (erule conjunct1)
 apply assumption
 done
 
