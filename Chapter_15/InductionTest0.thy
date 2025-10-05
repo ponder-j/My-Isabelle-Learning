@@ -14,6 +14,10 @@ apply (subgoal_tac ‹{x. x < Suc n} = insert n {x. x < n}›)
 (* apply methods done ≈ by methods *)
 by auto
 
+(* cases 方法
+语法 cases term [rule: rule]
+作用 使用规则 rule（若未给出则自动选择），对项 term 进行分情况讨论。 *)
+
  (* 这个证明要证明 ∑{x | x < n} 2^x = 2^n - 1。在归纳步骤中，需要从：
 
   - 归纳假设：∑{x | x < n} 2^x = 2^n - 1
@@ -34,5 +38,49 @@ by auto
     - 先用这个等式重写集合
     - 再应用 sum 的分解性质
     - 最后用归纳假设和算术 *)
+
+(* 递归定义，将一个列表反转后接入另一个列表前面 *)
+primrec rev_append :: ‹'a list ⇒ 'a list ⇒ 'a list› where
+  ‹rev_append [] l2 = l2› | 
+  ‹rev_append (x#l1) l2 = rev_append l1 (x#l2)›
+
+(* 验证定义的正确性 *)
+theorem rev_append_correct: ‹rev_append l1 l2 = rev l1 @ l2›
+(* list.induct：?P [] ⟹ (∧x1 x2. ?P x2 ⟹ ?P (x1#x2)) ⟹ ?P ?list *)
+(* 对于任意命题 P，若 P([]) 成立，且对任意 x 与 list， 由 P(list) 能推出 P(x#list)，则 P(list) 对任意 list 成立 *)
+apply (induct l1 arbitrary: l2)
+(* 不加 arbitrary: l2 无法通过 auto 证明 *)
+(* 1. rev_append [] l2 = rev [] @ l2
+   2. ⋀a l1. rev_append l1 l2 = rev l1 @ l2 ⟹ rev_append (a # l1) l2 = rev (a # l1) @ l2 *)
+apply simp
+(* 1. ⋀a l1. rev_append l1 l2 = rev l1 @ l2 ⟹ rev_append (a # l1) l2 = rev (a # l1) @ l2 *)
+by auto
+
+(* 归纳类型上的证明 *)
+(* Leaf 表示空树，不包含任何元素！不只是个叶子节点噢 *)
+datatype 'a tree = Leaf | Branch ‹'a tree› 'a ‹'a tree›
+(* 中序遍历 *)
+primrec inorder :: ‹'a tree ⇒ 'a list› where
+  ‹inorder Leaf = []› | 
+  ‹inorder (Branch left x right) = inorder left @ (x # inorder right) ›
+primrec mirror :: ‹'a tree ⇒ 'a tree› where
+  ‹mirror Leaf = Leaf› | 
+  ‹mirror (Branch left x right) = Branch (mirror right) x (mirror left)›
+
+(* 下面利用中序遍历证明 mirror 函数的正确性 *)
+theorem mirror_correct: ‹rev (inorder t) = inorder (mirror t)›
+(* apply (induct t)
+apply simp
+by auto *)
+(* 复合证明方法 *)
+by (induct t; simp)
+
+(* 归纳谓词 *)
+inductive even_ind :: ‹nat ⇒ bool› where
+  even_0: ‹even_ind 0› | 
+  even_SS: ‹even_ind n ⟹ even_ind (Suc (Suc n))›
+
+thm even_0 even_SS
+thm even_ind.induct
 
 end
