@@ -68,7 +68,7 @@ proof
     (* ────── 方向一: even_ind n ⟹ even n ────── *)
     assume ‹even_ind n›
     (* ↑ 假设 even_ind n 成立 *)
-
+    (* then 表示在证明中使用刚才陈述的假设 *)
     then show ‹even n›
     (* ↑ 需要证明 even n，使用归纳法和自动证明 *)
     apply induct
@@ -121,9 +121,48 @@ theorem
   fixes list :: ‹'a :: order list›
   (* fix 声明变量，'a :: order 表明 'a 必须支持排序操作 *)
   (* 一般情况不需要声明自由变量，但这里用到排序，必须先限定 'a 的类型 *)
-  assumes assum: ‹∀i. Suc i < length list ⟶ list ! i ≤ list ! (Suc i)›
-  shows ‹∀i j. j < length list ⟶ i ≤ j ⟶ list ! i ≤ list ! j›
+  assumes assum: ‹∀i. Suc i < length list ⟶ list!i ≤ list!(Suc i)›
+  shows ‹∀i j. j < length list ⟶ i ≤ j ⟶ list!i ≤ list!j›
 proof clarify
 (* clarify 用于整理命题 *)
+(* ⋀i j. j < length list ⟹ i ≤ j ⟹ list ! i ≤ list ! j *)
+  fix i j :: nat
+  assume j_less: ‹j < length list›
+  assume ‹i ≤ j›
+  (* lemma le_Suc_ex: "m ≤ n ⟹ ∃k. n = m + k" *)
+  then obtain k where k_rule: ‹i + k = j› using le_Suc_ex by blast
+  (* from 用于在证明中使用指定的已知事实作为前提，与 using 作用相似 *)
+  (* from ... have P using ... by ... *)
+  (* from 的内容可以放 using 后面，using 的内容可以放 from 后面 *)
+  (* then = from this, this 代指上一个证明或假设的命题 *)
+  (* with ... = from ... this *)
+  (* hence = then have *)
+  (* thus = then show *)
+  from k_rule j_less have ‹list!i ≤ list!(i+k)›
+  proof (induct k arbitrary: j)
+    (* case 1: k = 0 *)
+    show ‹list!i ≤ list!(i+0)› by simp
+  next
+    (* case 2: k = Suc k' *)
+    fix k' j
+    (* Induction Hypothesis *)
+    assume IH: ‹⋀j. i + k' = j ⟹ j < length list ⟹ list!i ≤ list!(i+k')›
+    assume a1: ‹i + Suc k' = j›
+    assume a2: ‹j < length list›
+    from a1 a2 have *: ‹Suc (i + k') < length list› by simp
+    with IH have ‹list!i ≤ list!(i+k')› by simp
+    also from assum[rule_format, OF *] have ‹list!(i+k') ≤ list!Suc(i+k')›.
+    finally show ‹list!i ≤ list!(i + Suc k')› by simp
+  qed
+  with k_rule show ‹list!i ≤ list!j› by simp
+qed
+(* 15.5 Isar 证明特殊结构 *)
+(* also-finally *)
+(* moreover-ultimately *)
 
+(* 定理修饰符 *)
+(* of t1 ... tn 给出定理中形式变量的取值 *)
+(* OF P1 ... Pn 给出定理的前提 *)
+(* rule_format 将定理改写成标准规则形式 *)
+(* symmetric 交换等式两边 *)
 end
