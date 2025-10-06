@@ -2,187 +2,85 @@ theory InductionTest
   imports Main
 begin
 
-(* ====== INDUCT 参数详解和例子 ====== *)
-(* 语法: apply (induct term [arbitrary: vars] [rule: induction_rule]) *)
+theorem ‹sum (λx. (2::nat)^x) {x. x<n} = 2^n-1›
+(* induct term [arbitrary: variables] [rule: rule] *)
+(* 对项 term 使用归纳法。使用归纳规则前，先用全称量词约束每个标记为 arbitrary 的变量。若给出了 rule 选项，则将 rule 作为归纳规则。 *)
+apply (induct n)
+(* 1. (∑x | x < 0. 2 ^ x) = 2 ^ 0 - 1
+   2. ⋀n. (∑x | x < n. 2 ^ x) = 2 ^ n - 1 ⟹ (∑x | x < Suc n. 2 ^ x) = 2 ^ Suc n - 1 *)
+apply simp
+(* 1. ⋀n. (∑x | x < n. 2 ^ x) = 2 ^ n - 1 ⟹ (∑x | x < Suc n. 2 ^ x) = 2 ^ Suc n - 1 *)
+apply (subgoal_tac ‹{x. x < Suc n} = insert n {x. x < n}›)
+(* apply methods done ≈ by methods *)
+by auto
 
-(* 1. 基本的归纳法 - 没有参数 *)
-lemma append_assoc: "(xs @ ys) @ zs = xs @ (ys @ zs)"
-  apply (induct xs)
-  (* 自动选择列表归纳法，产生两个子目标：
-     1. ([] @ ys) @ zs = [] @ (ys @ zs)  
-     2. ⋀a xs. (xs @ ys) @ zs = xs @ (ys @ zs) ⟹ ((a # xs) @ ys) @ zs = (a # xs) @ (ys @ zs) *)
-   apply simp  (* 基础情况 *)
-   apply simp  (* 归纳步骤 *)
-  done
+(* cases 方法
+语法 cases term [rule: rule]
+作用 使用规则 rule（若未给出则自动选择），对项 term 进行分情况讨论。 *)
 
-(* 没有arbitrary: 这个参数在整个证明过程中保持固定
-有arbitrary: 在每个归纳步骤中，你都可以重新选择这个参数的值
-这就是为什么arbitrary参数让证明变得更加灵活和强大的原因！ *)
-(* 2A. 不使用 arbitrary 参数的情况 *)
-lemma length_append_without_arbitrary: 
-  "∀ys. length (xs @ ys) = length xs + length ys"
-  apply (induct xs)
-  (* 不使用 arbitrary，产生的子目标：
-     基础情况: ∀ys. length ([] @ ys) = length [] + length ys
-     归纳步骤: ∀ys. length (xs @ ys) = length xs + length ys 
-               ⟹ ∀ys. length ((a # xs) @ ys) = length (a # xs) + length ys *)
-  apply auto
-  done
+ (* 这个证明要证明 ∑{x | x < n} 2^x = 2^n - 1。在归纳步骤中，需要从：
 
-(* 2B. 使用 arbitrary 参数的情况 *)
-lemma length_append_with_arbitrary: "length (xs @ ys) = length xs + length ys"
-  apply (induct xs arbitrary: ys)
-  (* 使用 arbitrary: ys，产生的子目标：
-     基础情况: ⋀ys. length ([] @ ys) = length [] + length ys
-     归纳步骤: ⋀a xs. (⋀ys. length (xs @ ys) = length xs + length ys) 
-                     ⟹ (⋀ys. length ((a # xs) @ ys) = length (a # xs) + length ys) *)
-  apply auto
-  done
+  - 归纳假设：∑{x | x < n} 2^x = 2^n - 1
+  - 证明目标：∑{x | x < Suc n} 2^x = 2^(Suc n) - 1
 
-(* 2C. 更清楚的对比例子
-lemma comparison_example: "P xs ys"
-  apply (induct xs)
-  (* 不使用 arbitrary: ys，子目标中 ys 是固定的自由变量
-     基础情况: P [] ys  
-     归纳步骤: P xs ys ⟹ P (a # xs) ys  *)
-  sorry
+  关键在于集合 {x. x < Suc n} 与 {x. x < n} 的关系。
 
-lemma comparison_example_arbitrary: "P xs ys"  
-  apply (induct xs arbitrary: ys)
-  (* 使用 arbitrary: ys，子目标中 ys 被重新量化
-     基础情况: ⋀ys. P [] ys
-     归纳步骤: ⋀a xs. (⋀ys. P xs ys) ⟹ (⋀ys. P (a # xs) ys) *)
-  sorry *)
+  为什么需要显式提示
 
-(* 3. 使用 arbitrary 参数 - 多个变量 *)
-lemma add_assoc: "a + (b + (c::nat)) = (a + b) + c"
-  apply (induct c arbitrary: a b)
-  (* arbitrary: a b 表示a和b都作为任意变量处理 *)
-  apply auto
-  done
+  subgoal_tac 显式地告诉 Isabelle：{x. x < Suc n} = insert n {x. x < n}
 
-(* 4. 使用 rule 参数 - 强归纳法 *)
-(* lemma strong_induct_example: "⋀n::nat. (⋀m. m < n ⟹ Q m) ⟹ Q n"
-  apply (induct_tac n rule: nat_less_induct)
-  (* nat_less_induct: 强归纳法规则 *)
-  apply blast
-  done *)
+  这个等式非常关键，因为：
 
-(* 5. 使用 rule 参数 - 完全归纳法 *)
-lemma complete_induct_example: "P (n::nat)"
-  apply (induct n rule: less_induct)
-  (* less_induct: ⋀n. (⋀m. m < n ⟹ P m) ⟹ P n *)
-  sorry
+  1. Sum 分解：有了这个等式，可以使用求和性质sum f (insert n A) = f n + sum f A
+  2. 自动化局限：虽然 Isabelle 的 auto
+  知道这个集合等式和求和性质，但它不会自动想到需要用这个特定的集合转换作为中间步骤
+  3. 引导证明方向：subgoal_tac 相当于给 auto 指明了一条路径：
+    - 先用这个等式重写集合
+    - 再应用 sum 的分解性质
+    - 最后用归纳假设和算术 *)
 
-(* 6. 自定义数据类型的归纳规则 *)
-datatype 'a btree = Leaf | Node "'a btree" 'a "'a btree"
+(* 递归定义，将一个列表反转后接入另一个列表前面 *)
+primrec rev_append :: ‹'a list ⇒ 'a list ⇒ 'a list› where
+  ‹rev_append [] l2 = l2› | 
+  ‹rev_append (x#l1) l2 = rev_append l1 (x#l2)›
 
-fun mirror :: "'a btree ⇒ 'a btree" where
-"mirror Leaf = Leaf" |
-"mirror (Node l x r) = Node (mirror r) x (mirror l)"
+(* 验证定义的正确性 *)
+theorem rev_append_correct: ‹rev_append l1 l2 = rev l1 @ l2›
+(* list.induct：?P [] ⟹ (∧x1 x2. ?P x2 ⟹ ?P (x1#x2)) ⟹ ?P ?list *)
+(* 对于任意命题 P，若 P([]) 成立，且对任意 x 与 list， 由 P(list) 能推出 P(x#list)，则 P(list) 对任意 list 成立 *)
+apply (induct l1 arbitrary: l2)
+(* 不加 arbitrary: l2 无法通过 auto 证明 *)
+(* 1. rev_append [] l2 = rev [] @ l2
+   2. ⋀a l1. rev_append l1 l2 = rev l1 @ l2 ⟹ rev_append (a # l1) l2 = rev (a # l1) @ l2 *)
+apply simp
+(* 1. ⋀a l1. rev_append l1 l2 = rev l1 @ l2 ⟹ rev_append (a # l1) l2 = rev (a # l1) @ l2 *)
+by auto
 
-fun size_tree :: "'a btree ⇒ nat" where  
-"size_tree Leaf = 0" |
-"size_tree (Node l x r) = 1 + size_tree l + size_tree r"
+(* 归纳类型上的证明 *)
+(* Leaf 表示空树，不包含任何元素！不只是个叶子节点噢 *)
+datatype 'a tree = Leaf | Branch ‹'a tree› 'a ‹'a tree›
+(* 中序遍历 *)
+primrec inorder :: ‹'a tree ⇒ 'a list› where
+  ‹inorder Leaf = []› | 
+  ‹inorder (Branch left x right) = inorder left @ (x # inorder right) ›
+primrec mirror :: ‹'a tree ⇒ 'a tree› where
+  ‹mirror Leaf = Leaf› | 
+  ‹mirror (Branch left x right) = Branch (mirror right) x (mirror left)›
 
-lemma tree_mirror_size: "size_tree (mirror t) = size_tree t"
-  apply (induct t rule: btree.induct)
-  (* 使用二叉树的归纳规则:
-     基础情况: size_tree (mirror Leaf) = size_tree Leaf
-     归纳步骤: ⋀l x r. size_tree (mirror l) = size_tree l ⟹ 
-                      size_tree (mirror r) = size_tree r ⟹
-                      size_tree (mirror (Node l x r)) = size_tree (Node l x r) *)
-  apply auto
-  done
+(* 下面利用中序遍历证明 mirror 函数的正确性 *)
+theorem mirror_correct: ‹rev (inorder t) = inorder (mirror t)›
+(* apply (induct t)
+apply simp
+by auto *)
+(* 复合证明方法 *)
+by (induct t; simp)
 
-(* 7. 结合 arbitrary 和 rule 的例子 *)
-lemma take_length: "length (take k xs) ≤ k"
-  apply (induct xs arbitrary: k rule: list.induct)
-  (* 对列表 xs 进行归纳，k 作为任意变量，使用列表的归纳规则 *)
-  apply simp  (* 基础情况: length (take k []) ≤ k *)
-  apply (case_tac k)  (* 归纳步骤需要对 k 分情况讨论 *)
-  apply auto
-  done
+(* 归纳谓词 *)
+inductive even_ind :: ‹nat ⇒ bool› where
+  even_0: ‹even_ind 0› | 
+  even_SS: ‹even_ind n ⟹ even_ind (Suc (Suc n))›
 
-(* 8. 互递归函数的归纳 *)
-fun even_nat :: "nat ⇒ bool" and odd_nat :: "nat ⇒ bool" where
-"even_nat 0 = True" |
-"even_nat (Suc n) = odd_nat n" |
-"odd_nat 0 = False" |
-"odd_nat (Suc n) = even_nat n"
-
-(* lemma even_or_odd: "even_nat n ⟹ ¬ odd_nat n"
-  apply (induct n rule: even_nat_odd_nat.induct)
-  (* 使用互递归函数自动生成的归纳规则 *)
-  apply auto
-  done *)
-
-(* 9. 数学归纳法的经典例子 *)
-(* lemma sum_of_first_n: "sum {0..<n} = n * (n - 1) div 2"
-  apply (induct n)
-  apply simp
-  apply simp
-  sorry *)
-
-(* 10. 结构化归纳的例子 *)
-lemma map_rev: "map f (rev xs) = rev (map f xs)"
-  apply (induct xs arbitrary: f rule: list.induct)
-  (* 结构化归纳 + arbitrary 参数 *)
-  apply simp
-  apply simp
-  done
-
-(* 11. 双重归纳的例子 *)
-lemma add_comm: "(m::nat) + n = n + m"
-  apply (induct m arbitrary: n)
-  apply simp
-  apply (induct n)
-  apply auto
-  done
-
-(* 12. 使用不同归纳规则的对比 *)
-
-(* 标准归纳 *)
-lemma standard_induct: "P (n::nat)"
-  apply (induct n)
-  sorry
-
-(* 强归纳 *)  
-lemma strong_induct: "P (n::nat)"
-  apply (induct n rule: nat_less_induct)
-  sorry
-
-(* 完全归纳 *)
-lemma complete_induct: "P (n::nat)" 
-  apply (induct n rule: less_induct)
-  sorry
-
-(*
-总结 arbitrary 和 rule 参数的作用:
-
-1. arbitrary 参数:
-   - 将指定变量在归纳过程中重新量化
-   - 使变量在每个子目标中都是"新鲜"的
-   - 语法: arbitrary: var1 var2 ... varN
-   - 特别适用于当定理中有多个自由变量时
-
-2. rule 参数:  
-   - 指定使用的归纳规则
-   - 常见规则: nat.induct, list.induct, nat_less_induct, less_induct
-   - 自定义类型会自动生成归纳规则: datatype.induct
-   - 语法: rule: induction_rule_name
-
-3. 组合使用:
-   - 可以同时使用 arbitrary 和 rule 参数
-   - 提供对归纳过程的精确控制
-   - 语法: induct term arbitrary: vars rule: rule_name
-
-4. 选择归纳规则的指导原则:
-   - nat.induct: 标准数学归纳法 (P(0) ∧ (∀n. P(n) → P(n+1)))  
-   - nat_less_induct: 强归纳法 (∀n. (∀m<n. P(m)) → P(n))
-   - less_induct: 完全归纳法 (与强归纳法类似)
-   - list.induct: 列表结构归纳 (P([]) ∧ (∀x xs. P(xs) → P(x::xs)))
-*)
+thm even_0 even_SS
+thm even_ind.induct
 
 end
-
