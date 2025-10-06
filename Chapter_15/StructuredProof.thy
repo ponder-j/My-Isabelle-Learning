@@ -124,13 +124,21 @@ theorem
   assumes assum: ‹∀i. Suc i < length list ⟶ list!i ≤ list!(Suc i)›
   shows ‹∀i j. j < length list ⟶ i ≤ j ⟶ list!i ≤ list!j›
 proof clarify
-(* clarify 用于整理命题 *)
-(* ⋀i j. j < length list ⟹ i ≤ j ⟹ list ! i ≤ list ! j *)
+(* clarify 用于整理命题，将全称量词引入为固定变量 *)
+(* 整理后的目标：⋀i j. j < length list ⟹ i ≤ j ⟹ list ! i ≤ list ! j *)
+
+  (* 步骤1: 引入任意的 i 和 j *)
   fix i j :: nat
-  assume j_less: ‹j < length list›
-  assume ‹i ≤ j›
-  (* lemma le_Suc_ex: "m ≤ n ⟹ ∃k. n = m + k" *)
+
+  (* 步骤2: 假设前提条件 *)
+  assume j_less: ‹j < length list›  (* j 在列表范围内 *)
+  assume ‹i ≤ j›                     (* i 不大于 j *)
+
+  (* 步骤3: 将 i ≤ j 转化为存在性形式 i + k = j *)
+  (* 利用引理 le_Suc_ex: "m ≤ n ⟹ ∃k. n = m + k" *)
+  (* 这样可以对距离 k 进行归纳 *)
   then obtain k where k_rule: ‹i + k = j› using le_Suc_ex by blast
+
   (* from 用于在证明中使用指定的已知事实作为前提，与 using 作用相似 *)
   (* from ... have P using ... by ... *)
   (* from 的内容可以放 using 后面，using 的内容可以放 from 后面 *)
@@ -138,31 +146,140 @@ proof clarify
   (* with ... = from ... this *)
   (* hence = then have *)
   (* thus = then show *)
+
+  (* 步骤4: 证明核心引理 list!i ≤ list!(i+k) *)
+  (* 策略：对距离 k 进行归纳 *)
   from k_rule j_less have ‹list!i ≤ list!(i+k)›
   proof (induct k arbitrary: j)
-    (* case 1: k = 0 *)
+    (* 基础情况: k = 0 *)
+    (* 需要证明 list!i ≤ list!(i+0)，即 list!i ≤ list!i *)
+    (* 这是显然成立的反身性 *)
     show ‹list!i ≤ list!(i+0)› by simp
   next
-    (* case 2: k = Suc k' *)
+    (* 归纳步骤: 假设对 k' 成立，证明对 Suc k' 也成立 *)
     fix k' j
-    (* Induction Hypothesis *)
+
+    (* 归纳假设：对于距离 k'，性质成立 *)
     assume IH: ‹⋀j. i + k' = j ⟹ j < length list ⟹ list!i ≤ list!(i+k')›
-    assume a1: ‹i + Suc k' = j›
-    assume a2: ‹j < length list›
+
+    (* 当前情况的假设 *)
+    assume a1: ‹i + Suc k' = j›      (* 当前距离为 k'+1 *)
+    assume a2: ‹j < length list›      (* j 在列表范围内 *)
+
+    (* 步骤4.1: 推导 i+k' 也在列表范围内 *)
     from a1 a2 have *: ‹Suc (i + k') < length list› by simp
+
+    (* 步骤4.2: 利用归纳假设得到 list!i ≤ list!(i+k') *)
     with IH have ‹list!i ≤ list!(i+k')› by simp
+
+    (* 步骤4.3: 利用 assum（列表的相邻单调性）得到 list!(i+k') ≤ list!(i+k'+1) *)
+    (* assum 的原始形式：∀i. Suc i < length list ⟶ list!i ≤ list!(Suc i) *)
+    (* 问题：assum 包含 ∀ 和 ⟶，不是标准的 Isabelle 规则形式 *)
+    (* 解决方案：使用定理修饰符进行转换 *)
+    (*   [rule_format]: 将定理改写成标准规则形式 *)
+    (*                  ∀i. P ⟶ Q  转换为  ⋀i. P ⟹ Q *)
+    (*   [OF *]: 将事实 * (即 Suc (i + k') < length list) 作为前提传入 *)
+    (*            实例化全称量词并满足前提条件 *)
+    (* 转换过程：*)
+    (*   原始: ∀i. Suc i < length list ⟶ list!i ≤ list!(Suc i) *)
+    (*   rule_format 后: ⋀i. Suc i < length list ⟹ list!i ≤ list!(Suc i) *)
+    (*   OF * 后: list!(i+k') ≤ list!Suc(i+k')  (其中 i 被实例化为 i+k') *)
     also from assum[rule_format, OF *] have ‹list!(i+k') ≤ list!Suc(i+k')›.
+
+    (* 步骤4.4: 通过传递性得到 list!i ≤ list!(i+k'+1) *)
+    (* finally 自动应用传递性：从 list!i ≤ list!(i+k') 和 list!(i+k') ≤ list!Suc(i+k') *)
+    (* 得出 list!i ≤ list!Suc(i+k')，即 list!i ≤ list!(i + Suc k') *)
     finally show ‹list!i ≤ list!(i + Suc k')› by simp
   qed
+
+  (* 步骤5: 将 i+k 替换回 j，完成最终证明 *)
+  (* 现在我们有 list!i ≤ list!(i+k) 且 i+k = j *)
+  (* 因此 list!i ≤ list!j *)
   with k_rule show ‹list!i ≤ list!j› by simp
 qed
 (* 15.5 Isar 证明特殊结构 *)
 (* also-finally *)
 (* moreover-ultimately *)
 
-(* 定理修饰符 *)
-(* of t1 ... tn 给出定理中形式变量的取值 *)
-(* OF P1 ... Pn 给出定理的前提 *)
-(* rule_format 将定理改写成标准规则形式 *)
-(* symmetric 交换等式两边 *)
+(* ═══════════════════════════════════════════════════════════════
+   定理修饰符详解
+   ═══════════════════════════════════════════════════════════════ *)
+
+(* 【rule_format】将定理改写成标准规则形式
+
+   为什么需要 rule_format？
+   - Isabelle 的规则推理使用 ⋀ 和 ⟹
+   - 但我们常用 ∀ 和 ⟶ 来陈述定理
+   - rule_format 将后者转换为前者
+
+   转换规则：
+   - ∀x. P     →  ⋀x. P
+   - P ⟶ Q    →  P ⟹ Q
+   - P ∧ Q ⟶ R →  P ⟹ Q ⟹ R
+
+   示例：
+   定理: ∀i. Suc i < length list ⟶ list!i ≤ list!(Suc i)
+   rule_format 后: ⋀i. Suc i < length list ⟹ list!i ≤ list!(Suc i)
+*)
+
+(* 【OF】给出定理的前提
+
+   语法: theorem [OF fact1 fact2 ...]
+   作用: 用给定的事实满足定理的前提，进行前向推理
+
+   示例：
+   假设定理 T: ⋀i. P i ⟹ Q i ⟹ R i
+   假设事实 f1: P 3
+   假设事实 f2: Q 3
+   则 T[OF f1 f2] 得到: R 3
+
+   本例中：
+   assum[rule_format]: ⋀i. Suc i < length list ⟹ list!i ≤ list!(Suc i)
+   事实 *: Suc (i + k') < length list
+   assum[rule_format, OF *]: list!(i+k') ≤ list!Suc(i+k')
+*)
+
+(* 【of】给出定理中形式变量的取值
+
+   语法: theorem [of t1 t2 ...]
+   作用: 实例化定理中的全称量词
+
+   示例：
+   定理 T: ⋀x y. P x y
+   T[of 1 2] 得到: P 1 2
+
+   区别：
+   - of: 手动指定变量的值（显式实例化）
+   - OF: 通过前提自动推导（隐式实例化）
+*)
+
+(* 【symmetric】交换等式两边
+
+   示例：
+   等式 e: a = b
+   e[symmetric]: b = a
+*)
+
+(* ═══════════════════════════════════════════════════════════════
+   为什么不能直接用 assum？
+   ═══════════════════════════════════════════════════════════════
+
+   错误示例：from assum have ...
+
+   问题分析：
+   1. assum 的形式是: ∀i. Suc i < length list ⟶ list!i ≤ list!(Suc i)
+   2. 这不是一个可以直接用于推理的规则
+   3. 我们需要：
+      a) 将 ∀ 转换为 ⋀（rule_format）
+      b) 实例化变量 i 为具体的 i+k'
+      c) 满足前提 Suc (i+k') < length list（OF *）
+
+   正确做法：assum[rule_format, OF *]
+
+   完整转换过程：
+   assum:                ∀i. Suc i < length list ⟶ list!i ≤ list!(Suc i)
+   assum[rule_format]:   ⋀i. Suc i < length list ⟹ list!i ≤ list!(Suc i)
+   assum[rule_format, OF *]:  list!(i+k') ≤ list!Suc(i+k')
+                              (i 被实例化为 i+k'，前提被事实 * 满足)
+   ═══════════════════════════════════════════════════════════════ *)
 end
