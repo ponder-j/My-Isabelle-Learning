@@ -12,6 +12,7 @@ thm even_ind.induct
 (* 语法 proof [method]
    作用 应用初始证明方法 method，并进入结构化证明状态。若 method 未给出，将根据目标命题的形式自动选择初始证明方法。也可使用"-"（连字符）作为初始证明方法。"-"可理解为不使用任何证明方法的"空操作"。 *)
 theorem ‹even_ind n = even n›
+(* "even n ⟷ (∃k. n = 2 * k)" *)
 proof
     (* ═══════════════════════════════════════════════════════════════
        结构化证明命令说明：
@@ -69,7 +70,11 @@ proof
 
     then show ‹even n›
     (* ↑ 需要证明 even n，使用归纳法和自动证明 *)
-    by (induct, auto)
+    apply induct
+    apply simp
+    apply (auto intro: even_ind.intros)
+    done
+    (* ↑ 证明完成 *)
 
 next
     (* ────── 方向二: even n ⟹ even_ind n ────── *)
@@ -79,6 +84,7 @@ next
     then have ‹∃k. n = k + k› by presburger
     (* ↑ 中间引理: 从 even n 推出存在 k 使得 n = k + k
          证明方法: presburger 自动处理这个算术推理 *)
+    (* Presburger 算术是自然数带有加法的一阶理论 *)
 
     then obtain k where k: ‹n = k + k› by blast
     (* ↑ 存在性实例化: 从 ∃k. n = k + k 中提取具体的 k
