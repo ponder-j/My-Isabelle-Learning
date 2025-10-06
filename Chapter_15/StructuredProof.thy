@@ -2,6 +2,7 @@ theory StructuredProof
 imports Main
 begin
 
+(* Example 1 *)
 inductive even_ind :: ‹nat ⇒ bool› where
   even_0: ‹even_ind 0› | 
   even_SS: ‹even_ind n ⟹ even_ind (Suc (Suc n))›
@@ -86,22 +87,43 @@ next
          证明方法: presburger 自动处理这个算术推理 *)
     (* Presburger 算术是自然数带有加法的一阶理论 *)
 
-    then obtain k where k: ‹n = k + k› by blast
+    then obtain k where k_lemma: ‹n = k + k› by blast
+    (* obtain 是 Isabelle 中用于存在量词实例化的结构化证明命令 *)
+    (* obtain x where [label:] "P(x)" by method *)
+     (* 1. obtain - 关键字
+     2. 变量列表 - 要引入的新变量（可以是多个）
+     3. where - 分隔符
+     4. 性质 - 关于这些变量的命题
+     5. 标签（可选）- 给性质命名以便后续引用
+     6. 证明方法 - 证明存在性的方法 *)
     (* ↑ 存在性实例化: 从 ∃k. n = k + k 中提取具体的 k
          同时引入命名事实 k: n = k + k 供后续使用
          证明方法: blast 处理存在量词的实例化 *)
 
-    have ‹even_ind (k + k)› by (induct k) (auto intro: even_ind.intros)
+    have ‹even_ind (k + k)›
+    apply (induct k)
+    apply (auto intro: even_ind.intros)
+    done
     (* ↑ 中间引理: 对任意 k，都有 even_ind (k + k)
          证明方法: 对 k 归纳
            - 基础步骤: k = 0，auto 使用 even_0 规则
            - 归纳步骤: auto 使用 even_SS 规则和归纳假设
          intro: even_ind.intros 提供 even_0 和 even_SS 两个构造规则 *)
 
-    then show ‹even_ind n› using k by simp
+    then show ‹even_ind n› using k_lemma by simp
     (* ↑ 证明最终目标 even_ind n
-         using k 引用前面的等式 n = k + k
+         using k_lemma 引用前面的等式 n = k + k
          由 even_ind (k + k) 和 n = k + k，用 simp 化简得到 even_ind n *)
 qed
+
+(* Example 2 *)
+theorem
+  fixes list :: ‹'a :: order list›
+  (* fix 声明变量，'a :: order 表明 'a 必须支持排序操作 *)
+  (* 一般情况不需要声明自由变量，但这里用到排序，必须先限定 'a 的类型 *)
+  assumes assum: ‹∀i. Suc i < length list ⟶ list ! i ≤ list ! (Suc i)›
+  shows ‹∀i j. j < length list ⟶ i ≤ j ⟶ list ! i ≤ list ! j›
+proof clarify
+(* clarify 用于整理命题 *)
 
 end
