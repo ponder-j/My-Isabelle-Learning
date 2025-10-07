@@ -78,9 +78,7 @@ where "top s ≡ (if ¬ isempty s then
 
 (* 有界栈的正确性 *)
 lemma "¬ isfull s ⟹ top (push v s) = Some v"
-proof -
-    assume a: "¬ isfull s"
-    show ?thesis
-      unfolding push_def top_def isempty_def
-      by (simp add: Abs_bstack_inverse)
-  qed
+  apply(simp add:push_def top_def isfull_def isempty_def size_def capacity_def)
+  by (metis bstack_valid alist_of)
+
+
