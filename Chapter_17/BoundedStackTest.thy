@@ -21,25 +21,66 @@ typedef (overloaded) 'a bstack =
   - 类似于"封装"、"抽象函数" (Abstraction) *)
 
 proof -
+(* proof - 手动证明的开始，不使用自动化工具 *)
   have "([],0) ∈ {xs. length (fst xs) ≤ snd xs}" by simp
   then show ?thesis by blast
-(* | shows | 声明要证明的结论 | lemma/theorem 声明时 |
-   | show  | 证明当前子目标   | proof 内部          | *)
-
+  (* | shows | 声明要证明的结论 | lemma/theorem 声明时 |
+     | show  | 证明当前子目标   | proof 内部          | *)
+   (* 且 then show 可以简写为 thus *)
 qed
 
+(* 定义有限栈容量 *)
 definition capacity :: "'a bstack ⇒ nat"
 where "capacity s ≡ snd (alist_of s)"
 
+(* 定义栈当前大小 *)
 definition size :: "'a bstack ⇒ nat"
 where "size s ≡ length (fst (alist_of s))"
 
+(* 定义栈是否已满 *)
 definition isfull :: "'a bstack ⇒ bool"
 where "isfull s ≡ size s = capacity s"
 
+(* 定义栈是否为空 *)
 definition isempty :: "'a bstack ⇒ bool"
 where "isempty s ≡ fst (alist_of s) = []"
 
+(* 证明栈的大小不超过其容量 *)
 lemma bstack_valid: "size s ≤ capacity s"
   apply(simp add:capacity_def size_def)
   using alist_of by blast
+
+(* 定义 push 操作 *)
+definition push :: "'a ⇒ 'a bstack ⇒ 'a bstack"
+where "push v s ≡ 
+(if ¬isfull s then 
+       Abs_bstack (v # fst (alist_of s), snd (alist_of s)) 
+    else s)"
+
+(* 定义 pop 操作 *)
+definition pop :: "'a bstack ⇒ ('a option × 'a bstack)"
+where "pop s ≡ 
+(if ¬ isempty s then 
+      (Some (hd (fst (alist_of s))), Abs_bstack (tl (fst (alist_of s)), snd (alist_of s))) 
+  else (None, s))"
+
+(* 定义 top 操作 *)
+definition top :: "'a bstack ⇒ 'a option"
+where "top s ≡ (if ¬ isempty s then 
+                       (Some (hd (fst (alist_of s)))) 
+                    else None)"
+
+(* | 变量     | 含义             |
+   |---------|---------------------|
+   | ?thesis | 当前要证明的目标       |
+   | ?case   | 在归纳/分类讨论中的当前情况 |
+   | ?goal   | 当前子目标（少用）      | *)
+
+(* 有界栈的正确性 *)
+lemma "¬ isfull s ⟹ top (push v s) = Some v"
+proof -
+    assume a: "¬ isfull s"
+    show ?thesis
+      unfolding push_def top_def isempty_def
+      by (simp add: Abs_bstack_inverse)
+  qed
