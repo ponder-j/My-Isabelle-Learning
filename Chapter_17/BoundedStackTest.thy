@@ -19,3 +19,27 @@ typedef (overloaded) 'a bstack =
   - 从具体到抽象
   - 将满足条件的 ('a list × nat) "包装"成 bstack
   - 类似于"封装"、"抽象函数" (Abstraction) *)
+
+proof -
+  have "([],0) ∈ {xs. length (fst xs) ≤ snd xs}" by simp
+  then show ?thesis by blast
+(* | shows | 声明要证明的结论 | lemma/theorem 声明时 |
+   | show  | 证明当前子目标   | proof 内部          | *)
+
+qed
+
+definition capacity :: "'a bstack ⇒ nat"
+where "capacity s ≡ snd (alist_of s)"
+
+definition size :: "'a bstack ⇒ nat"
+where "size s ≡ length (fst (alist_of s))"
+
+definition isfull :: "'a bstack ⇒ bool"
+where "isfull s ≡ size s = capacity s"
+
+definition isempty :: "'a bstack ⇒ bool"
+where "isempty s ≡ fst (alist_of s) = []"
+
+lemma bstack_valid: "size s ≤ capacity s"
+  apply(simp add:capacity_def size_def)
+  using alist_of by blast
