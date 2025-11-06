@@ -70,7 +70,7 @@ next
     using triangle_closed_form by simp
   also have "... = (k + 2) * (k + 1) div 2 + (k + 2) * (k + 1) * k div 6" 
     using IH by simp
-  also have "... = ((k + 2) * (k + 1) * 3 + (k + 2) * (k + 1) * k) div 6" (* 这一步需要考虑整除性，否则变换不成立 *)
+  also have "... = ((k + 2) * (k + 1) * 3 + (k + 2) * (k + 1) * k) div 6" 
     using div_add[OF * **] by simp
   also have "... = (k + 2) * (k + 1) * (k + 3) div 6" 
     by (simp add: distrib_left)
