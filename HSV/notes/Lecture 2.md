@@ -9,6 +9,10 @@ sledgehammer 是个好东西
 
 ![[Pasted image 20251105170313.png]]
 
+![[Pasted image 20251106192606.png]]
+等式链条证明使用 also ... finally
+{} 用于界定局部假设的作用域
+
 ## 结构化证明的几种开头
 
 | `proof` 后的方法 | 含义和用途 |

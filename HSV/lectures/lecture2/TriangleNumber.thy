@@ -2,6 +2,7 @@ theory TriangleNumber
   imports Main
 begin
 
+(* 主要是不知道有这种定理…… *)
 thm div_add
 (* ?c dvd ?a ⟹ ?c dvd ?b ⟹ (?a + ?b) div ?c = ?a div ?c + ?b div ?c *)
 (* a 能被 c 整除，b 能被 c 整除，则 (a + b) 除以 c 得到的商等于各自除以 c 得到的商之和 *)

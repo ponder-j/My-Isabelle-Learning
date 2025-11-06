@@ -1746,7 +1746,7 @@
     "sortText": "00000"
   },
   "equiv": {
-    "prefix": ["\\\\equiv", "\\equiv", "\\=="],
+    "prefix": ["\\\\equiv", "\\equiv", "=="],
     "body": ["≡"],
     "description": "Equivalent",
     "sortText": "00000"
