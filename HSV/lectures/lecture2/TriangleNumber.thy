@@ -2,6 +2,10 @@ theory TriangleNumber
   imports Main
 begin
 
+thm div_add
+(* ?c dvd ?a ⟹ ?c dvd ?b ⟹ (?a + ?b) div ?c = ?a div ?c + ?b div ?c *)
+(* a 能被 c 整除，b 能被 c 整除，则 (a + b) 除以 c 得到的商等于各自除以 c 得到的商之和 *)
+
 fun triangle :: "nat ⇒ nat" where
   "triangle n = (if n = 0 then 0 else n + triangle (n-1))"
 
@@ -114,13 +118,14 @@ next
   also have "... = (k + 2) * (k + 1) div 2 + (k + 2) * (k + 1) * k div 6" 
     using IH by simp
   also have "... = ((k + 2) * (k + 1) * 3 + (k + 2) * (k + 1) * k) div 6" (* 这一步需要考虑整除性，否则变换不成立 *)
-    using div_add[OF * **] by simp
+    using div_add[OF * **] (* 实例化 div_add 定理，* 和 ** 分别是两个前件，这样就能导出用于证明的结论 *)
+    by linarith
   also have "... = (k + 2) * (k + 1) * (k + 3) div 6" 
-    by (simp add: distrib_left)
+    by (metis add.commute distrib_left)
   also have "... = (Suc k + 2) * (Suc k + 1) * Suc k div 6"
-    by (metis One_nat_def Suc_1 add.commute add_Suc_shift mult.assoc 
-        mult.commute numeral_3_eq_3 plus_1_eq_Suc)
-  finally show ?case by assumption
+    by (metis calculation mult.commute mult.left_commute tet_closed_form)
+  finally show ?case
+    by blast
 qed
 
 
