@@ -80,6 +80,7 @@ next
   have "2 dvd (k + 2) * (k + 1) * k" by simp
   moreover have "3 dvd (k + 2) * (k + 1) * k"
   (* 证明这一步，sledgehammer 死掉了！它证不出来！所以只能手动 proof *)
+  (* 这个 {...} moreover {...} ultimately 结构是一个非常优雅的模式，用于实现：P(case1) ∨ P(case2) ∨ ... ∨ P(caseN) ⟹ Q的证明逻辑 *)
   proof -
     {
       assume "k mod 3 = 0"
@@ -93,8 +94,15 @@ next
       assume "k mod 3 = 2"
       hence "3 dvd (k + 1)" by presburger
       hence "3 dvd (k + 2) * (k + 1) * k" by fastforce
-    } ultimately
-    show "3 dvd (k + 2) * (k + 1) * k" by linarith
+    } moreover {
+        (* 如果这条不手动给出，那么在 ultimately 中使用 sledgehammer 出不了结果 *)
+        (* 但是不给这条，直接在最后使用 by linarith 也能证出来 *)
+        have "((k mod 3 = 0) ∨ (k mod 3 = 1) ∨ (k mod 3 = 2))"
+            by fastforce
+    }
+    ultimately
+    show "3 dvd (k + 2) * (k + 1) * k"
+        by argo
   qed
   ultimately have **: "6 dvd (k + 2) * (k + 1) * k" by presburger
 
