@@ -70,19 +70,27 @@ fun mirror where
 value "circuit1"
 value "mirror circuit1"
 value "circuit2"
+(* "OR (NOT (AND (INPUT 1) (INPUT 2))) FALSE" :: "circuit" *)
 value "mirror circuit2"
+(* "OR FALSE (NOT (AND (INPUT 2) (INPUT 1)))" :: "circuit" *)
 
 text ‹The following non-theorem is easily contradicted.›
 (* 下面的非定理很容易被反驳。 *)
 
 theorem "mirror c = c" 
   oops
+(* Auto Quickcheck found a counterexample:
+  c = AND TRUE FALSE
+Evaluated terms:
+  mirror c = AND FALSE TRUE *)
+(* 编辑器不知道交换律，所以认为上面这个例子顺序换了也是不同的 *)
 
 text ‹Proving that mirroring doesn't affect simulation behaviour.›
-(* 证明镜像操作不影响模拟行为。 *)
+(* 但是可以证明镜像操作不影响模拟行为。 *)
 
 theorem mirror_is_sound: "simulate (mirror c) ρ = simulate c ρ"
-  by (induct c, auto)
+  apply (induct c) (* 只要能想到对 c 进行归纳，后面的步骤 sledgehammer 都能给出 *)
+  by auto
 
 section ‹A simple circuit optimiser (cf. worksheet Section 5.4)›
 (* 一个简单的电路优化器 *)
@@ -124,16 +132,42 @@ fun fib :: "nat ⇒ nat" where
 
 thm fib.induct (*  rule induction theorem for fib  *)
 (* fib的规则归纳定理 *)
+(* (⋀n. ?P n ⟹ ?P (Suc n) ⟹ ?P (Suc (Suc n))) ⟹ ?P (Suc 0) ⟹ ?P 0 ⟹ ?P ?a0.0 *)
+(* Isabelle 自动生成的归纳定理，把函数的定义模式直接转换成需要证明的归纳步骤：
+  1. 归纳步骤: 对于任意 n，如果 P(n) 和 P(Suc n) 成立，则 P(Suc (Suc n)) 也成立
+  2. 基础步骤1: P(Suc 0) 成立
+  3. 基础步骤2: P(0) 成立
+  4. 结论: 对任意自然数 ?a0.0，P(?a0.0) 成立 *)
+
+thm fib.simps
+(* simplification rules for fib *)
+(* fib 计算规则 *)
+(* fib.simps:
+  fib (Suc (Suc n)) = fib n + fib (Suc n)
+  fib (Suc 0) = 1
+  fib 0 = 1 *)
+(* 可以用小括号类似 fib.simps(1) 的格式选择应用第几条规则 *)
 
 text ‹The nth Fibonacci number is greater than or equal to n›
 (* 第n个斐波那契数大于或等于n *)
-theorem "fib n ≥ n" 
+theorem "fib n ≥ n"
 proof (induct rule: fib.induct[of "λn. fib n ≥ n"])
+  (* 使用 fib.induct 定理进行归纳证明
+     of "λn. fib n ≥ n" 指定了归纳命题 P(n) *)
+  case 2
+  thus ?case by simp
+next
+  case 3
+  thus ?case by simp
+next
+  (* case (1 n) 的意思是选择剩余证明列表中的第 1 条，并且将变量绑定为 n *)
+  (* 如果写 case (1 k) 就会把变量绑定成 k *)
+  (* 这种变量有个名字，叫 skolem variable，用来消除存在量词 *)
   case (1 n)
   thus ?case 
-    by (metis One_nat_def add_mono_thms_linordered_semiring(1) fib.simps(1) 
-              fib.simps(3) le_zero_eq not_less_eq_eq plus_1_eq_Suc)
-qed (auto)
+    by (metis One_nat_def add_leE add_le_same_cancel2 fib.simps(1,3) not_less_eq_eq
+    verit_la_disequality)
+qed
 
 section ‹Proving termination (cf. worksheet Section 5.6)›
 (* 证明终止性 *)
