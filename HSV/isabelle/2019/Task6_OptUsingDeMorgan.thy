@@ -1,4 +1,4 @@
-theory Task6_OptimiseUsingDeMorgan
+theory Task6_OptUsingDeMorgan
   imports Main
 begin
 
@@ -53,8 +53,23 @@ fun opt_DM_standard where
 | "opt_DM_standard FALSE = FALSE"
 | "opt_DM_standard (INPUT i) = INPUT i"
 
+fun opt_DM2 where
+  "opt_DM2 (OR (NOT c1) (NOT c2)) = (NOT (AND (opt_DM2 c1) (opt_DM2 c2)))"
+| "opt_DM2 (AND (NOT c1) (NOT c2)) = (NOT (OR (opt_DM2 c1) (opt_DM2 c2)))"
+| "opt_DM2 (NOT c) = NOT (opt_DM2 c)"
+| "opt_DM2 (AND c1 c2) = AND (opt_DM2 c1) (opt_DM2 c2)"
+| "opt_DM2 (OR c1 c2) = OR (opt_DM2 c1) (opt_DM2 c2)"
+| "opt_DM2 TRUE = TRUE"
+| "opt_DM2 FALSE = FALSE"
+| "opt_DM2 (INPUT i) = INPUT i"
+
+(* 虽然我写的是错的，但电路的性质没有变 *)
 theorem opt_DM_is_sound: "simulate (opt_DM c) ρ = simulate c ρ"
   apply (induct c rule: opt_DM.induct)
+  by simp+
+
+theorem opt_DM_standard_is_sound: "simulate (opt_DM_standard c) ρ = simulate c ρ"
+  apply (induct c rule: opt_DM_standard.induct)
   by simp+
 
 theorem my_opt_nequals2_standard_opt: "opt_DM c = opt_DM_standard c"
@@ -63,3 +78,7 @@ theorem my_opt_nequals2_standard_opt: "opt_DM c = opt_DM_standard c"
 (* De Morgan 优化器不是幂等的 *)
 theorem opt_DM_standard_is_idempotent: "opt_DM_standard (opt_DM_standard c) = opt_DM_standard c"
   oops
+
+theorem my_opt2_nequals2_standard_opt: "opt_DM2 c = opt_DM_standard c"
+  apply (induct c rule: opt_DM2.induct)
+  by simp+
