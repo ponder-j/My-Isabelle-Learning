@@ -37,7 +37,7 @@ fun delay :: "circuit ⇒ nat" where
 | "delay _ = 0"
 
 (* 错误示范1: 递归逻辑有误，无法实现化简后再化简，NOT (NOT TRUE) 只消去了一层 *)
-(* fun opt_CF_incorrect :: "circuit ⇒ circuit" where
+fun opt_CF_incorrect :: "circuit ⇒ circuit" where
   "opt_CF_incorrect (NOT FALSE) = TRUE"
 | "opt_CF_incorrect (NOT TRUE) = FALSE"
 | "opt_CF_incorrect (NOT c) = NOT (opt_CF_incorrect c)"
@@ -72,7 +72,7 @@ fun opt_CF_complicated :: "circuit ⇒ circuit" where
     | (FALSE, _) ⇒ c2'
     | (_, FALSE) ⇒ c1'
     | _ ⇒ OR c1' c2')"
-| "opt_CF_complicated c = c" *)
+| "opt_CF_complicated c = c"
 
 (* 参考答案的正确方法：将优化器拆成几个部件再合并，逻辑更清晰，证明也更容易 *)
 fun opt_CF_NOT :: "circuit ⇒ circuit" where
@@ -102,13 +102,12 @@ fun opt_CF :: "circuit ⇒ circuit" where
 | "opt_CF FALSE = FALSE"
 | "opt_CF (INPUT i) = (INPUT i)"
 
-(* 手动测试看看
+(* 手动测试看看 *)
 definition c0 :: "circuit" where
-  "c0 ≡ NOT(NOT (AND (OR (NOT TRUE) TRUE) TRUE))"
+  "c0 ≡ INPUT 1"
+value "opt_CF c0"
 
-value "opt_CF c0" *)
-
-(* 欲证 opt_CF is sound, 应先证前面几个辅助函数是 sound 的 *)
+(* 欲证 opt_CF_is_sound, 应先证前面几个辅助函数是 sound 的 *)
 lemma opt_CF_NOT_is_sound : "simulate (NOT c) ρ = simulate (opt_CF_NOT c) ρ"
   apply (induct c rule: opt_CF_NOT.induct)
   apply simp_all
@@ -124,7 +123,6 @@ lemma opt_CF_OR_is_sound : "simulate (OR c1 c2) ρ = simulate (opt_CF_OR c1 c2) 
   apply simp_all
   done
 
-
 theorem opt_CF_is_sound : "simulate c ρ = simulate (opt_CF c) ρ"
   apply (induct c rule: opt_CF.induct)
   using opt_CF_NOT_is_sound apply force
@@ -133,18 +131,133 @@ theorem opt_CF_is_sound : "simulate c ρ = simulate (opt_CF c) ρ"
   apply simp_all
   done
 
+
+(* 证明 opt_CF_never_increase_area *)
+lemma opt_CF_NOT_never_increase_area : "area (NOT c) ≥ area(opt_CF_NOT c)"
+  apply (induct c rule: opt_CF_NOT.induct)
+  by simp+
+
+lemma opt_CF_AND_never_increase_area : "area (AND c1 c2) ≥ area (opt_CF_AND c1 c2)"
+  apply (induct c1 c2 rule: opt_CF_AND.induct)
+  by simp+
+
+lemma opt_CF_OR_never_increase_area : "area (OR c1 c2) ≥ area (opt_CF_OR c1 c2)"
+  apply (induct c1 c2 rule: opt_CF_OR.induct)
+  by simp+
+
 theorem opt_CF_never_increase_area : "area c ≥ area (opt_CF c)"
   apply (induct c rule: opt_CF.induct)
-  apply (smt (verit, ccfv_SIG) Suc_leI area.simps(1,4,5) le_imp_less_Suc nat_less_le opt_CF.simps(1) opt_CF_NOT.elims plus_1_eq_Suc)
-  sledgehammer
+  using opt_CF_NOT_never_increase_area
+  apply (metis Suc_eq_plus1 Suc_eq_plus1_left area.simps(1) dual_order.trans less_eq_iff_succ_less
+    less_iff_succ_less_eq opt_CF.simps(1))
+  proof -
+    fix c1 c2
+    assume IH1: "area (opt_CF c1) ≤ area c1"
+    assume IH2: "area (opt_CF c2) ≤ area c2"
+    hence "area (opt_CF (AND c1 c2)) = area (opt_CF_AND (opt_CF c1) (opt_CF c2))"
+      by simp
+    hence "area (opt_CF_AND (opt_CF c1) (opt_CF c2)) ≤ area (AND (opt_CF c1) (opt_CF c2))"
+      using opt_CF_AND_never_increase_area
+      by simp
+    hence "area (AND (opt_CF c1) (opt_CF c2)) ≤ 1 + area (opt_CF c1) + area (opt_CF c2)"
+      by simp
+    hence "1 + area (opt_CF c1) + area (opt_CF c2) ≤ 1 + area c1 + area c2"
+      using IH1 IH2 by simp
+    hence "1 + area c1 + area c2 = area (AND c1 c2)"
+      by simp
+    then show "area (opt_CF (AND c1 c2)) ≤ area (AND c1 c2)"
+      by (metis ‹1 + area (opt_CF c1) + area (opt_CF c2) ≤ 1 + area c1 + area c2› area.simps(2) le_trans
+    opt_CF.simps(2) opt_CF_AND_never_increase_area)
+  next
+    fix c1 c2
+    assume IH1: "area (opt_CF c1) ≤ area c1"
+    assume IH2: "area (opt_CF c2) ≤ area c2"
+    hence "area (opt_CF (OR c1 c2)) = area (opt_CF_OR (opt_CF c1) (opt_CF c2))"
+      by simp
+    hence "area (opt_CF_OR (opt_CF c1) (opt_CF c2)) ≤ area (OR (opt_CF c1) (opt_CF c2))"
+      using opt_CF_OR_never_increase_area
+      by simp
+    hence "area (OR (opt_CF c1) (opt_CF c2)) ≤ 1 + area (opt_CF c1) + area (opt_CF c2)"
+      by simp
+    hence "1 + area (opt_CF c1) + area (opt_CF c2) ≤ 1 + area c1 + area c2"
+      using IH1 IH2 by simp
+    hence "1 + area c1 + area c2 = area (OR c1 c2)"
+      by simp
+    then show "area (opt_CF (OR c1 c2)) ≤ area (OR c1 c2)"
+      by (metis ‹1 + area (opt_CF c1) + area (opt_CF c2) ≤ 1 + area c1 + area c2› area.simps(2) le_trans
+    opt_CF.simps(2) opt_CF_OR_never_increase_area)
+  next
+    show "area (opt_CF TRUE) ≤ area TRUE" by simp
+  next
+    show "area (opt_CF FALSE) ≤ area FALSE" by simp
+  next
+    fix i
+    show "area (opt_CF (INPUT i)) ≤ area (INPUT i)" by simp
+  qed
 
+(* 证明 opt_CF_never_increase_delay *)
+lemma opt_CF_NOT_never_increase_delay : "delay (NOT c) ≥ delay(opt_CF_NOT c)"
+  apply (cases c)
+  by simp_all
+
+lemma opt_CF_AND_never_increase_delay : "delay (AND c1 c2) ≥ delay (opt_CF_AND c1 c2)"
+  apply (induct c1 c2 rule: opt_CF_AND.induct)
+  by auto
+
+lemma opt_CF_OR_never_increase_delay : "delay (OR c1 c2) ≥ delay (opt_CF_OR c1 c2)"
+  apply (induct c1 c2 rule: opt_CF_OR.induct)
+  by auto
 
 theorem opt_CF_never_increase_delay : "delay c ≥ delay (opt_CF c)"
   apply (induct c rule: opt_CF.induct)
-  by auto
+  using opt_CF_NOT_never_increase_delay
+  apply (metis Suc_eq_plus1 Suc_eq_plus1_left delay.simps(1) dual_order.trans less_eq_iff_succ_less
+    less_iff_succ_less_eq opt_CF.simps(1))
+  proof -
+    fix c1 c2
+    assume IH1: "delay (opt_CF c1) ≤ delay c1"
+    assume IH2: "delay (opt_CF c2) ≤ delay c2"
+    have "delay (opt_CF (AND c1 c2)) = delay (opt_CF_AND (opt_CF c1) (opt_CF c2))"
+      by simp
+    also have "… ≤ delay (AND (opt_CF c1) (opt_CF c2))"
+      using opt_CF_AND_never_increase_delay by simp
+    also have "… = max (1 + delay (opt_CF c1)) (1 + delay (opt_CF c2))"
+      by simp
+    also have "… ≤ max (1 + delay c1) (1 + delay c2)"
+      using IH1 IH2
+      by (meson max.mono nat_add_left_cancel_le)
+    also have "… = delay (AND c1 c2)"
+      by simp
+    finally show "delay (opt_CF (AND c1 c2)) ≤ delay (AND c1 c2)" .
+  next
+    fix c1 c2
+    assume IH1: "delay (opt_CF c1) ≤ delay c1"
+    assume IH2: "delay (opt_CF c2) ≤ delay c2"
+    have "delay (opt_CF (OR c1 c2)) = delay (opt_CF_OR (opt_CF c1) (opt_CF c2))"
+      by simp
+    also have "… ≤ delay (OR (opt_CF c1) (opt_CF c2))"
+      using opt_CF_OR_never_increase_delay by simp
+    also have "… = max (1 + delay (opt_CF c1)) (1 + delay (opt_CF c2))"
+      by simp
+    also have "… ≤ max (1 + delay c1) (1 + delay c2)"
+      using IH1 IH2
+      by (meson max.mono nat_add_left_cancel_le)
+    also have "… = delay (OR c1 c2)"
+      by simp
+    finally show "delay (opt_CF (OR c1 c2)) ≤ delay (OR c1 c2)" .
+  next
+    show "delay (opt_CF TRUE) ≤ delay TRUE" by simp
+  next
+    show "delay (opt_CF FALSE) ≤ delay FALSE" by simp
+  next
+    fix i
+    show "delay (opt_CF (INPUT i)) ≤ delay (INPUT i)" by simp
+  qed
 
+
+(* 证明 opt_CF_without_input_leads2_consistant *)
 fun has_inputs :: "circuit ⇒ bool" where
-  "has_inputs (NOT c) = has_inputs c"
+    "has_inputs (NOT c) = has_inputs c"
 | "has_inputs (AND c1 c2) = ((has_inputs c1) ∨ (has_inputs c2))"
 | "has_inputs (OR c1 c2) = ((has_inputs c1) ∨ (has_inputs c2))"
 | "has_inputs TRUE = False"
@@ -155,3 +268,5 @@ fun is_constant :: "circuit ⇒ bool" where
   "is_constant c = (c = TRUE ∨ c = FALSE)"
 
 theorem opt_CF_without_input_leads2_consistant : "¬ (has_inputs c) ⟹ is_constant (opt_CF c)"
+  apply (induct c rule: opt_CF.induct)
+  apply auto
