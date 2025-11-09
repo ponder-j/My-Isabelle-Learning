@@ -75,18 +75,69 @@ fun opt_CF_complicated :: "circuit ⇒ circuit" where
 | "opt_CF_complicated c = c" *)
 
 (* 参考答案的正确方法：将优化器拆成几个部件再合并，逻辑更清晰，证明也更容易 *)
+fun opt_CF_NOT :: "circuit ⇒ circuit" where
+  "opt_CF_NOT TRUE = FALSE"
+| "opt_CF_NOT FALSE = TRUE"
+| "opt_CF_NOT c = NOT c"
+
+fun opt_CF_AND :: "circuit ⇒ circuit ⇒ circuit" where
+  "opt_CF_AND TRUE c = c"
+| "opt_CF_AND c TRUE = c"
+| "opt_CF_AND FALSE c = FALSE"
+| "opt_CF_AND c FALSE = FALSE"
+| "opt_CF_AND c1 c2 = (AND c1 c2)"
+
+fun opt_CF_OR :: "circuit ⇒ circuit ⇒ circuit" where
+  "opt_CF_OR TRUE c = TRUE"
+| "opt_CF_OR c TRUE = TRUE"
+| "opt_CF_OR FALSE c = c"
+| "opt_CF_OR c FALSE = c"
+| "opt_CF_OR c1 c2 = (OR c1 c2)"
 
 fun opt_CF :: "circuit ⇒ circuit" where
-  "opt_CF (NOT c) = opt_CF_NOT(NOT (opt_CF c))"
+  "opt_CF (NOT c) = opt_CF_NOT(opt_CF c)"
+| "opt_CF (AND c1 c2) = opt_CF_AND (opt_CF c1) (opt_CF c2)"
+| "opt_CF (OR c1 c2) = opt_CF_OR (opt_CF c1) (opt_CF c2)"
+| "opt_CF TRUE = TRUE"
+| "opt_CF FALSE = FALSE"
+| "opt_CF (INPUT i) = (INPUT i)"
+
+(* 手动测试看看
+definition c0 :: "circuit" where
+  "c0 ≡ NOT(NOT (AND (OR (NOT TRUE) TRUE) TRUE))"
+
+value "opt_CF c0" *)
+
+(* 欲证 opt_CF is sound, 应先证前面几个辅助函数是 sound 的 *)
+lemma opt_CF_NOT_is_sound : "simulate (NOT c) ρ = simulate (opt_CF_NOT c) ρ"
+  apply (induct c rule: opt_CF_NOT.induct)
+  apply simp_all
+  done
+
+lemma opt_CF_AND_is_sound : "simulate (AND c1 c2) ρ = simulate (opt_CF_AND c1 c2) ρ"
+  apply (induct c1 c2 rule: opt_CF_AND.induct)
+  apply simp_all
+  done
+
+lemma opt_CF_OR_is_sound : "simulate (OR c1 c2) ρ = simulate (opt_CF_OR c1 c2) ρ"
+  apply (induct c1 c2 rule: opt_CF_OR.induct)
+  apply simp_all
+  done
 
 
 theorem opt_CF_is_sound : "simulate c ρ = simulate (opt_CF c) ρ"
   apply (induct c rule: opt_CF.induct)
-  by auto
+  using opt_CF_NOT_is_sound apply force
+  using opt_CF_AND_is_sound apply force
+  using opt_CF_OR_is_sound apply force
+  apply simp_all
+  done
 
 theorem opt_CF_never_increase_area : "area c ≥ area (opt_CF c)"
   apply (induct c rule: opt_CF.induct)
-  by auto
+  apply (smt (verit, ccfv_SIG) Suc_leI area.simps(1,4,5) le_imp_less_Suc nat_less_le opt_CF.simps(1) opt_CF_NOT.elims plus_1_eq_Suc)
+  sledgehammer
+
 
 theorem opt_CF_never_increase_delay : "delay c ≥ delay (opt_CF c)"
   apply (induct c rule: opt_CF.induct)
