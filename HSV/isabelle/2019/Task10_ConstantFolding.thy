@@ -37,7 +37,7 @@ fun delay :: "circuit ⇒ nat" where
 | "delay _ = 0"
 
 (* 错误示范1: 递归逻辑有误，无法实现化简后再化简，NOT (NOT TRUE) 只消去了一层 *)
-fun opt_CF_incorrect :: "circuit ⇒ circuit" where
+(* fun opt_CF_incorrect :: "circuit ⇒ circuit" where
   "opt_CF_incorrect (NOT FALSE) = TRUE"
 | "opt_CF_incorrect (NOT TRUE) = FALSE"
 | "opt_CF_incorrect (NOT c) = NOT (opt_CF_incorrect c)"
@@ -72,10 +72,12 @@ fun opt_CF_complicated :: "circuit ⇒ circuit" where
     | (FALSE, _) ⇒ c2'
     | (_, FALSE) ⇒ c1'
     | _ ⇒ OR c1' c2')"
-| "opt_CF_complicated c = c"
+| "opt_CF_complicated c = c" *)
 
 (* 参考答案的正确方法：将优化器拆成几个部件再合并，逻辑更清晰，证明也更容易 *)
 
+fun opt_CF :: "circuit ⇒ circuit" where
+  "opt_CF (NOT c) = opt_CF_NOT(NOT (opt_CF c))"
 
 
 theorem opt_CF_is_sound : "simulate c ρ = simulate (opt_CF c) ρ"
