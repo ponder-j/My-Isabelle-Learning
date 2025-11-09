@@ -76,6 +76,8 @@ fun opt_CF_complicated :: "circuit ⇒ circuit" where
 
 (* 参考答案的正确方法：将优化器拆成几个部件再合并，逻辑更清晰，证明也更容易 *)
 
+
+
 theorem opt_CF_is_sound : "simulate c ρ = simulate (opt_CF c) ρ"
   apply (induct c rule: opt_CF.induct)
   by auto
@@ -96,15 +98,7 @@ fun has_inputs :: "circuit ⇒ bool" where
 | "has_inputs FALSE = False"
 | "has_inputs (INPUT i) = True"
 
-definition c1 :: "circuit" where
-  "c1 = (NOT (NOT (TRUE)))"
+fun is_constant :: "circuit ⇒ bool" where
+  "is_constant c = (c = TRUE ∨ c = FALSE)"
 
-value "has_inputs c1"
-value "opt_CF c1"
-
-
-theorem opt_CF_without_input_leads2_consistant : "¬ (has_inputs c) ⟹ (opt_CF c = TRUE ∨ opt_CF c = FALSE)"
-  apply (induct c rule: opt_CF.induct)
-  apply simp_all
-  apply fastforce+
-  done
+theorem opt_CF_without_input_leads2_consistant : "¬ (has_inputs c) ⟹ is_constant (opt_CF c)"
