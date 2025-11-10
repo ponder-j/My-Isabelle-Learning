@@ -1,5 +1,5 @@
 theory Task10_ConstantFolding
-imports Main
+  imports Main
 begin
 
 (* Task 10 : Define a function that performs constant folding. Wherever it seesDefine a function that performs constant folding. Wherever it sees a gate with TRUE or FALSE as one of its inputs, it should try to replace the gate with TRUE, FALSE, or the other input, depending on the gate. *)
