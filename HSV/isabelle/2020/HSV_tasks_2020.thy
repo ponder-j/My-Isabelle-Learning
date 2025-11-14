@@ -1,19 +1,19 @@
 theory HSV_tasks_2020 imports Complex_Main begin
 
-section \<open>Task 1: proving that "3 / sqrt 2" is irrational.\<close>
+section ‹Task 1: proving that "3 / sqrt 2" is irrational.›
 
 (* In case it is helpful, the following theorem is copied from Chapter 3 of the worksheet. *)
-theorem sqrt2_irrational: "sqrt 2 \<notin> \<rat>"
+theorem sqrt2_irrational: "sqrt 2 ∉ ℚ"
 proof auto
-  assume "sqrt 2 \<in> \<rat>"
+  assume "sqrt 2 ∈ ℚ"
   then obtain m n where 
-    "n \<noteq> 0" and "\<bar>sqrt 2\<bar> = real m / real n" and "coprime m n" 
+    "n ≠ 0" and "¦sqrt 2¦ = real m / real n" and "coprime m n" 
     by (rule Rats_abs_nat_div_natE)
-  hence "\<bar>sqrt 2\<bar>^2 = (real m / real n)^2" by auto 
+  hence "¦sqrt 2¦^2 = (real m / real n)^2" by auto 
   hence "2 = (real m / real n)^2" by simp
   hence "2 = (real m)^2 / (real n)^2" unfolding power_divide by auto
   hence "2 * (real n)^2 = (real m)^2"
-    by (simp add: nonzero_eq_divide_eq `n \<noteq> 0`)
+    by (simp add: nonzero_eq_divide_eq `n ≠ 0`)
   hence "real (2 * n^2) = (real m)^2" by auto
   hence *: "2 * n^2 = m^2"
     using of_nat_power_eq_of_nat_cancel_iff by blast
@@ -28,12 +28,12 @@ proof auto
   with `even m` and `coprime m n` show False by auto
 qed
 
-theorem "3 / sqrt 2 \<notin> \<rat>" 
+theorem "3 / sqrt 2 ∉ ℚ" 
   sorry (* TODO: Complete this proof. *)
 
-section \<open>Task 2: Centred pentagonal numbers.\<close>
+section ‹Task 2: Centred pentagonal numbers.›
 
-fun pent :: "nat \<Rightarrow> nat" where
+fun pent :: "nat ⇒ nat" where
   "pent n = (if n = 0 then 1 else 5 * n + pent (n - 1))"
 
 value "pent 0" (* should be 1 *)
@@ -45,9 +45,9 @@ theorem "pent n = (5 * n^2 + 5 * n + 2) div 2"
   sorry (* TODO: Complete this proof. *)
 
 
-section \<open>Task 3: Lucas numbers.\<close>
+section ‹Task 3: Lucas numbers.›
 
-fun fib :: "nat \<Rightarrow> nat" where
+fun fib :: "nat ⇒ nat" where
   "fib n = (if n = 0 then 0 else if n = 1 then 1 else fib (n - 1) + fib (n - 2))"
 
 value "fib 0" (* should be 0 *)
@@ -60,7 +60,7 @@ thm fib.induct (* rule induction theorem for fib *)
 (* TODO: Complete this task. *)
 
 
-section \<open>Task 4: Balancing circuits.\<close>
+section ‹Task 4: Balancing circuits.›
 
 (* Here is a datatype for representing circuits, copied from the worksheet *)
 
@@ -72,11 +72,11 @@ datatype "circuit" =
 | FALSE
 | INPUT "int"
 
-text \<open>Delay (assuming all gates have a delay of 1)\<close>
+text ‹Delay (assuming all gates have a delay of 1)›
 
 (* The following "delay" function also appeared in the 2019 coursework exercises. *)
 
-fun delay :: "circuit \<Rightarrow> nat" where
+fun delay :: "circuit ⇒ nat" where
   "delay (NOT c) = 1 + delay c"
 | "delay (AND c1 c2) = 1 + max (delay c1) (delay c2)"
 | "delay (OR c1 c2) = 1 + max (delay c1) (delay c2)" 
@@ -85,7 +85,7 @@ fun delay :: "circuit \<Rightarrow> nat" where
 (* TODO: Complete this task. *)
 
 
-section \<open>Task 5: Extending with NAND gates.\<close>
+section ‹Task 5: Extending with NAND gates.›
 
 (* TODO: Complete this task. *)
 
