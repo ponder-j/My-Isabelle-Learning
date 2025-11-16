@@ -65,7 +65,7 @@ lemma recombine: "⋀n::nat. (2 * (n+1) + 1) * ((n+1) + 1) * (n+1) = 6 * n^2 + 1
 
 
 theorem "py n = (2 * n + 1) * (n + 1) * n div 6"
-proof (induct n)
+proof(induct n)
   case 0
   then show ?case by simp
 next
