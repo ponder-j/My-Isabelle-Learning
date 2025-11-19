@@ -42,10 +42,32 @@ value "pent 2" (* should be 16 *)
 value "pent 3" (* should be 31 *)
 
 theorem "pent n = (5 * n^2 + 5 * n + 2) div 2"
-  sorry (* TODO: Complete this proof. *)
+proof (induct n)
+  case 0
+  thus ?case by auto
+next
+  case (Suc n)
+  have "pent (Suc n) = 5 * (n + 1) + pent n" by simp
+  also have "... = 5 * n + 5 + (5 * n^2 + 5 * n + 2) div 2" using Suc by simp
+  also have "... = (10 * (n + 1) + 5 * n^2 + 5 * n + 2) div 2" by simp
+  also have "... = (5 * (n^2 + 2 * n + 1) + 5 * (n + 1) + 2) div 2" 
+    by (simp add: algebra_simps power2_eq_square)
+  also have "... = (5 * (n + 1)^2 + 5 * (n + 1) + 2) div 2"
+    by (simp add: algebra_simps power2_eq_square)
+  also have "... = (5 * (Suc n)^2 + 5 * Suc n + 2) div 2" by simp
+  finally show ?case by assumption
+qed
 
 
 section ‹Task 3: Lucas numbers.›
+
+fun luc :: "nat ⇒ nat" where
+  "luc n = (if n = 0 then 2 else if n = 1 then 1 else luc (n - 1) + luc (n - 2))"
+
+value "luc 0" (* should be 2 *)
+value "luc 1" (* should be 1 *)
+value "luc 2" (* should be 3 *)
+value "luc 3" (* should be 4 *)
 
 fun fib :: "nat ⇒ nat" where
   "fib n = (if n = 0 then 0 else if n = 1 then 1 else fib (n - 1) + fib (n - 2))"
@@ -57,7 +79,43 @@ value "fib 3" (* should be 2 *)
 
 thm fib.induct (* rule induction theorem for fib *)
 
-(* TODO: Complete this task. *)
+theorem "luc n ≥ fib n"
+  apply (rule fib.induct[of "λn. luc n ≥ fib n"])
+  apply (case_tac "n < 2")
+  apply auto
+  done
+  
+theorem "luc (n + 1) = fib n + fib (n + 2)"
+proof (rule fib.induct[of "λn. luc (n + 1) = fib n + fib (n + 2)"])
+  fix n
+  assume IH1: "n ≠ 0 ⟹ n ≠ 1 ⟹ luc (n - 1 + 1) = fib (n - 1) + fib (n - 1 + 2)"
+  assume IH2: "n ≠ 0 ⟹ n ≠ 1 ⟹ luc (n - 2 + 1) = fib (n - 2) + fib (n - 2 + 2)"
+
+  (* First deal with the easy case where n ≤ 1 *)
+  {
+    assume "n ≤ 1" (* local assumption *)
+    hence "luc (n + 1) = fib n + fib (n + 2)" by simp
+  } 
+  moreover (* Now deal with the trickier case where n > 1 *)
+  {
+    assume "n > 1"
+
+    (* Simplify the induction hypotheses *)
+    from IH1 have *: "luc n = fib (n - 1) + fib (n + 1)" using `n > 1` by auto
+    from IH2 have 
+      "luc (n - 2 + 1) = fib (n - 2) + fib (n - 2 + 2)" using `n > 1` by fastforce 
+    hence **: "luc (n - 1) = fib (n - 2) + fib n"
+      by (metis Nat.add_diff_assoc2 Suc_leI add.commute add_diff_cancel_right' 
+          diff_Suc_Suc one_add_one plus_1_eq_Suc `n > 1`)
+
+    (* Some equational reasoning using the definitions of luc and fib to finish the job *)
+    have "luc (n + 1) = luc n + luc (n - 1)" using `n > 1` by simp
+    also have "... = fib (n - 1) + fib (n + 1) + fib (n - 2) + fib n" using * and ** by simp
+    also have "... = fib n + fib (n + 2)" using `n > 1` by simp
+    finally have "luc (n + 1) = fib n + fib (n + 2)" by simp
+  }
+  ultimately show "luc (n + 1) = fib n + fib (n + 2)" by simp
+qed
 
 
 section ‹Task 4: Balancing circuits.›
