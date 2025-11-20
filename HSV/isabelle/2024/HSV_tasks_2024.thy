@@ -27,16 +27,28 @@ fun circuits_equiv (infix "\<sim>" 50) where
   "c1 \<sim> c2 = (\<forall>\<rho>. simulate c1 \<rho> = simulate c2 \<rho>)"
 
 text \<open> A transformation that replaces AND/OR/NOT gates with NAND gates. \<close>
+definition nand_true :: circuit where
+  "nand_true = NAND (INPUT 0) (NAND (INPUT 0) (INPUT 0))"
+
+definition nand_false :: circuit where
+  "nand_false = NAND nand_true nand_true"
+
+lemma simulate_nand_true [simp]: "simulate nand_true \<rho> = True"
+  by (simp add: nand_true_def)
+
+lemma simulate_nand_false [simp]: "simulate nand_false \<rho> = False"
+  by (simp add: nand_false_def)
+
 fun intro_nand where
   "intro_nand (AND c1 c2) = 
-         NAND (NAND (intro_nand c1) (intro_nand c2)) TRUE"
+         NAND (NAND (intro_nand c1) (intro_nand c2)) nand_true"
 | "intro_nand (OR c1 c2) = 
-         NAND (NAND (intro_nand c1) TRUE) (NAND (intro_nand c2) TRUE)"
+         NAND (NAND (intro_nand c1) nand_true) (NAND (intro_nand c2) nand_true)"
 | "intro_nand (NAND c1 c2) = (
          NAND (intro_nand c1) (intro_nand c2))"
-| "intro_nand (NOT c) = NAND (intro_nand c) TRUE"
-| "intro_nand TRUE = TRUE"
-| "intro_nand FALSE = NAND TRUE FALSE"
+| "intro_nand (NOT c) = NAND (intro_nand c) nand_true"
+| "intro_nand TRUE = nand_true"
+| "intro_nand FALSE = nand_false"
 | "intro_nand (INPUT i) = INPUT i"
 
 
@@ -44,7 +56,7 @@ text \<open> The intro_nand transformation is sound. Note that there is a
   (deliberate) bug in the definition above, which you will need to fix 
   before you can prove the theorem below.\<close>
 theorem intro_nand_is_sound: "intro_nand c \<sim> c"
-  oops
+  by (induct c) auto
 
 text \<open> The only_nands predicate holds if a circuit contains only NAND gates. \<close>
 fun only_nands where
@@ -52,13 +64,19 @@ fun only_nands where
 | "only_nands (INPUT _) = True"
 | "only_nands _ = False"
 
+lemma only_nands_nand_true [simp]: "only_nands nand_true"
+  by (simp add: nand_true_def)
+
+lemma only_nands_nand_false [simp]: "only_nands nand_false"
+  by (simp add: nand_false_def)
+
 text \<open> The output of the intro_nand transformation is a circuit that only
   contains NAND gates. Note that there is a (deliberate) bug in the
   definition above, which you will need to fix before you can prove the
   theorem below. \<close>
 theorem intro_nand_only_produces_nands:
   "only_nands (intro_nand c)"
-  oops
+  by (induct c) auto
 
 section \<open> Task 2: Converting numbers to lists of digits. \<close>
 
@@ -72,12 +90,12 @@ value "digits10 42"
 text \<open> Every digit is less than 10 (helper lemma). \<close>
 lemma digits10_all_below_10_helper: 
   "ds = digits10 n \<Longrightarrow> \<forall>d \<in> set ds. d < 10"
-  oops
+  by (induct n rule: digits10.induct) auto
 
 text \<open> Every digit is less than 10. \<close>
 corollary 
   "\<forall>d \<in> set (digits10 n). d < 10" 
-  oops
+  using digits10_all_below_10_helper by blast
 
 text \<open> Task 3: Converting to and from digit lists. \<close>
 
@@ -92,7 +110,7 @@ value "sum10 [2,4]"
 text \<open> Applying digits10 then sum10 gets you back to the same number. \<close>
 theorem digits10_sum10_inverse: 
   "sum10 (digits10 n) = n"
-  oops
+  by (induct n rule: digits10.induct) auto
 
 section \<open> Task 4: A divisibility theorem. \<close>
 
@@ -244,14 +262,14 @@ text \<open> If the naive SAT solver returns a valuation, then that
 theorem naive_solve_correct_sat:
   assumes "naive_solve q = Some \<rho>"
   shows "evaluate q \<rho>"
-  oops
+  using assms naive_solve_def until_none_some by fastforce
 
 text \<open> If the naive SAT solver returns no valuation, then none of the valuations 
   it tried make the query true. \<close>
 theorem naive_solve_correct_unsat:
   assumes "naive_solve q = None"
   shows "\<forall>\<rho> \<in> set (mk_valuation_list (symbol_list q)). \<not> evaluate q \<rho>" 
-  oops
+  using assms naive_solve_def until_none list_all_iff by fastforce
 
 section \<open> Task 6: Verifying a simple SAT solver. \<close>
 
@@ -329,16 +347,49 @@ definition domain :: "('a * 'b) list \<Rightarrow> 'a set"
 where
   "domain kvs = set (map fst kvs)"
 
+lemma evaluate_update_clause_helper:
+  assumes "x \<notin> domain \<rho>"
+  shows "(\<forall>c' \<in> set (update_clause x b c). evaluate_clause \<rho> c') = evaluate_clause ((x, b) # \<rho>) c"
+  using assms
+  apply (auto simp: update_clause_def evaluate_clause_def domain_def)
+  apply (metis fst_conv image_eqI)
+  done
+
 lemma evaluate_update_query: 
   assumes "x \<notin> domain \<rho>"
   shows "evaluate (update_query x b q) \<rho> = evaluate q ((x, b) # \<rho>)"
-  oops
+  using assms evaluate_update_clause_helper
+  by (induct q) (auto simp: evaluate_def)
+
+lemma symbols_update_query:
+  "symbols (update_query x b q) \<subseteq> symbols q - {x}"
+  apply (induct q)
+   apply (auto simp: symbols_def symbols_clause_def update_clause_def update_query.simps)
+  done
+
+lemma simp_solve_domain:
+  "simp_solve q = Some \<rho> \<Longrightarrow> domain \<rho> \<subseteq> symbols q"
+  apply (induct q arbitrary: \<rho> rule: simp_solve.induct)
+    apply (auto split: list.splits option.splits)
+   apply (metis (mono_tags, lifting) Diff_subset Un_subset_iff insert_subset subset_trans symbols_update_query)
+  apply (metis (mono_tags, lifting) Diff_subset Un_subset_iff insert_subset subset_trans symbols_update_query)
+  done
 
 text \<open> If the simple SAT solver returns a valuation, then that 
   valuation really does make the query true. \<close>
 theorem simp_solve_sat_correct:
   "simp_solve q = Some \<rho> \<Longrightarrow> evaluate q \<rho>"
-  oops
+proof (induct q arbitrary: \<rho> rule: simp_solve.induct)
+  case (1 q)
+  then show ?case
+    apply (cases q)
+     apply (auto simp: evaluate_def)
+    apply (metis evaluate_update_query simp_solve_domain subsetD)
+    done
+qed
+
+lemma evaluate_mono: "set \<rho> \<subseteq> set \<rho>' \<Longrightarrow> evaluate q \<rho> \<Longrightarrow> evaluate q \<rho>'"
+  by (auto simp: evaluate_def evaluate_clause_def)
 
 text \<open> A valuation is deemed well-formed (wf) as long as it does
   not assign a truth-value for the same symbol more than once. \<close>
@@ -351,6 +402,58 @@ text \<open> If the simple SAT solver returns no valuation, then
 theorem simp_solve_unsat_correct:
   "simp_solve q = None \<Longrightarrow> 
    (\<forall>\<rho>. wf_valuation \<rho> \<longrightarrow> \<not> evaluate q \<rho>)"
-  oops
+proof (induct q rule: simp_solve.induct)
+  case (1 q)
+  show ?case
+  proof (intro allI impI)
+    fix \<rho> assume "wf_valuation \<rho>"
+    show "\<not> evaluate q \<rho>"
+    proof (cases q)
+      case Nil
+      then show ?thesis using 1 by simp
+    next
+      case (Cons c q')
+      then obtain x b where "c = (x, b) # tl c" by (cases c) auto
+      have "simp_solve (update_query x True q) = None" 
+        and "simp_solve (update_query x False q) = None"
+        using 1 Cons `c = (x, b) # tl c` by (auto split: option.splits)
+      
+      show ?thesis
+      proof (cases "x \<in> domain \<rho>")
+        case True
+        then obtain v where v_in: "(x, v) \<in> set \<rho>" by (auto simp: domain_def)
+        let ?rho' = "filter (\<lambda>l. fst l \<noteq> x) \<rho>"
+        have wf_rho': "wf_valuation ?rho'" using `wf_valuation \<rho>` 
+          by (simp add: wf_valuation_def)
+        have "evaluate q \<rho> \<longleftrightarrow> evaluate q ((x, v) # ?rho')"
+          using `wf_valuation \<rho>` v_in
+          apply (auto simp: evaluate_def evaluate_clause_def)
+           apply (metis (no_types, lifting) fst_conv image_eqI map_filter_ID member_filter set_filter)
+          by (metis (no_types, lifting) fst_conv image_eqI map_filter_ID member_filter set_filter)
+        also have "... \<longleftrightarrow> evaluate (update_query x v q) ?rho'"
+          using evaluate_update_query[of x ?rho' v q]
+          by (simp add: domain_def)
+        finally have "evaluate q \<rho> \<longleftrightarrow> evaluate (update_query x v q) ?rho'" .
+        
+        moreover have "\<not> evaluate (update_query x v q) ?rho'"
+          using 1(1,2) `simp_solve (update_query x True q) = None` `simp_solve (update_query x False q) = None`
+          using wf_rho' Cons `c = (x, b) # tl c`
+          by (cases v) auto
+        ultimately show ?thesis by simp
+      next
+        case False
+        have "evaluate q \<rho> \<Longrightarrow> evaluate q ((x, True) # \<rho>)"
+          by (rule evaluate_mono) auto
+        also have "... \<longleftrightarrow> evaluate (update_query x True q) \<rho>"
+          using evaluate_update_query[of x \<rho> True q] False by simp
+        finally have "evaluate q \<rho> \<Longrightarrow> evaluate (update_query x True q) \<rho>" .
+        moreover have "\<not> evaluate (update_query x True q) \<rho>"
+          using 1(1) `simp_solve (update_query x True q) = None` `wf_valuation \<rho>` Cons `c = (x, b) # tl c`
+          by simp
+        ultimately show ?thesis by blast
+      qed
+    qed
+  qed
+qed
 
 end
