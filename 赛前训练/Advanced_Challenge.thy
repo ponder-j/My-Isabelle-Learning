@@ -11,18 +11,18 @@ begin
 
 (* 提示：
    这是一个经典的“反证法”题目。
-   你需要构造一个特殊的集合 S = {x. x ∉ f x} (对角线集合)。
+   你需要构造一个特殊的集合 S = {x. x \<notin> f x} (对角线集合)。
    Isabelle 不会自动想到这个集合，你必须使用 `let ?S = ...` 或直接在证明中指出它。
 *)
 
-theorem Cantor: "¬ (∃f :: 'a ⇒ 'a set. ∀A. ∃x. f x = A)"
+theorem Cantor: "\<not> (\<exists>f :: 'a \<Rightarrow> 'a set. \<forall>A. \<exists>x. f x = A)"
 proof
   (* 1. 假设存在满射 f *)
-  assume "∃f :: 'a ⇒ 'a set. ∀A. ∃x. f x = A"
-  then obtain f :: "'a ⇒ 'a set" where surj_on_A: "∀A. ∃x. f x = A" ..
+  assume "\<exists>f :: 'a \<Rightarrow> 'a set. \<forall>A. \<exists>x. f x = A"
+  then obtain f :: "'a \<Rightarrow> 'a set" where surj_on_A: "\<forall>A. \<exists>x. f x = A" ..
   
   (* 2. 定义对角线集合 *)
-  let ?S = "{x. x ∉ f x}"
+  let ?S = "{x. x \<notin> f x}"
   
   (* 3. 利用满射性质，找到对应的原像 a *)
   obtain a where "f a = ?S"
@@ -30,12 +30,12 @@ proof
   
   (* 4. 核心矛盾推导 (Chain of reasoning) *)
   (* 这种 also-finally 结构展示了矛盾是如何一步步产生的 *)
-  have "a ∈ ?S ⟷ a ∉ f a"
+  have "a \<in> ?S \<longleftrightarrow> a \<notin> f a"
     by simp (* 这一步是集合定义的直接展开 *)
-  also have "… ⟷ a ∉ ?S" 
+  also have "\<dots> \<longleftrightarrow> a \<notin> ?S" 
     using `f a = ?S`
     by blast (* 代入我们找到的那个关系 *)
-  finally have "a ∈ ?S ⟷ a ∉ ?S" . (* 结论：a 在 S 中当且仅当 a 不在 S 中 *)
+  finally have "a \<in> ?S \<longleftrightarrow> a \<notin> ?S" . (* 结论：a 在 S 中当且仅当 a 不在 S 中 *)
   
   (* 5. 导出 False *)
   then show False by blast
@@ -43,17 +43,17 @@ qed
 (* 不存在这样的 f，对于任意的 A，都能找到一个 x 使得 f x = A *)
 (* proof
   (* 假设存在这样的满射 f *)
-  assume "∃f :: 'a ⇒ 'a set. ∀A. ∃x. f x = A"
-  then obtain f :: "'a ⇒ 'a set" where surj_f: "∀A. ∃x. f x = A" ..
+  assume "\<exists>f :: 'a \<Rightarrow> 'a set. \<forall>A. \<exists>x. f x = A"
+  then obtain f :: "'a \<Rightarrow> 'a set" where surj_f: "\<forall>A. \<exists>x. f x = A" ..
 
-  let ?diagonal = "{x. x ∉ f x}"
+  let ?diagonal = "{x. x \<notin> f x}"
   obtain d :: "'a" where "f d = diagonal"
     using surj_f
     by auto
-  hence case1: "d ∉ ?diagonal"
+  hence case1: "d \<notin> ?diagonal"
     using surj_f
     by force
-  have case2: "d ∈ ?diagonal"
+  have case2: "d \<in> ?diagonal"
     using surj_f
     by force
   show False
@@ -70,29 +70,29 @@ qed *)
 (********************************************************************)
 
 (* 辅助函数：统计元素 x 在列表 xs 中出现的次数 *)
-primrec count :: "'a ⇒ 'a list ⇒ nat" where
+primrec count :: "'a \<Rightarrow> 'a list \<Rightarrow> nat" where
 "count x [] = 0" |
 "count x (y # ys) = (if x = y then Suc (count x ys) else count x ys)"
 
 (* 辅助函数：判断列表是否有序 *)
-fun sorted :: "nat list ⇒ bool" where
+fun sorted :: "nat list \<Rightarrow> bool" where
 "sorted [] = True" |
 "sorted [x] = True" |
-"sorted (x # y # zs) = (x ≤ y ∧ sorted (y # zs))"
+"sorted (x # y # zs) = (x \<le> y \<and> sorted (y # zs))"
 
 (* 算法定义：插入排序 *)
 (* 将元素 x 插入到有序列表 ys 中 *)
-fun insort :: "nat ⇒ nat list ⇒ nat list" where
+fun insort :: "nat \<Rightarrow> nat list \<Rightarrow> nat list" where
 "insort x [] = [x]" |
-"insort x (y # ys) = (if x ≤ y then x # y # ys else y # insort x ys)"
+"insort x (y # ys) = (if x \<le> y then x # y # ys else y # insort x ys)"
 
 (* 主排序函数 *)
-fun isort :: "nat list ⇒ nat list" where
+fun isort :: "nat list \<Rightarrow> nat list" where
 "isort [] = []" |
 "isort (x # xs) = insort x (isort xs)"
 
 (* 挑战 2.1: 证明 insort 维持有序性 *)
-lemma sorted_insort: "sorted xs ⟹ sorted (insort x xs)"
+lemma sorted_insort: "sorted xs \<Longrightarrow> sorted (insort x xs)"
   (* 提示：归纳法 *)
   (* apply (induct xs)
   apply simp
@@ -102,12 +102,12 @@ proof (induction xs)
   then show ?case by simp
 next
   case (Cons a xs)
-  assume IH1: "sorted xs ⟹ sorted (insort x xs)"
+  assume IH1: "sorted xs \<Longrightarrow> sorted (insort x xs)"
   assume IH2: "sorted (a # xs)"
   (* target: sorted (insort x (a # xs)) *)
 
   then show ?case
-  proof (cases "x ≤ a")
+  proof (cases "x \<le> a")
     case True
     then show ?thesis
         using IH2 by auto
@@ -131,32 +131,32 @@ next
       case False
       then obtain b xxs where "xs = b # xxs"
         by (meson isort.cases)
-      hence "a ≤ b"
+      hence "a \<le> b"
         using IH
         by simp
       then show ?thesis
-        proof (cases "x ≤ b")
+        proof (cases "x \<le> b")
           case True
           hence "a # insort x xs = a # x # xs"
-            using ‹xs = b # xxs› by auto
-          hence "sorted (a # (insort x xs)) ⟷ sorted (a # x # xs)"
+            using \<open>xs = b # xxs\<close> by auto
+          hence "sorted (a # (insort x xs)) \<longleftrightarrow> sorted (a # x # xs)"
             by auto
-          also have "… ⟷ sorted (x # xs)"
-            using ‹insort x (a # xs) = a # insort x xs› linorder_linear by force
+          also have "\<dots> \<longleftrightarrow> sorted (x # xs)"
+            using \<open>insort x (a # xs) = a # insort x xs\<close> linorder_linear by force
           then show ?thesis
-            using ‹sorted (insort x xs)› ‹a # insort x xs = a # x # xs› by force
+            using \<open>sorted (insort x xs)\<close> \<open>a # insort x xs = a # x # xs\<close> by force
         next
           case False
           hence "a # insort x xs = a # b # (insort x xxs)"
-            by (simp add: ‹xs = b # xxs›)
-          hence "sorted (a # (insort x xs)) ⟷ sorted (a # b # (insort x xxs))"
+            by (simp add: \<open>xs = b # xxs\<close>)
+          hence "sorted (a # (insort x xs)) \<longleftrightarrow> sorted (a # b # (insort x xxs))"
             by auto
-          also have "… ⟷ sorted (b # (insort x xxs))"
-            using ‹a ≤ b› by auto
-          also have "… ⟷ sorted (insort x xs)"
-            using ‹a # insort x xs = a # b # insort x xxs› by auto
+          also have "\<dots> \<longleftrightarrow> sorted (b # (insort x xxs))"
+            using \<open>a \<le> b\<close> by auto
+          also have "\<dots> \<longleftrightarrow> sorted (insort x xs)"
+            using \<open>a # insort x xs = a # b # insort x xxs\<close> by auto
           then show ?thesis
-            using ‹insort x (a # xs) = a # insort x xs› ‹sorted (insort x xs)› calculation by presburger
+            using \<open>insort x (a # xs) = a # insort x xs\<close> \<open>sorted (insort x xs)\<close> calculation by presburger
         qed
     qed
   qed
@@ -185,7 +185,7 @@ theorem isort_count: "count x (isort xs) = count x xs"
 (********************************************************************)
 
 (* 递归定义平方和 *)
-fun sum_sq :: "nat ⇒ nat" where
+fun sum_sq :: "nat \<Rightarrow> nat" where
 "sum_sq 0 = 0" |
 "sum_sq (Suc n) = sum_sq n + (Suc n) * (Suc n)"
 
@@ -220,10 +220,10 @@ datatype expr =
 | Var string  (* 稍微扩展一下，加入变量，让优化更有意义 *)
 
 (* 环境：变量名到值的映射 *)
-type_synonym env = "string ⇒ int"
+type_synonym env = "string \<Rightarrow> int"
 
 (* 这里的求值函数需要环境 *)
-primrec eval :: "env ⇒ expr ⇒ int" where
+primrec eval :: "env \<Rightarrow> expr \<Rightarrow> int" where
 "eval s (Const i) = i" |
 "eval s (Var x) = s x" |
 "eval s (Plus e1 e2) = eval s e1 + eval s e2"
@@ -232,11 +232,11 @@ primrec eval :: "env ⇒ expr ⇒ int" where
   如果加法的两边都是常量，直接计算结果。
   否则，递归优化子表达式。
 *)
-fun optimize :: "expr ⇒ expr" where
+fun optimize :: "expr \<Rightarrow> expr" where
 "optimize (Plus e1 e2) = (
    case (optimize e1, optimize e2) of
-     (Const i, Const j) ⇒ Const (i + j) |
-     (r1, r2) ⇒ Plus r1 r2
+     (Const i, Const j) \<Rightarrow> Const (i + j) |
+     (r1, r2) \<Rightarrow> Plus r1 r2
    )" |
 (* 对于其他情况，保持不变，但仍需递归遍历吗？其实 Const 和 Var 已经是基本形式 *)
 "optimize (Const i) = Const i" |

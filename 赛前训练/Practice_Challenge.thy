@@ -8,19 +8,19 @@ begin
 (********************************************************************)
 
 (* 题目 1: 满射函数的复合性质
-  如果 f 和 g 的复合函数 (f ∘ g) 是满射 (surjective)，那么 f 也是满射。
+  如果 f 和 g 的复合函数 (f \<circ> g) 是满射 (surjective)，那么 f 也是满射。
   
   提示：
-  1. 满射定义: surjective f ⟷ (∀y. ∃x. f x = y)
+  1. 满射定义: surjective f \<longleftrightarrow> (\<forall>y. \<exists>x. f x = y)
   2. 尝试使用 Isar 风格 (proof - ... show ... qed)
   3. 可能需要用到 `fix`, `assume`, `obtain` (用于消除存在量词)
 *)
 
-definition surjective :: "('a ⇒ 'b) ⇒ bool" where
-  "surjective f ⟷ (∀y. ∃x. f x = y)"
+definition surjective :: "('a \<Rightarrow> 'b) \<Rightarrow> bool" where
+  "surjective f \<longleftrightarrow> (\<forall>y. \<exists>x. f x = y)"
 
 lemma surjective_comp:
-  assumes "surjective (f ∘ g)"
+  assumes "surjective (f \<circ> g)"
   shows "surjective f"
 proof -
   (* 参考答案：结构化 Isar 证明 *)
@@ -30,16 +30,16 @@ proof -
   (* proof (rule allI) 引入全称量词规则 *)
   proof
     fix y
-    (* 利用假设：f ∘ g 是满射，所以对于当前的 y，存在某个 x 使得 (f ∘ g) x = y *)
-    from assms have "surjective (f ∘ g)" .
-    then obtain x where "(f ∘ g) x = y" 
+    (* 利用假设：f \<circ> g 是满射，所以对于当前的 y，存在某个 x 使得 (f \<circ> g) x = y *)
+    from assms have "surjective (f \<circ> g)" .
+    then obtain x where "(f \<circ> g) x = y" 
       unfolding surjective_def by blast
     
     (* 展开复合函数定义，得到 f (g x) = y *)
     then have "f (g x) = y" by simp
     
     (* 因为我们找到了 witness (即 g x)，所以存在这样的 x *)
-    then show "∃z. f z = y" by blast
+    then show "\<exists>z. f z = y" by blast
   qed
 qed
 (* proof -
@@ -47,13 +47,13 @@ qed
   (* 提示思路：
      我们要证明对于任意 y，都存在一个 x 使得 f x = y。
      从假设已知 f(g(x')) = y 对某个 x' 成立... *)
-  have "surjective (f ∘ g)"
+  have "surjective (f \<circ> g)"
     by (simp add: assms)
-  hence "∀y. ∃x. (f ∘ g) x = y"
+  hence "\<forall>y. \<exists>x. (f \<circ> g) x = y"
     by (simp add: surjective_def)
-  hence "∀y. ∃x. f (g x) = y"
+  hence "\<forall>y. \<exists>x. f (g x) = y"
     by auto
-  hence "∀y. ∃x. f x = y"
+  hence "\<forall>y. \<exists>x. f x = y"
     by auto
   thus "surjective f"
     using surjective_def by blast
@@ -78,12 +78,12 @@ qed *)
 *)
 
 (* 普通的列表反转 *)
-primrec reverse :: "'a list ⇒ 'a list" where
+primrec reverse :: "'a list \<Rightarrow> 'a list" where
 "reverse [] = []" |
 "reverse (x # xs) = reverse xs @ [x]"
 
 (* 尾递归优化的列表反转 (更高效，因为使用了累加器) *)
-fun itrev :: "'a list ⇒ 'a list ⇒ 'a list" where
+fun itrev :: "'a list \<Rightarrow> 'a list \<Rightarrow> 'a list" where
 "itrev [] ys = ys" |
 "itrev (x # xs) ys = itrev xs (x # ys)"
 
@@ -110,7 +110,7 @@ theorem itrev_correct: "itrev xs [] = reverse xs"
 *)
 
 (* 定义递归求和函数：计算前 n 个奇数的和 *)
-fun sum_odds :: "nat ⇒ nat" where
+fun sum_odds :: "nat \<Rightarrow> nat" where
 "sum_odds 0 = 0" |
 "sum_odds (Suc n) = sum_odds n + (2 * n + 1)"
 
@@ -137,7 +137,7 @@ datatype expr =
 | Plus expr expr     (* 加法，例如 5 + 3 *)
 
 (* 2. 定义表达式的“指称语义” (即：它的值是多少) *)
-primrec eval :: "expr ⇒ int" where
+primrec eval :: "expr \<Rightarrow> int" where
 "eval (Const i) = i" |
 "eval (Plus e1 e2) = eval e1 + eval e2"
 
@@ -148,14 +148,14 @@ datatype instr =
 
 (* 4. 定义栈机器的执行语义 *)
 (* stack 是一个整数列表 *)
-fun exec :: "instr list ⇒ int list ⇒ int list" where
+fun exec :: "instr list \<Rightarrow> int list \<Rightarrow> int list" where
 "exec [] stack = stack" |
 "exec (IPush n # ins) stack = exec ins (n # stack)" |
 "exec (IAdd # ins) (x # y # stack) = exec ins ((x + y) # stack)" |
 "exec (IAdd # ins) _ = []" (* 错误处理：栈元素不足时清空，简化模型 *)
 
 (* 5. 定义编译器：将表达式转换为指令列表 *)
-primrec compile :: "expr ⇒ instr list" where
+primrec compile :: "expr \<Rightarrow> instr list" where
 "compile (Const i) = [IPush i]" |
 "compile (Plus e1 e2) = compile e2 @ compile e1 @ [IAdd]"
 

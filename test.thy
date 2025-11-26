@@ -2,10 +2,10 @@ theory test
   imports Complex_Main
 begin
 
-lemma sqrt2_not_rat: "sqrt 2 \<notin> \<rat>"
+lemma sqrt2_not_rat: "sqrt 2 ∉ ℚ"
 proof
-  assume "sqrt 2 \<in> \<rat>"
-  then obtain m n :: nat where n_nonzero: "n \<noteq> 0" and abs_sqrt2_eq: "\<bar>sqrt 2\<bar> = real m / real n" and coprime_mn: "coprime m n"
+  assume "sqrt 2 ∈ ℚ"
+  then obtain m n :: nat where n_nonzero: "n ≠ 0" and abs_sqrt2_eq: "¦sqrt 2¦ = real m / real n" and coprime_mn: "coprime m n"
     by (rule Rats_abs_nat_div_natE)
   
   have "sqrt 2 = real m / real n" using abs_sqrt2_eq by auto
@@ -32,21 +32,21 @@ proof
   thus False by (auto dest: dvd_imp_le)
 qed
 
-theorem three_div_sqrt2_not_rat: "3 / sqrt 2 \<notin> \<rat>"
+theorem three_div_sqrt2_not_rat: "3 / sqrt 2 ∉ ℚ"
 proof
-  assume "3 / sqrt 2 \<in> \<rat>"
-  then obtain q where "3 / sqrt 2 = q" and "q \<in> \<rat>" by blast
+  assume "3 / sqrt 2 ∈ ℚ"
+  then obtain q where "3 / sqrt 2 = q" and "q ∈ ℚ" by blast
   
-  have "q \<noteq> 0" 
+  have "q ≠ 0" 
   proof
     assume "q = 0"
     hence "3 / sqrt 2 = 0" using `3 / sqrt 2 = q` by simp
     thus False by simp
   qed
   
-  have "sqrt 2 = 3 / q" using `3 / sqrt 2 = q` `q \<noteq> 0` by (simp add: field_simps)
-  moreover have "3 / q \<in> \<rat>" using `q \<in> \<rat>` `q \<noteq> 0` by (simp add: Rats_divide)
-  ultimately have "sqrt 2 \<in> \<rat>" by simp
+  have "sqrt 2 = 3 / q" using `3 / sqrt 2 = q` `q ≠ 0` by (simp add: field_simps)
+  moreover have "3 / q ∈ ℚ" using `q ∈ ℚ` `q ≠ 0` by (simp add: Rats_divide)
+  ultimately have "sqrt 2 ∈ ℚ" by simp
   thus False using sqrt2_not_rat by simp
 qed
 
