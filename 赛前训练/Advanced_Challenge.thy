@@ -94,9 +94,28 @@ fun isort :: "nat list ⇒ nat list" where
 (* 挑战 2.1: 证明 insort 维持有序性 *)
 lemma sorted_insort: "sorted xs ⟹ sorted (insort x xs)"
   (* 提示：归纳法 *)
-  apply (induct xs)
+  (* apply (induct xs)
   apply simp
-  by (smt (verit) insort.simps(1,2) linorder_linear sorted.elims(1) sorted.simps(3))
+  by (smt (verit) insort.simps(1,2) linorder_linear sorted.elims(1) sorted.simps(3)) *)
+proof (induction xs)
+  case Nil
+  then show ?case by simp
+next
+  case (Cons a xs)
+  assume IH1: "sorted xs ⟹ sorted (insort x xs)"
+  assume IH2: "sorted (a # xs)"
+  (* target: sorted (insort x (a # xs)) *)
+
+  then show ?case
+  proof (cases "x ≤ a")
+    case True
+    then show ?thesis
+        sledgehammer
+  next
+    case False
+    then show ?thesis sorry
+  qed
+qed
 
 (* 挑战 2.2: 证明 isort 产生有序列表 *)
 theorem isort_sorted: "sorted (isort xs)"
