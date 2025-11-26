@@ -16,8 +16,31 @@ begin
 *)
 
 theorem Cantor: "¬ (∃f :: 'a ⇒ 'a set. ∀A. ∃x. f x = A)"
-(* 不存在这样的 f，对于任意的 A，都能找到一个 x 使得 f x = A *)
 proof
+  (* 1. 假设存在满射 f *)
+  assume "∃f :: 'a ⇒ 'a set. ∀A. ∃x. f x = A"
+  then obtain f :: "'a ⇒ 'a set" where surj_on_A: "∀A. ∃x. f x = A" ..
+  
+  (* 2. 定义对角线集合 *)
+  let ?S = "{x. x ∉ f x}"
+  
+  (* 3. 利用满射性质，找到对应的原像 a *)
+  obtain a where "f a = ?S"
+    using surj_on_A by blast
+  
+  (* 4. 核心矛盾推导 (Chain of reasoning) *)
+  (* 这种 also-finally 结构展示了矛盾是如何一步步产生的 *)
+  have "a ∈ ?S ⟷ a ∉ f a" 
+    by simp (* 这一步是集合定义的直接展开 *)
+  also have "... ⟷ a ∉ ?S" 
+    using `f a = ?S` by simp (* 代入我们找到的那个关系 *)
+  finally have "a ∈ ?S ⟷ a ∉ ?S" . (* 结论：a 在 S 中当且仅当 a 不在 S 中 *)
+  
+  (* 5. 导出 False *)
+  then show False by blast
+qed
+(* 不存在这样的 f，对于任意的 A，都能找到一个 x 使得 f x = A *)
+(* proof
   (* 假设存在这样的满射 f *)
   assume "∃f :: 'a ⇒ 'a set. ∀A. ∃x. f x = A"
   then obtain f :: "'a ⇒ 'a set" where surj_f: "∀A. ∃x. f x = A" ..
@@ -26,18 +49,16 @@ proof
   obtain d :: "'a" where "f d = diagonal"
     using surj_f
     by auto
-  hence "d ∉ diagonal"
-    proof auto
-      assume IH1: "diagonal = f d"
-      assume IH2: "d ∈ f d"
-      show False
-        sledgehammer
-
-  
+  hence case1: "d ∉ ?diagonal"
+    using surj_f
+    by force
+  have case2: "d ∈ ?diagonal"
+    using surj_f
+    by force
   show False
-    (* 请在此处完成证明 *)
-    sorry
-qed
+    using case1 case2
+    by auto
+qed *)
 
 
 (********************************************************************)
