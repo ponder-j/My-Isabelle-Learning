@@ -163,18 +163,20 @@ primrec compile :: "expr ⇒ instr list" where
   证明：执行编译后的代码，栈顶结果就是表达式的值。
   
   难点提示：
-  直接证明 `exec (compile e) [] = [value e]` 会遇到困难。
+  直接证明 `exec (compile e) [] = [eval e]` 会遇到困难。
   因为在递归调用中，compile e2 执行完后，栈并不是空的！
   你需要证明一个更强的性质：exec (compile e @ more) stack = ...
 *)
 
-lemma exec_compile_general: "exec (compile e @ ins) stack = exec ins (value e # stack)"
+lemma exec_compile_general: "exec (compile e @ ins) stack = exec ins (eval e # stack)"
   (* 提示：对表达式 e 进行归纳 (induction e) *)
   (* 你可能需要用到 append 的结合律 (append_assoc) *)
-  oops
+  apply (induct e arbitrary: ins stack)
+  by simp+
 
-theorem compiler_correct: "exec (compile e) [] = [value e]"
+
+theorem compiler_correct: "exec (compile e) [] = [eval e]"
   (* 如果上面的引理证毕，这里就很简单了 *)
-  oops
+  by (metis append.right_neutral exec.simps(1) exec_compile_general)
 
 end
