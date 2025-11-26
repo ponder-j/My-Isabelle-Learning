@@ -30,10 +30,11 @@ proof
   
   (* 4. 核心矛盾推导 (Chain of reasoning) *)
   (* 这种 also-finally 结构展示了矛盾是如何一步步产生的 *)
-  have "a ∈ ?S ⟷ a ∉ f a" 
+  have "a ∈ ?S ⟷ a ∉ f a"
     by simp (* 这一步是集合定义的直接展开 *)
-  also have "... ⟷ a ∉ ?S" 
-    using `f a = ?S` by simp (* 代入我们找到的那个关系 *)
+  also have "… ⟷ a ∉ ?S" 
+    using `f a = ?S`
+    by blast (* 代入我们找到的那个关系 *)
   finally have "a ∈ ?S ⟷ a ∉ ?S" . (* 结论：a 在 S 中当且仅当 a 不在 S 中 *)
   
   (* 5. 导出 False *)
@@ -93,7 +94,9 @@ fun isort :: "nat list ⇒ nat list" where
 (* 挑战 2.1: 证明 insort 维持有序性 *)
 lemma sorted_insort: "sorted xs ⟹ sorted (insort x xs)"
   (* 提示：归纳法 *)
-  oops
+  apply (induct xs)
+  apply simp
+  by (smt (verit) insort.simps(1,2) linorder_linear sorted.elims(1) sorted.simps(3))
 
 (* 挑战 2.2: 证明 isort 产生有序列表 *)
 theorem isort_sorted: "sorted (isort xs)"
