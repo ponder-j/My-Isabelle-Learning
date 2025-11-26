@@ -110,10 +110,55 @@ next
   proof (cases "x ≤ a")
     case True
     then show ?thesis
-        sledgehammer
+        using IH2 by auto
   next
     case False
-    then show ?thesis sorry
+    assume IH: "sorted (a # xs)"
+    hence "sorted xs"
+      using sorted.elims(3)
+      by fastforce
+    hence "sorted (insort x xs)"
+      using IH1
+      by auto
+    have "insort x (a # xs) = a # insort x xs"
+      using False by auto
+    then show ?thesis
+    proof (cases "xs = []")
+      case True
+      then show ?thesis
+        by auto
+    next
+      case False
+      then obtain b xxs where "xs = b # xxs"
+        by (meson isort.cases)
+      hence "a ≤ b"
+        using IH
+        by simp
+      then show ?thesis
+        proof (cases "x ≤ b")
+          case True
+          hence "a # insort x xs = a # x # xs"
+            using ‹xs = b # xxs› by auto
+          hence "sorted (a # (insort x xs)) ⟷ sorted (a # x # xs)"
+            by auto
+          also have "… ⟷ sorted (x # xs)"
+            using ‹insort x (a # xs) = a # insort x xs› linorder_linear by force
+          then show ?thesis
+            using ‹sorted (insort x xs)› ‹a # insort x xs = a # x # xs› by force
+        next
+          case False
+          hence "a # insort x xs = a # b # (insort x xxs)"
+            by (simp add: ‹xs = b # xxs›)
+          hence "sorted (a # (insort x xs)) ⟷ sorted (a # b # (insort x xxs))"
+            by auto
+          also have "… ⟷ sorted (b # (insort x xxs))"
+            using ‹a ≤ b› by auto
+          also have "… ⟷ sorted (insort x xs)"
+            using ‹a # insort x xs = a # b # insort x xxs› by auto
+          then show ?thesis
+            using ‹insort x (a # xs) = a # insort x xs› ‹sorted (insort x xs)› calculation by presburger
+        qed
+    qed
   qed
 qed
 
