@@ -1,4 +1,4 @@
-theory Practice_Monad
+theory Practice_Monad_ans
   imports Main "HOL-Library.Monad_Syntax"
 begin
 
@@ -36,8 +36,8 @@ lemma monad_associativity:
   shows "(do { y <- (do { x <- m; f x }); g y }) = 
    (do { x <- m; y <- f x; g y })"
   unfolding my_bind_def
-  (* 提示：可能需要用 split: prod.splits 来处理 let (a, b) = ... 的情况 *)
-  oops
+  apply (auto split: prod.splits)
+  done
 
 
 section \<open>题目 2：状态操作验证\<close>
@@ -60,7 +60,7 @@ lemma put_get_test:
    }) s = (5, 5)"
   unfolding put_def get_def return_def my_bind_def
   apply auto
-  oops
+  done
 
 
 section \<open>题目 3：复杂的业务逻辑\<close>
@@ -83,6 +83,6 @@ lemma tricky_logic:
   (* 为了方便证明，我们可以直接展开左侧 *)
   unfolding tick_def get_def return_def my_bind_def
   apply auto
-  oops
+  done
 
 end

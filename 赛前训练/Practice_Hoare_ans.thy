@@ -9,11 +9,13 @@ section \<open>第一部分：基础逻辑与条件分支\<close>
    提示：VCG 会自动处理 IF 分支，通常不需要额外的不变式。
 *)
 lemma find_max:
-  "VARS x y m
+  "VARS (x::nat) y m
   { True }
   IF x >= y THEN m := x ELSE m := y FI
   { m = max x y }"
-  sorry
+  apply vcg
+  apply (auto simp: max_def)
+  done
 
 
 section \<open>第二部分：循环不变式 (Partial Correctness)\<close>
@@ -38,9 +40,8 @@ lemma sum_upto_n:
   OD
   { s = n * (n + 1) div 2 }"
   apply vcg
-  apply auto
+  apply (auto simp: algebra_simps)
   sorry
-
 
 (* 题目 3：计算 2 的幂 (Power of 2)
    目标：计算 p = 2^n。
@@ -59,8 +60,8 @@ lemma power_of_two: (* 请在 ... 中填空：p = 2^i 且 i <= n *)
   OD
   { p = 2^n }"
   apply vcg
-  (* apply auto *)
-  sorry
+  apply (auto simp: algebra_simps)
+  done
 
 
 section \<open>第三部分：完全正确性 (Total Correctness)\<close>
@@ -84,7 +85,7 @@ lemma euclidean_division: (* 变体：r 是自然数且每轮减小 *)
   OD
   { x = q * y + r & r < y }"
   apply vcg
-  apply auto
-  sorry
+  apply (auto simp: algebra_simps)
+  done
 
 end
