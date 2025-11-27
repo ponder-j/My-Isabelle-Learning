@@ -1,7 +1,7 @@
 theory HSV_chapter4 imports Complex_Main begin
 
 (* Triangle numbers *)
-fun triangle :: "nat \<Rightarrow> nat" where
+fun triangle :: "nat ⇒ nat" where
   "triangle n = (if n = 0 then 0 else n + triangle (n-1))"
 
 value "triangle 1"
@@ -14,7 +14,7 @@ theorem triangle_closed_form: "triangle n = (n+1) * n div 2"
   done
 
 (* Tetrahedral numbers *)
-fun tet :: "nat \<Rightarrow> nat" where
+fun tet :: "nat ⇒ nat" where
   "tet n = (if n = 0 then 0 else triangle n + tet (n-1))"
 
 value "tet 1" (* 1 *)

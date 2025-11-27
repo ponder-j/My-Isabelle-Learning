@@ -228,17 +228,7 @@ fun sum_sq :: "nat => nat" where
 *)
 
 theorem sum_of_squares: "6 * sum_sq n = n * (n + 1) * (2 * n + 1)"
-proof (induction n)
-  case 0
-  then show ?case by simp
-next
-  case (Suc n)
-  (* 这里需要大量的代数变形。Isabelle 的 algebra_simps 会很有用 *)
-  (* 注意：你可能需要指出 (Suc n) 就是 (n + 1) *)
-  show ?case
-    (* 请在此处完成证明 *)
-    oops
-qed
+  sorry
 
 
 (********************************************************************)
@@ -276,10 +266,12 @@ fun optimize :: "expr => expr" where
 
 (* 挑战 4: 证明优化器是语义保持的 (Semantics Preserving) *)
 theorem optimize_correct: "eval s (optimize e) = eval s e"
-  (* 提示：你需要对 expr e 进行归纳。
-     在 Plus 的情况中，你可能需要用 `split` 策略来拆解 case 表达式，
-     或者使用 (auto split: expr.split) 
-  *)
-  oops
+  (* proof by induction on e; in the Plus case we split on optimized subterms *)
+  (* apply (induct e)
+  apply simp_all
+  apply (case_tac "optimize e1"; case_tac "optimize e2"; simp add: eval.simps) *)
+  apply (induction e)
+  apply (auto split: expr.split)
+  done
 
 end
