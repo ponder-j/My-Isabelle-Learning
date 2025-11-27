@@ -92,7 +92,7 @@ fun isort :: "nat list => nat list" where
 "isort (x # xs) = insort x (isort xs)"
 
 (* 挑战 2.1: 证明 insort 维持有序性 *)
-lemma sorted_insort: "sorted xs \<Longrightarrow> sorted (insort x xs)"
+lemma sorted_insort: "sorted xs ==> sorted (insort x xs)"
   (* 提示：归纳法 *)
   (* apply (induct xs)
   apply simp
@@ -102,7 +102,7 @@ proof (induction xs)
   then show ?case by simp
 next
   case (Cons a xs)
-  assume IH1: "sorted xs \<Longrightarrow> sorted (insort x xs)"
+  assume IH1: "sorted xs ==> sorted (insort x xs)"
   assume IH2: "sorted (a # xs)"
   (* target: sorted (insort x (a # xs)) *)
 
@@ -165,17 +165,49 @@ qed
 (* 挑战 2.2: 证明 isort 产生有序列表 *)
 theorem isort_sorted: "sorted (isort xs)"
   (* 提示：利用上面的引理 *)
-  oops
+  apply (induct xs)
+  apply simp
+  using sorted_insort
+  by simp
 
 (* 挑战 2.3: 证明 insort 仅仅改变了顺序，不改变元素计数 (即它是排列) *)
 (* 这是一个关键引理 *)
 lemma count_insort: "count z (insort x xs) = count z (x # xs)"
   (* 提示：归纳法。注意 if-else 的情况讨论。 *)
-  oops
+proof (induction xs)
+  case Nil
+  then show ?case by simp
+next
+  case (Cons a xs)
+  fix a xs
+  assume IH: "count z (insort x xs) = count z (x # xs)"
+  then show ?case
+  proof (cases "x \<le> a")
+    case True
+    hence "insort x (a # xs) = x # a # xs" by auto
+    then show ?thesis
+      using local.Cons by auto
+  next
+    case False
+    hence "insort x (a # xs) = a # (insort x xs)" by auto
+    hence "count z (insort x (a # xs)) = count z (a # (insort x xs))" by auto
+    then show ?thesis using local.Cons by auto
+    (* proof (cases "z \<noteq> a")
+      case True
+      then show ?thesis using local.Cons by auto
+    next
+      case False
+      then show ?thesis using local.Cons by auto
+    qed *)
+  qed
+qed
 
 (* 挑战 2.4: 证明排序后的列表和原列表包含相同的元素 *)
 theorem isort_count: "count x (isort xs) = count x xs"
-  oops
+  apply (induct xs)
+  apply simp
+  using count_insort
+  by auto
 
 
 (********************************************************************)
