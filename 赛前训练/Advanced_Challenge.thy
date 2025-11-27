@@ -267,11 +267,31 @@ fun optimize :: "expr => expr" where
 (* 挑战 4: 证明优化器是语义保持的 (Semantics Preserving) *)
 theorem optimize_correct: "eval s (optimize e) = eval s e"
   (* proof by induction on e; in the Plus case we split on optimized subterms *)
-  (* apply (induct e)
+  apply (induct e)
   apply simp_all
-  apply (case_tac "optimize e1"; case_tac "optimize e2"; simp add: eval.simps) *)
-  apply (induction e)
-  apply (auto split: expr.split)
+  apply (case_tac "optimize e1"; case_tac "optimize e2"; simp add: eval.simps)
+  (* case_tac "optimize e1": 强制对 optimize e1 的结果进行分类讨论。Isabelle 会生成 3 种情况：结果是 Const、结果是 Plus、结果是 Var。
+  case_tac "optimize e2": 在上述的基础上，再对 optimize e2 进行分类讨论。
+  这相当于构建了一个 3×3 的情况矩阵（例如：e1是Const且e2是Const；e1是Const且e2是Plus...）。
+  simp add: eval.simps: 在这一步，由于 optimize e1 和 e2 的构造子（Constructor）已经确定了（比如都是 Const），optimize 函数里的 case 表达式终于可以匹配成功并计算出结果了。此时 simp 就能验证等式左右两边相等。 *)
   done
+
+theorem optimize_correct2: "eval s (optimize e) = eval s e"
+  apply (induction e)
+  (* 告诉 auto：当你遇到 expr 的 case 表达式时，自动把它拆分成不同情况讨论 *)
+  (* by (auto split: expr.split) *)
+  apply simp_all
+  apply (split expr.split) (* 拆解第一个 case (针对 optimize e1) *)
+  apply (split expr.split) (* 拆解第二个 case (针对 optimize e2) *)
+  by auto (* 利用 auto 或 simp 解决剩下的纯计算问题 *)
+
+theorem optimize_correct3: "eval s (optimize e) = eval s e"
+proof (induction e)
+  case (Plus e1 e2)
+  (* 归纳假设 *)
+  then show ?case 
+    (* 手动指明要拆解 expr 类型的 case 结构 *)
+    by (auto split: expr.split)
+qed auto
 
 end
