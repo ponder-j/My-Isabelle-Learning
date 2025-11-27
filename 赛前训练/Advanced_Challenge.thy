@@ -15,11 +15,11 @@ begin
    Isabelle 不会自动想到这个集合，你必须使用 `let ?S = ...` 或直接在证明中指出它。
 *)
 
-theorem Cantor: "\<not> (\<exists>f :: 'a \<Rightarrow> 'a set. \<forall>A. \<exists>x. f x = A)"
+theorem Cantor: "\<not> (\<exists>f :: 'a => 'a set. \<forall>A. \<exists>x. f x = A)"
 proof
   (* 1. 假设存在满射 f *)
-  assume "\<exists>f :: 'a \<Rightarrow> 'a set. \<forall>A. \<exists>x. f x = A"
-  then obtain f :: "'a \<Rightarrow> 'a set" where surj_on_A: "\<forall>A. \<exists>x. f x = A" ..
+  assume "\<exists>f :: 'a => 'a set. \<forall>A. \<exists>x. f x = A"
+  then obtain f :: "'a => 'a set" where surj_on_A: "\<forall>A. \<exists>x. f x = A" ..
   
   (* 2. 定义对角线集合 *)
   let ?S = "{x. x \<notin> f x}"
@@ -27,7 +27,7 @@ proof
   (* 3. 利用满射性质，找到对应的原像 a *)
   obtain a where "f a = ?S"
     using surj_on_A by blast
-  
+
   (* 4. 核心矛盾推导 (Chain of reasoning) *)
   (* 这种 also-finally 结构展示了矛盾是如何一步步产生的 *)
   have "a \<in> ?S \<longleftrightarrow> a \<notin> f a"
@@ -43,8 +43,8 @@ qed
 (* 不存在这样的 f，对于任意的 A，都能找到一个 x 使得 f x = A *)
 (* proof
   (* 假设存在这样的满射 f *)
-  assume "\<exists>f :: 'a \<Rightarrow> 'a set. \<forall>A. \<exists>x. f x = A"
-  then obtain f :: "'a \<Rightarrow> 'a set" where surj_f: "\<forall>A. \<exists>x. f x = A" ..
+  assume "\<exists>f :: 'a => 'a set. \<forall>A. \<exists>x. f x = A"
+  then obtain f :: "'a => 'a set" where surj_f: "\<forall>A. \<exists>x. f x = A" ..
 
   let ?diagonal = "{x. x \<notin> f x}"
   obtain d :: "'a" where "f d = diagonal"
@@ -70,24 +70,24 @@ qed *)
 (********************************************************************)
 
 (* 辅助函数：统计元素 x 在列表 xs 中出现的次数 *)
-primrec count :: "'a \<Rightarrow> 'a list \<Rightarrow> nat" where
+primrec count :: "'a => 'a list => nat" where
 "count x [] = 0" |
 "count x (y # ys) = (if x = y then Suc (count x ys) else count x ys)"
 
 (* 辅助函数：判断列表是否有序 *)
-fun sorted :: "nat list \<Rightarrow> bool" where
+fun sorted :: "nat list => bool" where
 "sorted [] = True" |
 "sorted [x] = True" |
 "sorted (x # y # zs) = (x \<le> y \<and> sorted (y # zs))"
 
 (* 算法定义：插入排序 *)
 (* 将元素 x 插入到有序列表 ys 中 *)
-fun insort :: "nat \<Rightarrow> nat list \<Rightarrow> nat list" where
+fun insort :: "nat => nat list => nat list" where
 "insort x [] = [x]" |
 "insort x (y # ys) = (if x \<le> y then x # y # ys else y # insort x ys)"
 
 (* 主排序函数 *)
-fun isort :: "nat list \<Rightarrow> nat list" where
+fun isort :: "nat list => nat list" where
 "isort [] = []" |
 "isort (x # xs) = insort x (isort xs)"
 
@@ -185,7 +185,7 @@ theorem isort_count: "count x (isort xs) = count x xs"
 (********************************************************************)
 
 (* 递归定义平方和 *)
-fun sum_sq :: "nat \<Rightarrow> nat" where
+fun sum_sq :: "nat => nat" where
 "sum_sq 0 = 0" |
 "sum_sq (Suc n) = sum_sq n + (Suc n) * (Suc n)"
 
@@ -220,10 +220,10 @@ datatype expr =
 | Var string  (* 稍微扩展一下，加入变量，让优化更有意义 *)
 
 (* 环境：变量名到值的映射 *)
-type_synonym env = "string \<Rightarrow> int"
+type_synonym env = "string => int"
 
 (* 这里的求值函数需要环境 *)
-primrec eval :: "env \<Rightarrow> expr \<Rightarrow> int" where
+primrec eval :: "env => expr => int" where
 "eval s (Const i) = i" |
 "eval s (Var x) = s x" |
 "eval s (Plus e1 e2) = eval s e1 + eval s e2"
@@ -232,11 +232,11 @@ primrec eval :: "env \<Rightarrow> expr \<Rightarrow> int" where
   如果加法的两边都是常量，直接计算结果。
   否则，递归优化子表达式。
 *)
-fun optimize :: "expr \<Rightarrow> expr" where
+fun optimize :: "expr => expr" where
 "optimize (Plus e1 e2) = (
    case (optimize e1, optimize e2) of
-     (Const i, Const j) \<Rightarrow> Const (i + j) |
-     (r1, r2) \<Rightarrow> Plus r1 r2
+     (Const i, Const j) => Const (i + j) |
+     (r1, r2) => Plus r1 r2
    )" |
 (* 对于其他情况，保持不变，但仍需递归遍历吗？其实 Const 和 Var 已经是基本形式 *)
 "optimize (Const i) = Const i" |
