@@ -2,10 +2,10 @@ theory test
   imports Main
 begin
 
-definition a :: nat where "a = 1"
+definition aa :: nat where "aa = 1"
 definition alist where "alist = [1,2,3]"
 
-value "(+) a a"
+value "(+) aa aa"
 
 value "map (\<lambda>x::nat. 2 * x) alist"
 
@@ -20,6 +20,17 @@ lemma add_02: "add m 0 = m"
 
 thm add_02
 
-
+lemma add_03: "add m 0 = m"
+proof (induction m)
+  case 0
+  then show ?case by simp
+next
+  case (Suc m)
+  fix m
+  assume IH: "add m 0 = m"
+  hence "add (Suc m) 0 = Suc (add m 0)" by simp
+  also have "… = Suc m" by (simp add: IH)
+  then show "add (Suc m) 0 = Suc m" by simp
+qed
 
 end
