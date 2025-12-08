@@ -46,7 +46,7 @@ section \<open>Evaluating circuits.\<close>
 
 text \<open>A valuation associates every wire with a truth-value.\<close>
 
-type_synonym valuation = "wire \<Rightarrow> bool"
+type_synonym valuation = "wire => bool"
 
 text \<open>A few examples of valuations.\<close>
 
@@ -56,7 +56,7 @@ definition "\<rho>2 == \<rho>0(1 := True, 2 := True, 3 := True)"
 
 text \<open>Calculate the output of a single gate, given a valuation.\<close>
 
-fun sim_gate :: "valuation \<Rightarrow> gate \<Rightarrow> bool" where
+fun sim_gate :: "valuation => gate => bool" where
   "sim_gate \<rho> (NOT wi wo) = (\<not> \<rho> wi)"
 | "sim_gate \<rho> (AND wi1 wi2 wo) = (\<rho> wi1 \<and> \<rho> wi2)"
 | "sim_gate \<rho> (OR wi1 wi2 wo) = (\<rho> wi1 \<or> \<rho> wi2)"
@@ -65,14 +65,14 @@ fun sim_gate :: "valuation \<Rightarrow> gate \<Rightarrow> bool" where
 
 text \<open>Simulates a list of gates, given an initial valuation. Produces a new valuation.\<close>
 
-fun sim_gates :: "valuation \<Rightarrow> gate list \<Rightarrow> valuation" where
+fun sim_gates :: "valuation => gate list => valuation" where
   "sim_gates \<rho> [] = \<rho>"
 | "sim_gates \<rho> (g # gs) = sim_gates (\<rho> (output_of g := sim_gate \<rho> g)) gs"
 
 text \<open>Simulates a circuit, given an initial valuation. Produces a list of 
       truth-values, one truth-value per output.\<close>
 
-fun sim :: "valuation \<Rightarrow> circuit \<Rightarrow> bool list" where
+fun sim :: "valuation => circuit => bool list" where
   "sim \<rho> (gs, wos) = map (sim_gates \<rho> gs) wos"
 
 text \<open>Testing the simulator.\<close>
